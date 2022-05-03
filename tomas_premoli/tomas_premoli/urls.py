@@ -20,7 +20,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
+    path('/', include('frontend.urls'))
 ]
 
 # Need to change this before final deployment as django recommends to do this another way
