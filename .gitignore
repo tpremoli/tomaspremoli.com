@@ -6,3 +6,5 @@ tomas_premoli/api/migrations/__pycache__
 
 tomas_premoli/frontend/__pycache__
 tomas_premoli/frontend/migrations/__pycache__
+tomas_premoli/api/media/me/pic.png
+tomas_premoli/api/media/me/cv.pdf
