@@ -18,7 +18,6 @@ In /tomas_premoli/Frontend:
     npm i react-router-dom
     npm i @mui/material @emotion/react @emotion/styled @mui/icons-material
     npm i @babel/plugin-proposal-class-properties
-    npm i --save html2canvas
 
 To actually run it:
 

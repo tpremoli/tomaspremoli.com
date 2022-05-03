@@ -4,7 +4,10 @@ tomas_premoli/tomas_premoli/__pycache__
 tomas_premoli/api/__pycache__
 tomas_premoli/api/migrations/__pycache__
 
-tomas_premoli/frontend/__pycache__
-tomas_premoli/frontend/migrations/__pycache__
 tomas_premoli/api/media/me/pic.png
 tomas_premoli/api/media/me/cv.pdf
+
+tomas_premoli/frontend/__pycache__
+tomas_premoli/frontend/migrations/__pycache__
+tomas_premoli/frontend/node_modules
+
