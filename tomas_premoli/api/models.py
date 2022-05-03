@@ -24,3 +24,7 @@ class PortfolioEntryPictures(models.Model):
     entry = models.ForeignKey(PortfolioEntry, on_delete=models.CASCADE)
     pic = models.ImageField()
 
+class ContactForm():
+    name = models.CharField(default="", max_length=255)
+    email = models.EmailField(default="", max_length=255)
+    comment = models.EmailField(default="", max_length=255)
