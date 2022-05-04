@@ -14,6 +14,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Footer from './Footer';
+import { Link } from "react-router-dom";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -21,17 +22,34 @@ export default function Home() {
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
-            <AppBar position="relative">
+            <AppBar position="relative" sx={{ flexDirection: "column" }} >
                 <Toolbar disableGutters>
-                    <TPSVG width={"36px"} height={"36px"} m={"5px"} ml={"15px"} mr={"10px"} />
+                    <Box float="left" sx={{ align: "flex-start" }}>
+                        <TPSVG width={"36px"} height={"36px"} m={"5px"} ml={"15px"} mr={"10px"} />
+                    </Box>
 
-                    <Typography variant="h6" color="inherit" noWrap align="right">
-                        Tomas Premoli
+                    <Typography variant="h6" color="inherit" noWrap>
                     </Typography>
 
-                    <Typography variant="h6" color="inherit" noWrap align="right">
-                        Epic win
-                    </Typography>
+                    <Box  style={{
+                        position:"center",
+                        marginLeft: 'auto',
+                        marginRight: 'auto'
+                    }}>
+                        <Button color="primary" variant="filled" to="/about-me" component={Link}>
+                            About Me
+                        </Button>
+                        <Button color="primary" variant="filled" to="/portfolio" component={Link}>
+                            Portfolio
+                        </Button>
+                        <Button color="primary" variant="filled" to="/resume" component={Link}>
+                            Resume/CV
+                        </Button>
+                        <Button color="primary" variant="filled" to="/contact-me" component={Link}>
+                            Contact Me
+                        </Button>
+                    </Box>
+
                 </Toolbar>
             </AppBar>
             <main>
@@ -51,12 +69,13 @@ export default function Home() {
                             color="text.primary"
                             gutterBottom
                         >
-                            Album layout
+                            Tomas Premoli
                         </Typography>
                         <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                            Something short and leading about the collection below—its contents,
-                            the creator, etc. Make it short and sweet, but not too short so folks
-                            don&apos;t simply skip over it entirely.
+                            Hello!
+                            Something about my name is Tomas Premoli and what i do.
+                            Add a funky pic of me to the right here.
+                            Format to allow for newlines.
                         </Typography>
                         <Stack
                             sx={{ pt: 4 }}
@@ -108,6 +127,6 @@ export default function Home() {
             {/* Footer */}
             <Footer />
             {/* End footer */}
-        </Container>
+        </Container >
     );
 }
