@@ -22,19 +22,19 @@ export default function Home() {
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
-            <AppBar position="relative" sx={{ flexDirection: "column" }} >
+            <AppBar position="relative" sx={{ flexDirection: "column", flexWrap: "wrap" }} >
                 <Toolbar disableGutters>
-                    <Box float="left" sx={{ align: "flex-start" }}>
+                    <Box sx={{ align: "flex-start", flex: 1 }}>
                         <TPSVG width={"36px"} height={"36px"} m={"5px"} ml={"15px"} mr={"10px"} />
                     </Box>
 
                     <Typography variant="h6" color="inherit" noWrap>
                     </Typography>
 
-                    <Box  style={{
-                        position:"center",
-                        marginLeft: 'auto',
-                        marginRight: 'auto'
+                    <Box style={{
+                        textAlign: "center",
+                        display: "flex",
+                        flexWrap: "wrap",
                     }}>
                         <Button color="primary" variant="filled" to="/about-me" component={Link}>
                             About Me
@@ -50,6 +50,8 @@ export default function Home() {
                         </Button>
                     </Box>
 
+                    <Box sx={{ align: "flex-start", flex: 1 }}>
+                    </Box>
                 </Toolbar>
             </AppBar>
             <main>
