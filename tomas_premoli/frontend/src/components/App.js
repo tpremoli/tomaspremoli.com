@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+import { createRoot } from 'react-dom/client';
 import Home from "./Home";
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {
@@ -35,4 +35,5 @@ export default class App extends Component {
 
 const theme = createTheme();
 const appDiv = document.getElementById("app");
-render(<App />, appDiv);
+const root = createRoot(appDiv); 
+root.render(<App />);
