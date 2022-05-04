@@ -9,16 +9,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./node_modules/@babel/runtime/helpers/interopRequireDefault.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@babel/runtime/helpers/interopRequireDefault.js ***!
-  \**********************************************************************/
-/***/ ((module) => {
-
-eval("function _interopRequireDefault(obj) {\n  return obj && obj.__esModule ? obj : {\n    \"default\": obj\n  };\n}\n\nmodule.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports[\"default\"] = module.exports;\n\n//# sourceURL=webpack://frontend/./node_modules/@babel/runtime/helpers/interopRequireDefault.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@emotion/cache/dist/emotion-cache.browser.esm.js ***!
@@ -214,28 +204,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ generateUtilityClasses)\n/* harmony export */ });\n/* harmony import */ var _generateUtilityClass__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../generateUtilityClass */ \"./node_modules/@mui/base/generateUtilityClass/generateUtilityClass.js\");\n\nfunction generateUtilityClasses(componentName, slots) {\n  const result = {};\n  slots.forEach(slot => {\n    result[slot] = (0,_generateUtilityClass__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(componentName, slot);\n  });\n  return result;\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/base/generateUtilityClasses/generateUtilityClasses.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/icons-material/PhotoCamera.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@mui/icons-material/PhotoCamera.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-eval("\n\nvar _interopRequireDefault = __webpack_require__(/*! @babel/runtime/helpers/interopRequireDefault */ \"./node_modules/@babel/runtime/helpers/interopRequireDefault.js\");\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nexports[\"default\"] = void 0;\n\nvar _createSvgIcon = _interopRequireDefault(__webpack_require__(/*! ./utils/createSvgIcon */ \"./node_modules/@mui/icons-material/utils/createSvgIcon.js\"));\n\nvar _jsxRuntime = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n\nvar _default = (0, _createSvgIcon.default)([/*#__PURE__*/(0, _jsxRuntime.jsx)(\"circle\", {\n  cx: \"12\",\n  cy: \"12\",\n  r: \"3.2\"\n}, \"0\"), /*#__PURE__*/(0, _jsxRuntime.jsx)(\"path\", {\n  d: \"M9 2 7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z\"\n}, \"1\")], 'PhotoCamera');\n\nexports[\"default\"] = _default;\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/icons-material/PhotoCamera.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/icons-material/utils/createSvgIcon.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/@mui/icons-material/utils/createSvgIcon.js ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
-
-"use strict";
-eval("\n\nObject.defineProperty(exports, \"__esModule\", ({\n  value: true\n}));\nObject.defineProperty(exports, \"default\", ({\n  enumerable: true,\n  get: function () {\n    return _utils.createSvgIcon;\n  }\n}));\n\nvar _utils = __webpack_require__(/*! @mui/material/utils */ \"./node_modules/@mui/material/utils/index.js\");\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/icons-material/utils/createSvgIcon.js?");
 
 /***/ }),
 
@@ -580,28 +548,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/SvgIcon/SvgIcon.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/@mui/material/SvgIcon/SvgIcon.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutPropertiesLoose */ \"./node_modules/@babel/runtime/helpers/esm/objectWithoutPropertiesLoose.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! prop-types */ \"./node_modules/prop-types/index.js\");\n/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_10__);\n/* harmony import */ var clsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! clsx */ \"./node_modules/clsx/dist/clsx.m.js\");\n/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/base */ \"./node_modules/@mui/base/composeClasses/composeClasses.js\");\n/* harmony import */ var _utils_capitalize__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/capitalize */ \"./node_modules/@mui/material/utils/capitalize.js\");\n/* harmony import */ var _styles_useThemeProps__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../styles/useThemeProps */ \"./node_modules/@mui/material/styles/useThemeProps.js\");\n/* harmony import */ var _styles_styled__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../styles/styled */ \"./node_modules/@mui/material/styles/styled.js\");\n/* harmony import */ var _svgIconClasses__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./svgIconClasses */ \"./node_modules/@mui/material/SvgIcon/svgIconClasses.js\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n\n\nconst _excluded = [\"children\", \"className\", \"color\", \"component\", \"fontSize\", \"htmlColor\", \"inheritViewBox\", \"titleAccess\", \"viewBox\"];\n\n\n\n\n\n\n\n\n\n\n\nconst useUtilityClasses = ownerState => {\n  const {\n    color,\n    fontSize,\n    classes\n  } = ownerState;\n  const slots = {\n    root: ['root', color !== 'inherit' && `color${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(color)}`, `fontSize${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(fontSize)}`]\n  };\n  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(slots, _svgIconClasses__WEBPACK_IMPORTED_MODULE_7__.getSvgIconUtilityClass, classes);\n};\n\nconst SvgIconRoot = (0,_styles_styled__WEBPACK_IMPORTED_MODULE_8__[\"default\"])('svg', {\n  name: 'MuiSvgIcon',\n  slot: 'Root',\n  overridesResolver: (props, styles) => {\n    const {\n      ownerState\n    } = props;\n    return [styles.root, ownerState.color !== 'inherit' && styles[`color${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(ownerState.color)}`], styles[`fontSize${(0,_utils_capitalize__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(ownerState.fontSize)}`]];\n  }\n})(({\n  theme,\n  ownerState\n}) => {\n  var _theme$transitions, _theme$transitions$cr, _theme$transitions2, _theme$transitions2$d, _theme$typography, _theme$typography$pxT, _theme$typography2, _theme$typography2$px, _theme$typography3, _theme$typography3$px, _theme$palette$ownerS, _theme$palette, _theme$palette$ownerS2, _theme$palette2, _theme$palette2$actio, _theme$palette3, _theme$palette3$actio;\n\n  return {\n    userSelect: 'none',\n    width: '1em',\n    height: '1em',\n    display: 'inline-block',\n    fill: 'currentColor',\n    flexShrink: 0,\n    transition: (_theme$transitions = theme.transitions) == null ? void 0 : (_theme$transitions$cr = _theme$transitions.create) == null ? void 0 : _theme$transitions$cr.call(_theme$transitions, 'fill', {\n      duration: (_theme$transitions2 = theme.transitions) == null ? void 0 : (_theme$transitions2$d = _theme$transitions2.duration) == null ? void 0 : _theme$transitions2$d.shorter\n    }),\n    fontSize: {\n      inherit: 'inherit',\n      small: ((_theme$typography = theme.typography) == null ? void 0 : (_theme$typography$pxT = _theme$typography.pxToRem) == null ? void 0 : _theme$typography$pxT.call(_theme$typography, 20)) || '1.25rem',\n      medium: ((_theme$typography2 = theme.typography) == null ? void 0 : (_theme$typography2$px = _theme$typography2.pxToRem) == null ? void 0 : _theme$typography2$px.call(_theme$typography2, 24)) || '1.5rem',\n      large: ((_theme$typography3 = theme.typography) == null ? void 0 : (_theme$typography3$px = _theme$typography3.pxToRem) == null ? void 0 : _theme$typography3$px.call(_theme$typography3, 35)) || '2.1875'\n    }[ownerState.fontSize],\n    // TODO v5 deprecate, v6 remove for sx\n    color: (_theme$palette$ownerS = (_theme$palette = theme.palette) == null ? void 0 : (_theme$palette$ownerS2 = _theme$palette[ownerState.color]) == null ? void 0 : _theme$palette$ownerS2.main) != null ? _theme$palette$ownerS : {\n      action: (_theme$palette2 = theme.palette) == null ? void 0 : (_theme$palette2$actio = _theme$palette2.action) == null ? void 0 : _theme$palette2$actio.active,\n      disabled: (_theme$palette3 = theme.palette) == null ? void 0 : (_theme$palette3$actio = _theme$palette3.action) == null ? void 0 : _theme$palette3$actio.disabled,\n      inherit: undefined\n    }[ownerState.color]\n  };\n});\nconst SvgIcon = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2__.forwardRef(function SvgIcon(inProps, ref) {\n  const props = (0,_styles_useThemeProps__WEBPACK_IMPORTED_MODULE_9__[\"default\"])({\n    props: inProps,\n    name: 'MuiSvgIcon'\n  });\n\n  const {\n    children,\n    className,\n    color = 'inherit',\n    component = 'svg',\n    fontSize = 'medium',\n    htmlColor,\n    inheritViewBox = false,\n    titleAccess,\n    viewBox = '0 0 24 24'\n  } = props,\n        other = (0,_babel_runtime_helpers_esm_objectWithoutPropertiesLoose__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(props, _excluded);\n\n  const ownerState = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({}, props, {\n    color,\n    component,\n    fontSize,\n    instanceFontSize: inProps.fontSize,\n    inheritViewBox,\n    viewBox\n  });\n\n  const more = {};\n\n  if (!inheritViewBox) {\n    more.viewBox = viewBox;\n  }\n\n  const classes = useUtilityClasses(ownerState);\n  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(SvgIconRoot, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({\n    as: component,\n    className: (0,clsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(classes.root, className),\n    ownerState: ownerState,\n    focusable: \"false\",\n    color: htmlColor,\n    \"aria-hidden\": titleAccess ? undefined : true,\n    role: titleAccess ? 'img' : undefined,\n    ref: ref\n  }, more, other, {\n    children: [children, titleAccess ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(\"title\", {\n      children: titleAccess\n    }) : null]\n  }));\n});\n true ? SvgIcon.propTypes\n/* remove-proptypes */\n= {\n  // ----------------------------- Warning --------------------------------\n  // | These PropTypes are generated from the TypeScript type definitions |\n  // |     To update them edit the d.ts file and run \"yarn proptypes\"     |\n  // ----------------------------------------------------------------------\n\n  /**\n   * Node passed into the SVG element.\n   */\n  children: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().node),\n\n  /**\n   * Override or extend the styles applied to the component.\n   */\n  classes: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().object),\n\n  /**\n   * @ignore\n   */\n  className: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string),\n\n  /**\n   * The color of the component.\n   * It supports both default and custom theme colors, which can be added as shown in the\n   * [palette customization guide](https://mui.com/material-ui/customization/palette/#adding-new-colors).\n   * You can use the `htmlColor` prop to apply a color attribute to the SVG element.\n   * @default 'inherit'\n   */\n  color: prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOf(['inherit', 'action', 'disabled', 'primary', 'secondary', 'error', 'info', 'success', 'warning']), (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string)]),\n\n  /**\n   * The component used for the root node.\n   * Either a string to use a HTML element or a component.\n   */\n  component: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().elementType),\n\n  /**\n   * The fontSize applied to the icon. Defaults to 24px, but can be configure to inherit font size.\n   * @default 'medium'\n   */\n  fontSize: prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOf(['inherit', 'large', 'medium', 'small']), (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string)]),\n\n  /**\n   * Applies a color attribute to the SVG element.\n   */\n  htmlColor: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string),\n\n  /**\n   * If `true`, the root node will inherit the custom `component`'s viewBox and the `viewBox`\n   * prop will be ignored.\n   * Useful when you want to reference a custom `component` and have `SvgIcon` pass that\n   * `component`'s viewBox to the root node.\n   * @default false\n   */\n  inheritViewBox: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool),\n\n  /**\n   * The shape-rendering attribute. The behavior of the different options is described on the\n   * [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/shape-rendering).\n   * If you are having issues with blurry icons you should investigate this prop.\n   */\n  shapeRendering: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string),\n\n  /**\n   * The system prop that allows defining system overrides as well as additional CSS styles.\n   */\n  sx: prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_10___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_10___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_10___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_10___default().object), (prop_types__WEBPACK_IMPORTED_MODULE_10___default().bool)])), (prop_types__WEBPACK_IMPORTED_MODULE_10___default().func), (prop_types__WEBPACK_IMPORTED_MODULE_10___default().object)]),\n\n  /**\n   * Provides a human-readable title for the element that contains it.\n   * https://www.w3.org/TR/SVG-access/#Equivalent\n   */\n  titleAccess: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string),\n\n  /**\n   * Allows you to redefine what the coordinates without units mean inside an SVG element.\n   * For example, if the SVG element is 500 (width) by 200 (height),\n   * and you pass viewBox=\"0 0 50 20\",\n   * this means that the coordinates inside the SVG will go from the top left corner (0,0)\n   * to bottom right (50,20) and each unit will be worth 10px.\n   * @default '0 0 24 24'\n   */\n  viewBox: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string)\n} : 0;\nSvgIcon.muiName = 'SvgIcon';\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgIcon);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/SvgIcon/SvgIcon.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/SvgIcon/svgIconClasses.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@mui/material/SvgIcon/svgIconClasses.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   \"getSvgIconUtilityClass\": () => (/* binding */ getSvgIconUtilityClass)\n/* harmony export */ });\n/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/base */ \"./node_modules/@mui/base/generateUtilityClass/generateUtilityClass.js\");\n/* harmony import */ var _mui_base__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @mui/base */ \"./node_modules/@mui/base/generateUtilityClasses/generateUtilityClasses.js\");\n\nfunction getSvgIconUtilityClass(slot) {\n  return (0,_mui_base__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('MuiSvgIcon', slot);\n}\nconst svgIconClasses = (0,_mui_base__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('MuiSvgIcon', ['root', 'colorPrimary', 'colorSecondary', 'colorAction', 'colorError', 'colorDisabled', 'fontSizeInherit', 'fontSizeSmall', 'fontSizeMedium', 'fontSizeLarge']);\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (svgIconClasses);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/SvgIcon/svgIconClasses.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/Toolbar/Toolbar.js":
 /*!*******************************************************!*\
   !*** ./node_modules/@mui/material/Toolbar/Toolbar.js ***!
@@ -866,94 +812,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/material/utils/createChainedFunction.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/@mui/material/utils/createChainedFunction.js ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/createChainedFunction.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/createChainedFunction.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/createSvgIcon.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@mui/material/utils/createSvgIcon.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createSvgIcon)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _SvgIcon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../SvgIcon */ \"./node_modules/@mui/material/SvgIcon/SvgIcon.js\");\n/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ \"./node_modules/react/jsx-runtime.js\");\n\n\n\n/**\n * Private module reserved for @mui packages.\n */\n\n\nfunction createSvgIcon(path, displayName) {\n  const Component = (props, ref) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_SvgIcon__WEBPACK_IMPORTED_MODULE_3__[\"default\"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({\n    \"data-testid\": `${displayName}Icon`,\n    ref: ref\n  }, props, {\n    children: path\n  }));\n\n  if (true) {\n    // Need to set `displayName` on the inner component for React.memo.\n    // React prior to 16.14 ignores `displayName` on the wrapper.\n    Component.displayName = `${displayName}Icon`;\n  }\n\n  Component.muiName = _SvgIcon__WEBPACK_IMPORTED_MODULE_3__[\"default\"].muiName;\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.memo( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.forwardRef(Component));\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/createSvgIcon.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/debounce.js":
-/*!******************************************************!*\
-  !*** ./node_modules/@mui/material/utils/debounce.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/debounce.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/debounce.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/deprecatedPropType.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@mui/material/utils/deprecatedPropType.js ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/deprecatedPropType.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/deprecatedPropType.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/index.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/material/utils/index.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"capitalize\": () => (/* reexport safe */ _capitalize__WEBPACK_IMPORTED_MODULE_0__[\"default\"]),\n/* harmony export */   \"createChainedFunction\": () => (/* reexport safe */ _createChainedFunction__WEBPACK_IMPORTED_MODULE_1__[\"default\"]),\n/* harmony export */   \"createSvgIcon\": () => (/* reexport safe */ _createSvgIcon__WEBPACK_IMPORTED_MODULE_2__[\"default\"]),\n/* harmony export */   \"debounce\": () => (/* reexport safe */ _debounce__WEBPACK_IMPORTED_MODULE_3__[\"default\"]),\n/* harmony export */   \"deprecatedPropType\": () => (/* reexport safe */ _deprecatedPropType__WEBPACK_IMPORTED_MODULE_4__[\"default\"]),\n/* harmony export */   \"isMuiElement\": () => (/* reexport safe */ _isMuiElement__WEBPACK_IMPORTED_MODULE_5__[\"default\"]),\n/* harmony export */   \"ownerDocument\": () => (/* reexport safe */ _ownerDocument__WEBPACK_IMPORTED_MODULE_6__[\"default\"]),\n/* harmony export */   \"ownerWindow\": () => (/* reexport safe */ _ownerWindow__WEBPACK_IMPORTED_MODULE_7__[\"default\"]),\n/* harmony export */   \"requirePropFactory\": () => (/* reexport safe */ _requirePropFactory__WEBPACK_IMPORTED_MODULE_8__[\"default\"]),\n/* harmony export */   \"setRef\": () => (/* reexport safe */ _setRef__WEBPACK_IMPORTED_MODULE_9__[\"default\"]),\n/* harmony export */   \"unstable_ClassNameGenerator\": () => (/* binding */ unstable_ClassNameGenerator),\n/* harmony export */   \"unstable_useEnhancedEffect\": () => (/* reexport safe */ _useEnhancedEffect__WEBPACK_IMPORTED_MODULE_10__[\"default\"]),\n/* harmony export */   \"unstable_useId\": () => (/* reexport safe */ _useId__WEBPACK_IMPORTED_MODULE_11__[\"default\"]),\n/* harmony export */   \"unsupportedProp\": () => (/* reexport safe */ _unsupportedProp__WEBPACK_IMPORTED_MODULE_12__[\"default\"]),\n/* harmony export */   \"useControlled\": () => (/* reexport safe */ _useControlled__WEBPACK_IMPORTED_MODULE_13__[\"default\"]),\n/* harmony export */   \"useEventCallback\": () => (/* reexport safe */ _useEventCallback__WEBPACK_IMPORTED_MODULE_14__[\"default\"]),\n/* harmony export */   \"useForkRef\": () => (/* reexport safe */ _useForkRef__WEBPACK_IMPORTED_MODULE_15__[\"default\"]),\n/* harmony export */   \"useIsFocusVisible\": () => (/* reexport safe */ _useIsFocusVisible__WEBPACK_IMPORTED_MODULE_16__[\"default\"])\n/* harmony export */ });\n/* harmony import */ var _mui_base_className__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! @mui/base/className */ \"./node_modules/@mui/base/className/ClassNameGenerator.js\");\n/* harmony import */ var _capitalize__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./capitalize */ \"./node_modules/@mui/material/utils/capitalize.js\");\n/* harmony import */ var _createChainedFunction__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createChainedFunction */ \"./node_modules/@mui/material/utils/createChainedFunction.js\");\n/* harmony import */ var _createSvgIcon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./createSvgIcon */ \"./node_modules/@mui/material/utils/createSvgIcon.js\");\n/* harmony import */ var _debounce__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./debounce */ \"./node_modules/@mui/material/utils/debounce.js\");\n/* harmony import */ var _deprecatedPropType__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./deprecatedPropType */ \"./node_modules/@mui/material/utils/deprecatedPropType.js\");\n/* harmony import */ var _isMuiElement__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./isMuiElement */ \"./node_modules/@mui/material/utils/isMuiElement.js\");\n/* harmony import */ var _ownerDocument__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ownerDocument */ \"./node_modules/@mui/material/utils/ownerDocument.js\");\n/* harmony import */ var _ownerWindow__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./ownerWindow */ \"./node_modules/@mui/material/utils/ownerWindow.js\");\n/* harmony import */ var _requirePropFactory__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./requirePropFactory */ \"./node_modules/@mui/material/utils/requirePropFactory.js\");\n/* harmony import */ var _setRef__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./setRef */ \"./node_modules/@mui/material/utils/setRef.js\");\n/* harmony import */ var _useEnhancedEffect__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./useEnhancedEffect */ \"./node_modules/@mui/material/utils/useEnhancedEffect.js\");\n/* harmony import */ var _useId__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./useId */ \"./node_modules/@mui/material/utils/useId.js\");\n/* harmony import */ var _unsupportedProp__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./unsupportedProp */ \"./node_modules/@mui/material/utils/unsupportedProp.js\");\n/* harmony import */ var _useControlled__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./useControlled */ \"./node_modules/@mui/material/utils/useControlled.js\");\n/* harmony import */ var _useEventCallback__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./useEventCallback */ \"./node_modules/@mui/material/utils/useEventCallback.js\");\n/* harmony import */ var _useForkRef__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./useForkRef */ \"./node_modules/@mui/material/utils/useForkRef.js\");\n/* harmony import */ var _useIsFocusVisible__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./useIsFocusVisible */ \"./node_modules/@mui/material/utils/useIsFocusVisible.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n // TODO: remove this export once ClassNameGenerator is stable\n// eslint-disable-next-line @typescript-eslint/naming-convention\n\nconst unstable_ClassNameGenerator = {\n  configure: generator => {\n    console.warn(['MUI: `ClassNameGenerator` import from `@mui/material/utils` is outdated and might cause unexpected issues.', '', \"You should use `import { unstable_ClassNameGenerator } from '@mui/material/className'` instead\", '', 'The detail of the issue: https://github.com/mui/material-ui/issues/30011#issuecomment-1024993401', '', 'The updated documentation: https://mui.com/guides/classname-generator/'].join('\\n'));\n    _mui_base_className__WEBPACK_IMPORTED_MODULE_17__[\"default\"].configure(generator);\n  }\n};\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/index.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/isMuiElement.js":
-/*!**********************************************************!*\
-  !*** ./node_modules/@mui/material/utils/isMuiElement.js ***!
-  \**********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/isMuiElement.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/isMuiElement.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/ownerDocument.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@mui/material/utils/ownerDocument.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/ownerDocument.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/ownerDocument.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/ownerWindow.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/@mui/material/utils/ownerWindow.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/ownerWindow.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/ownerWindow.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/material/utils/requirePropFactory.js":
 /*!****************************************************************!*\
   !*** ./node_modules/@mui/material/utils/requirePropFactory.js ***!
@@ -962,50 +820,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/requirePropFactory.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/requirePropFactory.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/setRef.js":
-/*!****************************************************!*\
-  !*** ./node_modules/@mui/material/utils/setRef.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/setRef.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/setRef.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/unsupportedProp.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@mui/material/utils/unsupportedProp.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/unsupportedProp.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/unsupportedProp.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/useControlled.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@mui/material/utils/useControlled.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/useControlled.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/useControlled.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/useEnhancedEffect.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/@mui/material/utils/useEnhancedEffect.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/useEnhancedEffect.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/useEnhancedEffect.js?");
 
 /***/ }),
 
@@ -1028,17 +842,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/useForkRef.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/useForkRef.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/material/utils/useId.js":
-/*!***************************************************!*\
-  !*** ./node_modules/@mui/material/utils/useId.js ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _mui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @mui/utils */ \"./node_modules/@mui/utils/esm/useId.js\");\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_mui_utils__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/material/utils/useId.js?");
 
 /***/ }),
 
@@ -1504,28 +1307,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/utils/esm/createChainedFunction.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/createChainedFunction.js ***!
-  \**************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ createChainedFunction)\n/* harmony export */ });\n/**\n * Safe chained function.\n *\n * Will only create a new function if needed,\n * otherwise will pass back existing functions or null.\n */\nfunction createChainedFunction(...funcs) {\n  return funcs.reduce((acc, func) => {\n    if (func == null) {\n      return acc;\n    }\n\n    return function chainedFunction(...args) {\n      acc.apply(this, args);\n      func.apply(this, args);\n    };\n  }, () => {});\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/createChainedFunction.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/utils/esm/debounce.js":
-/*!*************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/debounce.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ debounce)\n/* harmony export */ });\n// Corresponds to 10 frames at 60 Hz.\n// A few bytes payload overhead when lodash/debounce is ~3 kB and debounce ~300 B.\nfunction debounce(func, wait = 166) {\n  let timeout;\n\n  function debounced(...args) {\n    const later = () => {\n      func.apply(this, args);\n    };\n\n    clearTimeout(timeout);\n    timeout = setTimeout(later, wait);\n  }\n\n  debounced.clear = () => {\n    clearTimeout(timeout);\n  };\n\n  return debounced;\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/debounce.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/utils/esm/deepmerge.js":
 /*!**************************************************!*\
   !*** ./node_modules/@mui/utils/esm/deepmerge.js ***!
@@ -1534,17 +1315,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ deepmerge),\n/* harmony export */   \"isPlainObject\": () => (/* binding */ isPlainObject)\n/* harmony export */ });\n/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ \"./node_modules/@babel/runtime/helpers/esm/extends.js\");\n\nfunction isPlainObject(item) {\n  return item !== null && typeof item === 'object' && item.constructor === Object;\n}\nfunction deepmerge(target, source, options = {\n  clone: true\n}) {\n  const output = options.clone ? (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__[\"default\"])({}, target) : target;\n\n  if (isPlainObject(target) && isPlainObject(source)) {\n    Object.keys(source).forEach(key => {\n      // Avoid prototype pollution\n      if (key === '__proto__') {\n        return;\n      }\n\n      if (isPlainObject(source[key]) && key in target && isPlainObject(target[key])) {\n        // Since `output` is a clone of `target` and we have narrowed `target` in this block we can cast to the same type.\n        output[key] = deepmerge(target[key], source[key], options);\n      } else {\n        output[key] = source[key];\n      }\n    });\n  }\n\n  return output;\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/deepmerge.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/utils/esm/deprecatedPropType.js":
-/*!***********************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/deprecatedPropType.js ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ deprecatedPropType)\n/* harmony export */ });\nfunction deprecatedPropType(validator, reason) {\n  if (false) {}\n\n  return (props, propName, componentName, location, propFullName) => {\n    const componentNameSafe = componentName || '<<anonymous>>';\n    const propFullNameSafe = propFullName || propName;\n\n    if (typeof props[propName] !== 'undefined') {\n      return new Error(`The ${location} \\`${propFullNameSafe}\\` of ` + `\\`${componentNameSafe}\\` is deprecated. ${reason}`);\n    }\n\n    return null;\n  };\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/deprecatedPropType.js?");
 
 /***/ }),
 
@@ -1592,39 +1362,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/utils/esm/isMuiElement.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/isMuiElement.js ***!
-  \*****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ isMuiElement)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction isMuiElement(element, muiNames) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.isValidElement(element) && muiNames.indexOf(element.type.muiName) !== -1;\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/isMuiElement.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/utils/esm/ownerDocument.js":
-/*!******************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/ownerDocument.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ownerDocument)\n/* harmony export */ });\nfunction ownerDocument(node) {\n  return node && node.ownerDocument || document;\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/ownerDocument.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/utils/esm/ownerWindow.js":
-/*!****************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/ownerWindow.js ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ ownerWindow)\n/* harmony export */ });\n/* harmony import */ var _ownerDocument__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ownerDocument */ \"./node_modules/@mui/utils/esm/ownerDocument.js\");\n\nfunction ownerWindow(node) {\n  const doc = (0,_ownerDocument__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(node);\n  return doc.defaultView || window;\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/ownerWindow.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/utils/esm/refType.js":
 /*!************************************************!*\
   !*** ./node_modules/@mui/utils/esm/refType.js ***!
@@ -1669,28 +1406,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
-/***/ "./node_modules/@mui/utils/esm/unsupportedProp.js":
-/*!********************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/unsupportedProp.js ***!
-  \********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ unsupportedProp)\n/* harmony export */ });\nfunction unsupportedProp(props, propName, componentName, location, propFullName) {\n  if (false) {}\n\n  const propFullNameSafe = propFullName || propName;\n\n  if (typeof props[propName] !== 'undefined') {\n    return new Error(`The prop \\`${propFullNameSafe}\\` is not supported. Please remove it.`);\n  }\n\n  return null;\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/unsupportedProp.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/utils/esm/useControlled.js":
-/*!******************************************************!*\
-  !*** ./node_modules/@mui/utils/esm/useControlled.js ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ useControlled)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* eslint-disable react-hooks/rules-of-hooks, react-hooks/exhaustive-deps */\n\nfunction useControlled({\n  controlled,\n  default: defaultProp,\n  name,\n  state = 'value'\n}) {\n  // isControlled is ignored in the hook dependency lists as it should never change.\n  const {\n    current: isControlled\n  } = react__WEBPACK_IMPORTED_MODULE_0__.useRef(controlled !== undefined);\n  const [valueState, setValue] = react__WEBPACK_IMPORTED_MODULE_0__.useState(defaultProp);\n  const value = isControlled ? controlled : valueState;\n\n  if (true) {\n    react__WEBPACK_IMPORTED_MODULE_0__.useEffect(() => {\n      if (isControlled !== (controlled !== undefined)) {\n        console.error([`MUI: A component is changing the ${isControlled ? '' : 'un'}controlled ${state} state of ${name} to be ${isControlled ? 'un' : ''}controlled.`, 'Elements should not switch from uncontrolled to controlled (or vice versa).', `Decide between using a controlled or uncontrolled ${name} ` + 'element for the lifetime of the component.', \"The nature of the state is determined during the first render. It's considered controlled if the value is not `undefined`.\", 'More info: https://fb.me/react-controlled-components'].join('\\n'));\n      }\n    }, [state, name, controlled]);\n    const {\n      current: defaultValue\n    } = react__WEBPACK_IMPORTED_MODULE_0__.useRef(defaultProp);\n    react__WEBPACK_IMPORTED_MODULE_0__.useEffect(() => {\n      if (!isControlled && defaultValue !== defaultProp) {\n        console.error([`MUI: A component is changing the default ${state} state of an uncontrolled ${name} after being initialized. ` + `To suppress this warning opt to use a controlled ${name}.`].join('\\n'));\n      }\n    }, [JSON.stringify(defaultProp)]);\n  }\n\n  const setValueIfUncontrolled = react__WEBPACK_IMPORTED_MODULE_0__.useCallback(newValue => {\n    if (!isControlled) {\n      setValue(newValue);\n    }\n  }, []);\n  return [value, setValueIfUncontrolled];\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/useControlled.js?");
-
-/***/ }),
-
 /***/ "./node_modules/@mui/utils/esm/useEnhancedEffect.js":
 /*!**********************************************************!*\
   !*** ./node_modules/@mui/utils/esm/useEnhancedEffect.js ***!
@@ -1721,17 +1436,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ useForkRef)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _setRef__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setRef */ \"./node_modules/@mui/utils/esm/setRef.js\");\n\n\nfunction useForkRef(refA, refB) {\n  /**\n   * This will create a new function if the ref props change and are defined.\n   * This means react will call the old forkRef with `null` and the new forkRef\n   * with the ref. Cleanup naturally emerges from this behavior.\n   */\n  return react__WEBPACK_IMPORTED_MODULE_0__.useMemo(() => {\n    if (refA == null && refB == null) {\n      return null;\n    }\n\n    return refValue => {\n      (0,_setRef__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(refA, refValue);\n      (0,_setRef__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(refB, refValue);\n    };\n  }, [refA, refB]);\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/useForkRef.js?");
-
-/***/ }),
-
-/***/ "./node_modules/@mui/utils/esm/useId.js":
-/*!**********************************************!*\
-  !*** ./node_modules/@mui/utils/esm/useId.js ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ useId)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nlet globalId = 0;\n\nfunction useGlobalId(idOverride) {\n  const [defaultId, setDefaultId] = react__WEBPACK_IMPORTED_MODULE_0__.useState(idOverride);\n  const id = idOverride || defaultId;\n  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(() => {\n    if (defaultId == null) {\n      // Fallback to this default id when possible.\n      // Use the incrementing value for client-side rendering only.\n      // We can't use it server-side.\n      // If you want to use random values please consider the Birthday Problem: https://en.wikipedia.org/wiki/Birthday_problem\n      globalId += 1;\n      setDefaultId(`mui-${globalId}`);\n    }\n  }, [defaultId]);\n  return id;\n} // eslint-disable-next-line no-useless-concat -- Workaround for https://github.com/webpack/webpack/issues/14814\n\n\nconst maybeReactUseId = react__WEBPACK_IMPORTED_MODULE_0__['useId' + ''];\n/**\n *\n * @example <div id={useId()} />\n * @param idOverride\n * @returns {string}\n */\n\nfunction useId(idOverride) {\n  if (maybeReactUseId !== undefined) {\n    const reactId = maybeReactUseId();\n    return idOverride != null ? idOverride : reactId;\n  } // eslint-disable-next-line react-hooks/rules-of-hooks -- `React.useId` is invariant at runtime.\n\n\n  return useGlobalId(idOverride);\n}\n\n//# sourceURL=webpack://frontend/./node_modules/@mui/utils/esm/useId.js?");
 
 /***/ }),
 
@@ -1775,7 +1479,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _mui_material_AppBar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/AppBar */ \"./node_modules/@mui/material/AppBar/AppBar.js\");\n/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/Button */ \"./node_modules/@mui/material/Button/Button.js\");\n/* harmony import */ var _mui_icons_material_PhotoCamera__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/icons-material/PhotoCamera */ \"./node_modules/@mui/icons-material/PhotoCamera.js\");\n/* harmony import */ var _mui_material_Card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material/Card */ \"./node_modules/@mui/material/Card/Card.js\");\n/* harmony import */ var _mui_material_CardActions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @mui/material/CardActions */ \"./node_modules/@mui/material/CardActions/CardActions.js\");\n/* harmony import */ var _mui_material_CardContent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @mui/material/CardContent */ \"./node_modules/@mui/material/CardContent/CardContent.js\");\n/* harmony import */ var _mui_material_CardMedia__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/material/CardMedia */ \"./node_modules/@mui/material/CardMedia/CardMedia.js\");\n/* harmony import */ var _mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/CssBaseline */ \"./node_modules/@mui/material/CssBaseline/CssBaseline.js\");\n/* harmony import */ var _mui_material_Grid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material/Grid */ \"./node_modules/@mui/material/Grid/Grid.js\");\n/* harmony import */ var _mui_material_Stack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/Stack */ \"./node_modules/@mui/material/Stack/Stack.js\");\n/* harmony import */ var _mui_material_Box__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material/Box */ \"./node_modules/@mui/material/Box/Box.js\");\n/* harmony import */ var _mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material/Toolbar */ \"./node_modules/@mui/material/Toolbar/Toolbar.js\");\n/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material/Typography */ \"./node_modules/@mui/material/Typography/Typography.js\");\n/* harmony import */ var _mui_material_Container__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/Container */ \"./node_modules/@mui/material/Container/Container.js\");\n/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer */ \"./src/components/Footer.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconst cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];\nfunction Home() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Container__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    disableGutters: true,\n    maxWidth: false\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_AppBar__WEBPACK_IMPORTED_MODULE_4__[\"default\"], {\n    position: \"relative\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_5__[\"default\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_icons_material_PhotoCamera__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n    sx: {\n      mr: 2\n    }\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"h6\",\n    color: \"inherit\",\n    noWrap: true\n  }, \"Album layout\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"main\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_8__[\"default\"], {\n    sx: {\n      bgcolor: 'background.paper',\n      pt: 8,\n      pb: 6\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Container__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    maxWidth: \"sm\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    component: \"h1\",\n    variant: \"h2\",\n    align: \"center\",\n    color: \"text.primary\",\n    gutterBottom: true\n  }, \"Album layout\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"h5\",\n    align: \"center\",\n    color: \"text.secondary\",\n    paragraph: true\n  }, \"Something short and leading about the collection below\\u2014its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_9__[\"default\"], {\n    sx: {\n      pt: 4\n    },\n    direction: \"row\",\n    spacing: 2,\n    justifyContent: \"center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    variant: \"contained\"\n  }, \"Main call to action\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    variant: \"outlined\"\n  }, \"Secondary action\")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Container__WEBPACK_IMPORTED_MODULE_2__[\"default\"], {\n    sx: {\n      py: 8\n    },\n    maxWidth: \"md\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_11__[\"default\"], {\n    container: true,\n    spacing: 4\n  }, cards.map(card => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_11__[\"default\"], {\n    item: true,\n    key: card,\n    xs: 12,\n    sm: 6,\n    md: 4\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Card__WEBPACK_IMPORTED_MODULE_12__[\"default\"], {\n    sx: {\n      height: '100%',\n      display: 'flex',\n      flexDirection: 'column'\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_CardMedia__WEBPACK_IMPORTED_MODULE_13__[\"default\"], {\n    component: \"img\",\n    sx: {\n      // 16:9\n      pt: '56.25%'\n    },\n    image: \"https://source.unsplash.com/random\",\n    alt: \"random\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_CardContent__WEBPACK_IMPORTED_MODULE_14__[\"default\"], {\n    sx: {\n      flexGrow: 1\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    gutterBottom: true,\n    variant: \"h5\",\n    component: \"h2\"\n  }, \"Heading\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null, \"This is a media card. You can use this section to describe the content.\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_CardActions__WEBPACK_IMPORTED_MODULE_15__[\"default\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    size: \"small\"\n  }, \"View\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    size: \"small\"\n  }, \"Edit\")))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Footer__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null));\n}\n\n//# sourceURL=webpack://frontend/./src/components/Home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Home)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _mui_material_AppBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/material/AppBar */ \"./node_modules/@mui/material/AppBar/AppBar.js\");\n/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/Button */ \"./node_modules/@mui/material/Button/Button.js\");\n/* harmony import */ var _Logo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Logo */ \"./src/components/Logo.js\");\n/* harmony import */ var _mui_material_Card__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @mui/material/Card */ \"./node_modules/@mui/material/Card/Card.js\");\n/* harmony import */ var _mui_material_CardActions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! @mui/material/CardActions */ \"./node_modules/@mui/material/CardActions/CardActions.js\");\n/* harmony import */ var _mui_material_CardContent__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @mui/material/CardContent */ \"./node_modules/@mui/material/CardContent/CardContent.js\");\n/* harmony import */ var _mui_material_CardMedia__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/material/CardMedia */ \"./node_modules/@mui/material/CardMedia/CardMedia.js\");\n/* harmony import */ var _mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/CssBaseline */ \"./node_modules/@mui/material/CssBaseline/CssBaseline.js\");\n/* harmony import */ var _mui_material_Grid__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material/Grid */ \"./node_modules/@mui/material/Grid/Grid.js\");\n/* harmony import */ var _mui_material_Stack__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/Stack */ \"./node_modules/@mui/material/Stack/Stack.js\");\n/* harmony import */ var _mui_material_Box__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/material/Box */ \"./node_modules/@mui/material/Box/Box.js\");\n/* harmony import */ var _mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/material/Toolbar */ \"./node_modules/@mui/material/Toolbar/Toolbar.js\");\n/* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material/Typography */ \"./node_modules/@mui/material/Typography/Typography.js\");\n/* harmony import */ var _mui_material_Container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Container */ \"./node_modules/@mui/material/Container/Container.js\");\n/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer */ \"./src/components/Footer.js\");\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nconst cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];\nfunction Home() {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Container__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    disableGutters: true,\n    maxWidth: false\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_CssBaseline__WEBPACK_IMPORTED_MODULE_4__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_AppBar__WEBPACK_IMPORTED_MODULE_5__[\"default\"], {\n    position: \"relative\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Toolbar__WEBPACK_IMPORTED_MODULE_6__[\"default\"], {\n    disableGutters: true\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Logo__WEBPACK_IMPORTED_MODULE_1__[\"default\"], {\n    width: \"36px\",\n    height: \"36px\",\n    m: \"5px\",\n    ml: \"15px\",\n    mr: \"10px\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"h6\",\n    color: \"inherit\",\n    noWrap: true,\n    align: \"right\"\n  }, \"Tomas Premoli\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"h6\",\n    color: \"inherit\",\n    noWrap: true,\n    align: \"right\"\n  }, \"Epic win\"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"main\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Box__WEBPACK_IMPORTED_MODULE_8__[\"default\"], {\n    sx: {\n      bgcolor: 'background.paper',\n      pt: 8,\n      pb: 6\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Container__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    maxWidth: \"sm\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    component: \"h1\",\n    variant: \"h2\",\n    align: \"center\",\n    color: \"text.primary\",\n    gutterBottom: true\n  }, \"Album layout\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    variant: \"h5\",\n    align: \"center\",\n    color: \"text.secondary\",\n    paragraph: true\n  }, \"Something short and leading about the collection below\\u2014its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Stack__WEBPACK_IMPORTED_MODULE_9__[\"default\"], {\n    sx: {\n      pt: 4\n    },\n    direction: \"row\",\n    spacing: 2,\n    justifyContent: \"center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    variant: \"contained\"\n  }, \"Main call to action\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    variant: \"outlined\"\n  }, \"Secondary action\")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Container__WEBPACK_IMPORTED_MODULE_3__[\"default\"], {\n    sx: {\n      py: 8\n    },\n    maxWidth: \"md\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_11__[\"default\"], {\n    container: true,\n    spacing: 4\n  }, cards.map(card => /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Grid__WEBPACK_IMPORTED_MODULE_11__[\"default\"], {\n    item: true,\n    key: card,\n    xs: 12,\n    sm: 6,\n    md: 4\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Card__WEBPACK_IMPORTED_MODULE_12__[\"default\"], {\n    sx: {\n      height: '100%',\n      display: 'flex',\n      flexDirection: 'column'\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_CardMedia__WEBPACK_IMPORTED_MODULE_13__[\"default\"], {\n    component: \"img\",\n    sx: {\n      // 16:9\n      pt: '56.25%'\n    },\n    image: \"https://source.unsplash.com/random\",\n    alt: \"random\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_CardContent__WEBPACK_IMPORTED_MODULE_14__[\"default\"], {\n    sx: {\n      flexGrow: 1\n    }\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], {\n    gutterBottom: true,\n    variant: \"h5\",\n    component: \"h2\"\n  }, \"Heading\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Typography__WEBPACK_IMPORTED_MODULE_7__[\"default\"], null, \"This is a media card. You can use this section to describe the content.\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_CardActions__WEBPACK_IMPORTED_MODULE_15__[\"default\"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    size: \"small\"\n  }, \"View\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_10__[\"default\"], {\n    size: \"small\"\n  }, \"Edit\")))))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Footer__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null));\n}\n\n//# sourceURL=webpack://frontend/./src/components/Home.js?");
+
+/***/ }),
+
+/***/ "./src/components/Logo.js":
+/*!********************************!*\
+  !*** ./src/components/Logo.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ TPSVG)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);\n\nclass TPSVG extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  constructor(props) {\n    super(props);\n  }\n\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"svg\", {\n      xmlns: \"http://www.w3.org/2000/svg\",\n      width: this.props.width,\n      height: this.props.height,\n      style: {\n        margin: this.props.m,\n        marginLeft: this.props.ml,\n        marginRight: this.props.mr\n      },\n      viewBox: \"0 0 524 636\" // {...props}\n\n    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"defs\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"style\", null, \".cls-1{fill:#fff;fill-rule:evenodd}\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"path\", {\n      id: \"T\",\n      className: \"cls-1\",\n      d: \"M192.848 512.963V118.047h70.583V40.463H16.681v77.584h71.167v394.916h105Z\"\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(\"path\", {\n      id: \"P\",\n      className: \"cls-1\",\n      d: \"M342.717 578.467V399.3h37.5q34.376 0 61.979-9.9t43.75-35.677q16.138-25.782 16.146-74.74 0-39.061-11.979-66.406t-36.459-41.667q-24.486-14.319-62.5-14.323H249.488v421.88h93.229Zm0-356.25h30.729q18.75 0 27.6 7.292a32.294 32.294 0 0 1 11.2 19.531 152.359 152.359 0 0 1 2.344 28.386q0 19.275-2.865 31.771t-11.718 18.75q-8.863 6.249-26.042 6.25h-31.25v-111.98Z\"\n    }));\n  }\n\n}\n\n//# sourceURL=webpack://frontend/./src/components/Logo.js?");
 
 /***/ }),
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import CameraIcon from '@mui/icons-material/PhotoCamera';
+import TPSVG from './Logo'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -19,13 +19,18 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Home() {
     return (
-        <Container disableGutters  maxWidth={false}>
+        <Container disableGutters maxWidth={false}>
             <CssBaseline />
             <AppBar position="relative">
-                <Toolbar>
-                    <CameraIcon sx={{ mr: 2 }} />
-                    <Typography variant="h6" color="inherit" noWrap>
-                        Album layout
+                <Toolbar disableGutters>
+                    <TPSVG width={"36px"} height={"36px"} m={"5px"} ml={"15px"} mr={"10px"} />
+
+                    <Typography variant="h6" color="inherit" noWrap align="right">
+                        Tomas Premoli
+                    </Typography>
+
+                    <Typography variant="h6" color="inherit" noWrap align="right">
+                        Epic win
                     </Typography>
                 </Toolbar>
             </AppBar>
