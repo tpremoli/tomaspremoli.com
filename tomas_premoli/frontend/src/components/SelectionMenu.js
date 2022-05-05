@@ -1,12 +1,19 @@
-import * as React from 'react';
-import TPSVG from './Logo'
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import { Icon, IconButton } from '@mui/material';
+import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import { Divider } from '@mui/material';
+
+import TPSVG from './Logo'
 import MenuIcon from '@mui/icons-material/Menu';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const navigationLinks = [
     { name: "About Me", to: "/about-me" },
@@ -16,6 +23,8 @@ const navigationLinks = [
 ]
 
 export default function SelectionMenu() {
+    const [open, setOpen] = useState(false);
+
     return (
 
         <AppBar position="relative" sx={{ flexDirection: "column", flexWrap: "wrap" }} >
@@ -29,11 +38,14 @@ export default function SelectionMenu() {
                 <Box sx={{ display: { xs: 'none', sm: 'flex' } }}
                     style={{
                         textAlign: "center",
-                        // display: "flex",
                         flexWrap: "wrap",
                     }}>
                     {navigationLinks.map((item) => (
-                        <Button color="primary" variant="filled" to={item.to} component={Link}>
+                        <Button
+                            color="primary"
+                            variant="filled"
+                            to={item.to}
+                            component={Link}>
                             {item.name}
                         </Button>
                     ))}
@@ -47,16 +59,39 @@ export default function SelectionMenu() {
                         display: { xs: 'flex', sm: 'none' },
 
                     }}
-                    variant="filled" to="/contact-me" component={Link}>
-
-                    <MenuIcon sx={{
-                        width: "36px",
-                        height: "36px",
-                        m: "15px",
-                        color: "white",
-                    }} />
+                    variant="filled">
+                    <MenuIcon
+                        sx={{
+                            width: "36px",
+                            height: "36px",
+                            m: "15px",
+                            color: "white",
+                        }}
+                        onClick={() => setOpen(true)}
+                    />
                 </IconButton>
             </Toolbar>
-        </AppBar>
+            <SwipeableDrawer
+                anchor="right"
+                open={open}
+                onOpen={() => setOpen(true)}
+                onClose={() => setOpen(false)}>
+                <div>
+                    <IconButton>
+                        <ChevronRightIcon onClick={() => setOpen(false)} />
+                    </IconButton>
+                </div>
+                <Divider />
+                <List>
+                    {navigationLinks.map((item, i) => (
+                        <ListItem key={i}>
+                            <Button key={i} color="primary" variant="filled" to={item.to} component={Link}>
+                                {item.name}
+                            </Button>
+                        </ListItem>
+                    ))}
+                </List>
+            </SwipeableDrawer>
+        </AppBar >
     );
 }
