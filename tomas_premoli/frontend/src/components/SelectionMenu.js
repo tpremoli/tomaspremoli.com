@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
+import MenuIcon from '@mui/icons-material/Menu';
+import { IconButton } from '@mui/material';
 
 export default function SelectionMenu() {
     return (
@@ -38,8 +40,23 @@ export default function SelectionMenu() {
                     </Button>
                 </Box>
 
-                <Box sx={{ align: "flex-start", flex: 1 }}>
+                <Box sx={{ align: "flex-start", flex: 1, display: 'flex' }}>
+
                 </Box>
+                <IconButton
+                    sx={{
+                        display: { xs: 'flex', sm: 'none' },
+
+                    }}
+                    variant="filled" to="/contact-me" component={Link}>
+
+                    <MenuIcon sx={{
+                        width: "36px",
+                        height: "36px",
+                        m: "15px",
+                        color: "white",
+                    }} />
+                </IconButton>
             </Toolbar>
         </AppBar>
     );
