@@ -7,7 +7,13 @@ import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import MenuIcon from '@mui/icons-material/Menu';
-import { IconButton } from '@mui/material';
+
+const navigationLinks = [
+    { name: "About Me", to: "/about-me" },
+    { name: "Portfolio", to: "/portfolio" },
+    { name: "Resume/CV", to: "/resume" },
+    { name: "Contact Me", to: "/contact-me" },
+]
 
 export default function SelectionMenu() {
     return (
@@ -26,18 +32,11 @@ export default function SelectionMenu() {
                         // display: "flex",
                         flexWrap: "wrap",
                     }}>
-                    <Button color="primary" variant="filled" to="/about-me" component={Link}>
-                        About Me
-                    </Button>
-                    <Button color="primary" variant="filled" to="/portfolio" component={Link}>
-                        Portfolio
-                    </Button>
-                    <Button color="primary" variant="filled" to="/resume" component={Link}>
-                        Resume/CV
-                    </Button>
-                    <Button color="primary" variant="filled" to="/contact-me" component={Link}>
-                        Contact Me
-                    </Button>
+                    {navigationLinks.map((item) => (
+                        <Button color="primary" variant="filled" to={item.to} component={Link}>
+                            {item.name}
+                        </Button>
+                    ))}
                 </Box>
 
                 <Box sx={{ align: "flex-start", flex: 1, display: 'flex' }}>
