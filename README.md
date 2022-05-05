@@ -12,13 +12,12 @@ In the root directory (/tomas_premoli) run:
 Beyond that, npm package manager is necessary to run the javascript libraries.
 In /tomas_premoli/Frontend:
 
-    npm i webpack webpack-cli --save-dev
-    npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
-    npm i react react-dom --save-dev
-    npm i react-router-dom
-    npm i @mui/material @emotion/react @emotion/styled @mui/icons-material
-    npm i @babel/plugin-proposal-class-properties
-    npm i flex-wrap-layout
+    npm i webpack webpack-cli
+    npm i @babel/core babel-loader @babel/preset-env @babel/preset-react 
+    npm i react react-dom 
+    npm i react-router-dom 
+    npm i @mui/material @emotion/react @emotion/styled @mui/icons-material 
+    npm i @babel/plugin-proposal-class-properties 
 
 To actually run it:
 

@@ -13,8 +13,10 @@ export default class TPSVG extends Component {
                 height={this.props.height}
                 style={{
                     margin: this.props.m,
-                    marginLeft: this.props.ml,
-                    marginRight: this.props.mr
+                    marginBottom: this.props.mb
+                    // marginLeft: this.props.ml,
+                    // marginRight: this.props.mr,
+                    // marginTop: this.props.mt
                 }}
                 viewBox="0 0 524 636"
             // {...props}
