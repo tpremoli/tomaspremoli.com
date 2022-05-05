@@ -1,11 +1,6 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import CssBaseline from '@mui/material/CssBaseline';
-import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -13,14 +8,19 @@ import Container from '@mui/material/Container';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const myData = fetch("./api/my-data?format=json")
+    .then(response => response.json())
+    .then((data) => {
+        console.log(data);
+    });
 
 export default function Home() {
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
             {/* Header */}
-            <SelectionMenu />
+            <SelectionMenu myData />
             {/* End Header */}
             <main>
                 {/* Hero unit */}
@@ -58,7 +58,7 @@ export default function Home() {
                         </Stack>
                     </Container>
                 </Box>
-                
+
             </main>
             {/* Footer */}
             <Footer />

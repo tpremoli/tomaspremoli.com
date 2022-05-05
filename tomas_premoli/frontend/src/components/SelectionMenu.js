@@ -59,6 +59,7 @@ export default function SelectionMenu() {
                         display: { xs: 'flex', sm: 'none' },
 
                     }}
+                    onClick={() => setOpen(true)}
                     variant="filled">
                     <MenuIcon
                         sx={{
@@ -67,7 +68,6 @@ export default function SelectionMenu() {
                             m: "15px",
                             color: "white",
                         }}
-                        onClick={() => setOpen(true)}
                     />
                 </IconButton>
             </Toolbar>
@@ -77,8 +77,8 @@ export default function SelectionMenu() {
                 onOpen={() => setOpen(true)}
                 onClose={() => setOpen(false)}>
                 <div>
-                    <IconButton>
-                        <ChevronRightIcon onClick={() => setOpen(false)} />
+                    <IconButton onClick={() => setOpen(false)} >
+                        <ChevronRightIcon />
                     </IconButton>
                 </div>
                 <Divider />
