@@ -18,15 +18,16 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 const navigationLinks = [
     { name: "About Me", to: "/about-me" },
     { name: "Portfolio", to: "/portfolio" },
+    // Make a main site w/ a pdf display
     { name: "Resume/CV", to: "/resume" },
     { name: "Contact Me", to: "/contact-me" },
 ]
 
-export default function SelectionMenu() {
+export default function SelectionMenu(props) {
     const [open, setOpen] = useState(false);
 
     return (
-
+    
         <AppBar position="relative" sx={{ flexDirection: "column", flexWrap: "wrap" }} >
             <Toolbar disableGutters>
                 <Box sx={{ align: "flex-start", flex: 1 }}>

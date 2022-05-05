@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
@@ -9,18 +9,41 @@ import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 
 
-const myData = fetch("./api/my-data?format=json")
-    .then(response => response.json())
-    .then((data) => {
-        console.log(data);
-    });
+// const myData = fetch("./api/my-data?format=json")
+//     .then(response => response.json())
+//     .then((data) => {
+//         console.log(data);
+//     });
 
 export default function Home() {
+    const [myData, setMyData] = useState({});
+    const [isLoading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getAllNodes();
+    }, []);
+
+    const getAllNodes = () => {
+        fetch("./api/my-data?format=json")
+            .then(response => response.json())
+            .then((data) => {
+                setMyData(data);
+                setLoading(false);
+            });
+    };
+
+    if (isLoading) {
+        // Add proper loading screen
+        return <div className="App">Loading...</div>;
+    }
+
+    console.log(myData);
+
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
             {/* Header */}
-            <SelectionMenu myData />
+            <SelectionMenu />
             {/* End Header */}
             <main>
                 {/* Hero unit */}
@@ -53,8 +76,8 @@ export default function Home() {
                             spacing={2}
                             justifyContent="center"
                         >
-                            <Button variant="contained">Main call to action</Button>
-                            <Button variant="outlined">Secondary action</Button>
+                            <Button href={myData.github_link} variant="contained">My Github</Button>
+                            <Button href={myData.linkedin_link} variant="outlined">My LinkedIn</Button>
                         </Stack>
                     </Container>
                 </Box>
