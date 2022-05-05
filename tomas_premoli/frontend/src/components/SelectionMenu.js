@@ -16,6 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const navigationLinks = [
+    { name: "Home", to: "/" },
     { name: "About Me", to: "/about-me" },
     { name: "Portfolio", to: "/portfolio" },
     // Make a main site w/ a pdf display
@@ -27,10 +28,10 @@ export default function SelectionMenu(props) {
     const [open, setOpen] = useState(false);
 
     return (
-    
+
         <AppBar position="relative" sx={{ flexDirection: "column", flexWrap: "wrap" }} >
             <Toolbar disableGutters>
-                <Box sx={{ align: "flex-start", flex: 1 }}>
+                <Box sx={{ align: "flex-start", flex: 1 }} >
                     <TPSVG width={"36px"} height={"36px"} m={"15px"} mb={"7px"} />
                 </Box>
 
