@@ -57,7 +57,7 @@ export default function Resume() {
                 >
                     <center>
                         <iframe
-                            src="http://127.0.0.1:8000/static/PDFViewer/web/viewer.html?file=/static/me/cv.pdf"
+                            src="http://127.0.0.1:8000/static/PDFViewer/web/viewer.html?file=/api/media/me/cv.pdf"
                             type="application/pdf"
                             width="90%"
                             height="600px"

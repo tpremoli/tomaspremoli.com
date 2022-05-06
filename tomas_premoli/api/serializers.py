@@ -4,4 +4,5 @@ from .models import MyData
 class MyDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = MyData
-        fields = ('aboutme', 'github_link', 'linkedin_link')
+        fields = ('pic', 'aboutme',
+                  'cv', 'github_link', 'linkedin_link')
