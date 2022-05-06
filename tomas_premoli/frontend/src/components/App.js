@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { createRoot } from 'react-dom/client';
 import Home from "./Home";
+import Resume from "./Resume"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 import {
     BrowserRouter as Router,
     Routes,
@@ -24,7 +26,7 @@ export default class App extends Component {
                         <Route exact path="/" element={<Home />} />
                         {/* <Route path="/about-me" element={<x />} /> */}
                         {/* <Route path="/portfolio" element={<Portfolio />} /> */}
-                        {/* <Route path="/resume" element={<Resume />} /> */}
+                        <Route path="/resume" element={<Resume />} />
                         {/* <Route path="/contact-me" element={<ContactMe />} /> */}
                     </Routes>
                 </ThemeProvider>

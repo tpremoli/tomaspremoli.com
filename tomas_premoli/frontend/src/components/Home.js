@@ -5,15 +5,10 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import CircularProgress from '@mui/material/CircularProgress';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 
-
-// const myData = fetch("./api/my-data?format=json")
-//     .then(response => response.json())
-//     .then((data) => {
-//         console.log(data);
-//     });
 
 export default function Home() {
     const [myData, setMyData] = useState({});
@@ -33,8 +28,14 @@ export default function Home() {
     };
 
     if (isLoading) {
-        // Add proper loading screen
-        return <div className="App">Loading...</div>;
+        return (
+            <Box sx={{
+                display: 'flex', alignItems: "center",
+                justifyContent: "center", height: "100%", width: "100%",
+            }}>
+                <CircularProgress sx={{ display: 'flex', alignSelf: "center" }} />
+            </Box >
+        );
     }
 
     console.log(myData);
