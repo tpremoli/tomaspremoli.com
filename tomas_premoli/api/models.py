@@ -7,11 +7,11 @@ import os
 class MyData(models.Model):
     def rename_pic(instance, filename):
         ext = filename.split('.')[-1]
-        return '{}.{}'.format("me/pic", ext)
+        return os.path.join("api/media/me/", ("pic."+ext))
         
     def rename_pdf(instance, filename):
         ext = filename.split('.')[-1]
-        return '{}.{}'.format("me/cv", ext)
+        return os.path.join("api/media/me/", ("cv."+ext))
 
     pic = models.ImageField(upload_to=rename_pic)
     aboutme = models.TextField(default="")
@@ -24,7 +24,7 @@ class MyData(models.Model):
     
     def save(self, *args, **kwargs):
             try:
-                this = MyData.objects.get(id=self.id)
+                this = MyData.objects.all()[0]
                 if this.pic != self.pic:
                     this.pic.delete()
                 if this.cv != self.cv:

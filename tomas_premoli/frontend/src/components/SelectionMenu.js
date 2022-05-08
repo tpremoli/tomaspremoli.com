@@ -59,7 +59,6 @@ export default function SelectionMenu(props) {
                 <IconButton
                     sx={{
                         display: { xs: 'flex', sm: 'none' },
-
                     }}
                     onClick={() => setOpen(true)}
                     variant="filled">

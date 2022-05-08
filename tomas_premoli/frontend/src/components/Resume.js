@@ -13,7 +13,7 @@ import SelectionMenu from './SelectionMenu';
 export default function Resume() {
     const [myData, setMyData] = useState({});
     const [isLoading, setLoading] = useState(true);
-    const CV_URL = "/static/me/cv.pdf";
+    const CV_URL = "/api/media/me/cv.pdf";
 
     useEffect(() => {
         getAllNodes();
@@ -34,6 +34,7 @@ export default function Resume() {
                 display: 'flex', alignItems: "center",
                 justifyContent: "center", height: "100%", width: "100%",
             }}>
+
                 <CircularProgress sx={{ display: 'flex', alignSelf: "center" }} />
             </Box >
         );
@@ -55,9 +56,21 @@ export default function Resume() {
                         alignItems: "center",
                     }}
                 >
+                    <Container maxWidth="sm">
+                        <Typography
+                            component="h1"
+                            variant="h2"
+                            align="center"
+                            color="text.primary"
+                            gutterBottom
+                        >
+                            Resume/CV
+                        </Typography>
+                    </Container>
+
                     <center>
                         <iframe
-                            src="http://127.0.0.1:8000/static/PDFViewer/web/viewer.html?file=/api/media/me/cv.pdf"
+                            src={"http://127.0.0.1:8000/static/PDFViewer/web/viewer.html?file=" + CV_URL}
                             type="application/pdf"
                             width="90%"
                             height="600px"
