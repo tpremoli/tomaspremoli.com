@@ -35,6 +35,6 @@ class ContactMe(APIView):
             contact_entry.save()
 
             print(contact_entry)
-            
+
             return Response({"OK"}, status=status.HTTP_200_OK)
         return Response({'Bad Request': 'Invalid input...'}, status=status.HTTP_400_BAD_REQUEST)

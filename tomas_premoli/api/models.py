@@ -23,14 +23,7 @@ class MyData(models.Model):
     linkedin_link = models.CharField(default="https://www.linkedin.com/in/tomas-premoli-008016144/", max_length=255)
     
     def save(self, *args, **kwargs):
-            try:
-                this = MyData.objects.all()[0]
-                if this.pic != self.pic:
-                    this.pic.delete()
-                if this.cv != self.cv:
-                    this.cv.delete()
-            except: pass
-            super(MyData, self).save(*args, **kwargs)
+        super(MyData, self).save(*args, **kwargs)
 
 
 class PortfolioEntry(models.Model):
@@ -48,7 +41,7 @@ class PortfolioEntryPictures(models.Model):
     entry = models.ForeignKey(PortfolioEntry, on_delete=models.CASCADE)
     pic = models.ImageField()
 
-class ContactEntry():
+class ContactEntry(models.Model):
     name = models.CharField(default="", max_length=255)
     email = models.EmailField(default="", max_length=255)
     comment = models.TextField(default="")
