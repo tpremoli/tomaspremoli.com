@@ -10,6 +10,7 @@ import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 import CircularProgress from '@mui/material/CircularProgress';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
@@ -44,15 +45,27 @@ export default function ContactMe() {
                         </Typography>
                     </Container>
 
-                    <Container maxWidth="sm">
-                        <FormControl component="fieldset">
-                            <TextField label="Name" variant="filled" sx={{ margin: "5px" }} />
+                    <Grid container direction="column" width="100%" justifyContent="center" alignItems="center">
+                        <Grid item xs={3}>
+                            <FormControl component="fieldset" sx={{ justifyContent: "center", alignItems: "center" }}>
+                                <TextField label="Name" variant="filled" sx={{ margin: "5px" }} />
 
-                            <TextField label="Email" variant="filled" sx={{ margin: "5px" }} />
+                                <TextField label="Email" variant="filled" sx={{ margin: "5px" }} />
 
-                            <TextField multiline rows={4} label="Comment" variant="filled" sx={{ margin: "5px" }} />
-                        </FormControl>
-                    </Container>
+                                <TextField multiline rows={4} label="Comment" variant="filled" sx={{ margin: "5px" }} />
+
+                                <Stack
+                                    sx={{ pt: 4 }}
+                                    direction="row"
+                                    spacing={2}
+                                    justifyContent="center"
+                                >
+                                    <Button href={""} variant="contained" color="success">Submit</Button>
+                                    <Button href={""} variant="outlined" color="error">Clear</Button>
+                                </Stack>
+                            </FormControl>
+                        </Grid>
+                    </Grid>
 
                 </Box>
             </main>
