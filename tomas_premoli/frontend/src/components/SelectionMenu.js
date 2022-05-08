@@ -85,8 +85,13 @@ export default function SelectionMenu(props) {
                 <Divider />
                 <List>
                     {navigationLinks.map((item, i) => (
-                        <ListItem key={i}>
-                            <Button key={i} color="primary" variant="filled" to={item.to} component={Link}>
+                        <ListItem sx={{ width: "100%" }} key={i}>
+                            <Button sx={{ width: "100%", textAlign:"left" }}
+                                key={i}
+                                color="primary"
+                                variant="filled"
+                                to={item.to}
+                                component={Link}>
                                 {item.name}
                             </Button>
                         </ListItem>

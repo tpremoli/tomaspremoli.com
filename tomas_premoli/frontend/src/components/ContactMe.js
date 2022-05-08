@@ -46,11 +46,11 @@ export default function ContactMe() {
 
                     <Container maxWidth="sm">
                         <FormControl component="fieldset">
-                            <TextField id="flavor-text" label="Name" variant="standard" />
+                            <TextField label="Name" variant="filled" sx={{ margin: "5px" }} />
 
-                            <TextField id="flavor-text" label="Email" variant="standard" />
+                            <TextField label="Email" variant="filled" sx={{ margin: "5px" }} />
 
-                            <TextField multiline id="flavor-text" label="Comment" variant="standard" />
+                            <TextField multiline rows={4} label="Comment" variant="filled" sx={{ margin: "5px" }} />
                         </FormControl>
                     </Container>
 
