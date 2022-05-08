@@ -4,6 +4,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
+import Collapse from '@mui/material/Collapse';
+import Alert from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
@@ -21,18 +23,60 @@ export default function ContactMe() {
     const [email, setEmail] = React.useState("");
     const [comment, setComment] = React.useState("");
 
+    const [emailError, setEmailError] = React.useState(false);
+
     const [errorMsg, setErrorMsg] = React.useState("");
     const [successMsg, setSuccessMsg] = React.useState("");
 
     function handleSubmit() {
-        console.log(name);
-        console.log(email);
-        console.log(comment);
+        if (!isEmail(email)) {
+            setSuccessMsg("");
+            setErrorMsg("Error: Email is not valid!");
+            setEmailError(true);
+            return;
+        } else {
+            const requestOptions = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    comment: comment
+                }),
+            };
+            fetch("/api/contact-me", requestOptions)
+                .then((response) => {
+                    try {
+                        response.json()
+                            .then((data) => {
+                                console.log(data);
+                                setErrorMsg("");
+                                setSuccessMsg("Contact details sent!");
+                                setName("");
+                                setEmail("");
+                                setComment("");
+                            });
+                    } catch (error) {
+                        setErrorMsg("Error in sending data! Try again.");
+                        setSuccessMsg("Contact details sent!");
+                    }
+                });
+
+        }
     }
+
+    function isEmail(email) {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
 
     function handleClear() {
         setName("");
         setEmail("");
+        setEmailError("");
         setComment("");
     }
 
@@ -41,6 +85,30 @@ export default function ContactMe() {
             <CssBaseline />
             {/* Header */}
             <SelectionMenu />
+            <Collapse
+                in={errorMsg != ""}
+            >
+                <Alert
+                    variant="filled"
+                    color="error"
+                    severity="error"
+                    onClose={() => setErrorMsg("")}
+                >
+                    {errorMsg}
+                </Alert>
+            </Collapse>
+            <Collapse
+                in={successMsg != ""}
+            >
+                <Alert
+                    variant="filled"
+                    color="success"
+                    severity="success"
+                    onClose={() => setSuccessMsg("")}
+                >
+                    {successMsg}
+                </Alert>
+            </Collapse>
             {/* End Header */}
             <main>
                 {/* Hero unit */}
@@ -67,11 +135,35 @@ export default function ContactMe() {
                     <Grid container direction="column" width="100%" justifyContent="center" alignItems="center">
                         <Grid item xs={3}>
                             <FormControl component="fieldset" sx={{ justifyContent: "center", alignItems: "center" }}>
-                                <TextField value={name} onChange={(e) => setName(e.target.value)} label="Name" variant="filled" sx={{ margin: "5px" }} />
+                                <TextField
+                                    required={true}
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                    label="Name"
+                                    variant="filled"
+                                    sx={{ margin: "5px" }}
+                                />
 
-                                <TextField value={email} onChange={(e) => setEmail(e.target.value)} label="Email" variant="filled" sx={{ margin: "5px" }} />
+                                <TextField
+                                    required={true}
+                                    value={email}
+                                    error={emailError}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    label="Email"
+                                    variant="filled"
+                                    sx={{ margin: "5px" }}
+                                />
 
-                                <TextField value={comment} onChange={(e) => setComment(e.target.value)} multiline rows={4} label="Comment" variant="filled" sx={{ margin: "5px" }} />
+                                <TextField
+                                    required={true}
+                                    value={comment}
+                                    onChange={(e) => setComment(e.target.value)}
+                                    multiline
+                                    rows={4}
+                                    label="Comment"
+                                    variant="filled"
+                                    sx={{ margin: "5px" }}
+                                />
 
                                 <Stack
                                     sx={{ pt: 4 }}
