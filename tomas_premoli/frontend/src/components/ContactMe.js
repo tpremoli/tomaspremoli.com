@@ -17,6 +17,25 @@ import SelectionMenu from './SelectionMenu';
 
 
 export default function ContactMe() {
+    const [name, setName] = React.useState("");
+    const [email, setEmail] = React.useState("");
+    const [comment, setComment] = React.useState("");
+
+    const [errorMsg, setErrorMsg] = React.useState("");
+    const [successMsg, setSuccessMsg] = React.useState("");
+
+    function handleSubmit() {
+        console.log(name);
+        console.log(email);
+        console.log(comment);
+    }
+
+    function handleClear() {
+        setName("");
+        setEmail("");
+        setComment("");
+    }
+
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
@@ -48,11 +67,11 @@ export default function ContactMe() {
                     <Grid container direction="column" width="100%" justifyContent="center" alignItems="center">
                         <Grid item xs={3}>
                             <FormControl component="fieldset" sx={{ justifyContent: "center", alignItems: "center" }}>
-                                <TextField label="Name" variant="filled" sx={{ margin: "5px" }} />
+                                <TextField value={name} onChange={(e) => setName(e.target.value)} label="Name" variant="filled" sx={{ margin: "5px" }} />
 
-                                <TextField label="Email" variant="filled" sx={{ margin: "5px" }} />
+                                <TextField value={email} onChange={(e) => setEmail(e.target.value)} label="Email" variant="filled" sx={{ margin: "5px" }} />
 
-                                <TextField multiline rows={4} label="Comment" variant="filled" sx={{ margin: "5px" }} />
+                                <TextField value={comment} onChange={(e) => setComment(e.target.value)} multiline rows={4} label="Comment" variant="filled" sx={{ margin: "5px" }} />
 
                                 <Stack
                                     sx={{ pt: 4 }}
@@ -60,8 +79,8 @@ export default function ContactMe() {
                                     spacing={2}
                                     justifyContent="center"
                                 >
-                                    <Button href={""} variant="contained" color="success">Submit</Button>
-                                    <Button href={""} variant="outlined" color="error">Clear</Button>
+                                    <Button onClick={handleSubmit} variant="contained" color="success">Submit</Button>
+                                    <Button onClick={handleClear} variant="outlined" color="error">Clear</Button>
                                 </Stack>
                             </FormControl>
                         </Grid>
