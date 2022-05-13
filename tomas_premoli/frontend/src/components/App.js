@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { createRoot } from 'react-dom/client';
 import Home from "./Home";
 import Resume from "./Resume"
+import AboutMe from "./AboutMe"
 import ContactMe from "./ContactMe"
 import Portfolio from "./Portfolio"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -26,7 +27,7 @@ export default class App extends Component {
                 <ThemeProvider theme={theme}>
                     <Routes>
                         <Route exact path="/" element={<Home />} />
-                        {/* <Route path="/about-me" element={<x />} /> */}
+                        <Route path="/about-me" element={<AboutMe />} />
                         <Route path="/portfolio" element={<Portfolio />} />
                         <Route path="/resume" element={<Resume />} />
                         <Route path="/contact-me" element={<ContactMe />} />
