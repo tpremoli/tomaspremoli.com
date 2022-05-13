@@ -44,5 +44,5 @@ class PortfolioEntryPictures(models.Model):
 class ContactEntry(models.Model):
     name = models.CharField(default="", max_length=255)
     email = models.EmailField(default="", max_length=255)
-    comment = models.TextField(default="")
+    comment = models.TextField(default="", blank=True)
     

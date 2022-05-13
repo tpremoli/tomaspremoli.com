@@ -23,17 +23,28 @@ export default function ContactMe() {
     const [email, setEmail] = React.useState("");
     const [comment, setComment] = React.useState("");
 
+    const [nameError, setNameError] = React.useState(false);
     const [emailError, setEmailError] = React.useState(false);
 
     const [errorMsg, setErrorMsg] = React.useState("");
     const [successMsg, setSuccessMsg] = React.useState("");
 
     function handleSubmit() {
-        if (!isEmail(email)) {
+        setEmailError(false);
+        setNameError(false);
+
+        if (name.trim() == "") {
+            setSuccessMsg("");
+            setErrorMsg("Error: Name is not valid!");
+            setNameError(true);
+            return;
+
+        } else if (!isEmail(email)) {
             setSuccessMsg("");
             setErrorMsg("Error: Email is not valid!");
             setEmailError(true);
             return;
+
         } else {
             const csrftoken = document.querySelector(
                 "[name=csrfmiddlewaretoken]"
@@ -41,32 +52,35 @@ export default function ContactMe() {
 
             const requestOptions = {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "application/json", "X-CSRFToken": csrftoken },
                 body: JSON.stringify({
                     name: name,
                     email: email,
                     comment: comment,
-                    csrfmiddlewaretoken: csrftoken,
                 }),
             };
-            fetch("/api/contact-me", requestOptions)
-                .then((response) => {
-                    try {
+
+            try {
+                fetch("/api/contact-me", requestOptions)
+                    .then((response) => {
                         response.json()
                             .then((data) => {
-                                console.log(data);
-                                setErrorMsg("");
-                                setSuccessMsg("Contact details sent!");
-                                setName("");
-                                setEmail("");
-                                setComment("");
+                                if (data[0] == "OK") {
+                                    setErrorMsg("");
+                                    setSuccessMsg("Contact details sent!");
+                                    setName("");
+                                    setEmail("");
+                                    setComment("");
+                                } else {
+                                    setErrorMsg("Error in sending data! Try again.");
+                                    setSuccessMsg("");
+                                }
                             });
-                    } catch (error) {
-                        setErrorMsg("Error in sending data! Try again.");
-                        setSuccessMsg("Contact details sent!");
-                    }
-                });
-
+                    });
+            } catch (error) {
+                setErrorMsg("Error in sending data! Try again.");
+                setSuccessMsg("");
+            }
         }
     }
 
@@ -143,6 +157,7 @@ export default function ContactMe() {
                                 <TextField
                                     required={true}
                                     value={name}
+                                    error={nameError}
                                     onChange={(e) => setName(e.target.value)}
                                     label="Name"
                                     variant="filled"
@@ -160,7 +175,6 @@ export default function ContactMe() {
                                 />
 
                                 <TextField
-                                    required={true}
                                     value={comment}
                                     onChange={(e) => setComment(e.target.value)}
                                     multiline

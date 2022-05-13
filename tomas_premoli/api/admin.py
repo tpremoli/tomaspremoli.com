@@ -6,4 +6,4 @@ from .models import ContactEntry, MyData, PortfolioEntry, PortfolioEntryPictures
 admin.site.register(MyData)
 admin.site.register(PortfolioEntry)
 admin.site.register(PortfolioEntryPictures)
-# admin.site.register(ContactEntry)
+admin.site.register(ContactEntry)
