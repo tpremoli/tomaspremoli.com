@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Icon, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Copyright() {
     return (
@@ -31,6 +32,13 @@ export default function Footer(props) {
                 href={props.linkedin_link}
             >
                 <LinkedInIcon />
+            </IconButton>
+
+            <IconButton
+                align="center"
+                href={props.linkedin_link}
+            >
+                <GitHubIcon />
             </IconButton>
 
             <Typography

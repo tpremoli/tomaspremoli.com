@@ -82,7 +82,7 @@ export default function Resume() {
                 </Box>
             </main>
             {/* Footer */}
-            <Footer linkedin_link={myData.linkedin_link}/>
+            <Footer linkedin_link={myData.linkedin_link} github_link={myData.github_link} />
             {/* End footer */}
         </Container >
     );
