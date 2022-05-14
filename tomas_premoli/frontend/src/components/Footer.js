@@ -19,7 +19,12 @@ function Copyright() {
     );
 }
 
-export default function Footer(props) {
+export default function Footer() {
+    const myData = {
+        linkedin_link: "https://www.linkedin.com/in/tomas-premoli-008016144/",
+        github_link: "https://github.com/tpremoli"
+    };
+
     return (
         < Box sx={{ bgcolor: 'background.paper', p: 6 }}
             component="footer" >
@@ -29,14 +34,14 @@ export default function Footer(props) {
 
             <IconButton
                 align="center"
-                href={props.linkedin_link}
+                href={linkedin_link}
             >
                 <LinkedInIcon />
             </IconButton>
 
             <IconButton
                 align="center"
-                href={props.linkedin_link}
+                href={github_link}
             >
                 <GitHubIcon />
             </IconButton>

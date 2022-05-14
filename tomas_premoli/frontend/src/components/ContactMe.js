@@ -20,10 +20,7 @@ import SelectionMenu from './SelectionMenu';
 
 
 export default function ContactMe() {
-    const [myData, setMyData] = React.useState({
-        linkedin_link: "https://www.linkedin.com/in/tomas-premoli-008016144/",
-        github_link: "https://github.com/tpremoli"
-    });
+    
 
     const [name, setName] = React.useState("");
     const [email, setEmail] = React.useState("");
@@ -206,7 +203,7 @@ export default function ContactMe() {
                 </Box>
             </main>
             {/* Footer */}
-            <Footer linkedin_link={myData.linkedin_link} github_link={myData.github_link} />
+            <Footer />
             {/* End footer */}
         </Container >
     );
