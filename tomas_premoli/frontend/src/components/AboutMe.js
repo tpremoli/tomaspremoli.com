@@ -54,12 +54,21 @@ export default function AboutMe() {
                     }}
                 >
                     <Container maxWidth="sm">
+                        <Typography
+                            component="h1"
+                            variant="h2"
+                            align="center"
+                            color="text.primary"
+                            gutterBottom
+                        >
+                            About Me
+                        </Typography>
                     </Container>
                 </Box>
 
             </main>
             {/* Footer */}
-            <Footer />
+            <Footer linkedin_link={myData.linkedin_link}/>
             {/* End footer */}
         </Container >
     );

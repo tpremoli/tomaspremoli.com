@@ -200,7 +200,7 @@ export default function ContactMe() {
                 </Box>
             </main>
             {/* Footer */}
-            <Footer />
+            <Footer linkedin_link={myData.linkedin_link}/>
             {/* End footer */}
         </Container >
     );

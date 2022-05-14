@@ -85,7 +85,7 @@ export default function Home() {
 
             </main>
             {/* Footer */}
-            <Footer />
+            <Footer linkedin_link={myData.linkedin_link}/>
             {/* End footer */}
         </Container >
     );
