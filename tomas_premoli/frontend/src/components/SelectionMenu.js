@@ -19,7 +19,6 @@ const navigationLinks = [
     { name: "Home", to: "/" },
     { name: "About Me", to: "/about-me" },
     { name: "Portfolio", to: "/portfolio" },
-    // Make a main site w/ a pdf display
     { name: "Resume/CV", to: "/resume" },
     { name: "Contact Me", to: "/contact-me" },
 ]

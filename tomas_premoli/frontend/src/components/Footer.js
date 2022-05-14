@@ -1,10 +1,12 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import { Icon, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { Divider } from '@mui/material';
 
 function Copyright() {
     return (
@@ -27,24 +29,22 @@ export default function Footer() {
 
     return (
         < Box sx={{ bgcolor: 'background.paper', p: 6 }}
-            component="footer" >
-            <Typography variant="h6" align="center" gutterBottom>
-                Footer
-            </Typography>
-
-            <IconButton
-                align="center"
-                href={linkedin_link}
+            component="footer"  >
+            <Divider />
+            <Stack
+                sx={{ pt: 4 }}
+                direction="row"
+                spacing={0}
+                justifyContent="center"
             >
-                <LinkedInIcon />
-            </IconButton>
+                <IconButton align="center" href={myData.linkedin_link}>
+                    <LinkedInIcon />
+                </IconButton>
 
-            <IconButton
-                align="center"
-                href={github_link}
-            >
-                <GitHubIcon />
-            </IconButton>
+                <IconButton align="center" href={myData.github_link}>
+                    <GitHubIcon />
+                </IconButton>
+            </Stack>
 
             <Typography
                 variant="subtitle1"
@@ -52,8 +52,7 @@ export default function Footer() {
                 color="text.secondary"
                 component="p"
             >
-
-                Something here to give the footer a purpose!
+                I made this site!                
             </Typography>
             <Copyright />
         </Box>
