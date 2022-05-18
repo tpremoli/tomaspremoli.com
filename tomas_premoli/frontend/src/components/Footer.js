@@ -28,7 +28,7 @@ export default function Footer() {
     };
 
     return (
-        < Box sx={{ bgcolor: 'background.paper', p: 6 }}
+        < Box sx={{ bgcolor: 'background.paper', p: 6, pl: 0, pr: 0 }}
             component="footer"  >
             <Divider />
             <Stack
@@ -52,7 +52,7 @@ export default function Footer() {
                 color="text.secondary"
                 component="p"
             >
-                I made this site!                
+                I made this site!
             </Typography>
             <Copyright />
         </Box>

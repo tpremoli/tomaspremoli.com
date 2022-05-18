@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
+import Experiences from './Experiences';
 
 
 export default function Home() {
@@ -82,6 +83,8 @@ export default function Home() {
                         </Stack>
                     </Container>
                 </Box>
+
+                <Experiences />
 
             </main>
             {/* Footer */}
