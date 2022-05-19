@@ -40,7 +40,19 @@ export default function Experiences() {
         startDate: "June 2022", endDate: "Present",
         location: "Barcelona, Spain",
     }];
-    const myEducation = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const myEducation = [{
+        name: "University of Exeter",
+        title: "MSci Computer Science",
+        description: "List of stuff I did",
+        startDate: "September 2020", endDate: "Present",
+        location: "Exeter, England, United Kingdom",
+    }, {
+        name: "The American School of Barcelona",
+        title: "International Baccalaureate Diploma",
+        description: "List of stuff I did",
+        startDate: "September 2018", endDate: "June 2020",
+        location: "Barcelona, Spain",
+    },];
     const mySkills = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
     return (
@@ -125,11 +137,19 @@ export default function Experiences() {
                     {myEducation.map((card) => (
                         <CardContent sx={{ flexGrow: 1 }}>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Heading
+                                {card.name}
+                            </Typography>
+                            <Typography gutterBottom component="h2">
+                                {card.title}
                             </Typography>
                             <Typography>
-                                This is a media card. You can use this section to describe the
-                                content.
+                                {card.description}
+                            </Typography>
+                            <Typography sx={{ color: "gray" }}>
+                                {card.startDate} - {card.endDate}
+                            </Typography>
+                            <Typography sx={{ color: "gray" }}>
+                                {card.location}
                             </Typography>
                         </CardContent>
                     ))}
