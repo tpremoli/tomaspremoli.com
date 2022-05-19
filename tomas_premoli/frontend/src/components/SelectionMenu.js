@@ -85,7 +85,7 @@ export default function SelectionMenu(props) {
                 <List>
                     {navigationLinks.map((item, i) => (
                         <ListItem sx={{ width: "100%" }} key={i}>
-                            <Button sx={{ width: "100%", textAlign:"left" }}
+                            <Button sx={{ width: "100%", textAlign: "left" }}
                                 key={i}
                                 color="primary"
                                 variant="filled"
