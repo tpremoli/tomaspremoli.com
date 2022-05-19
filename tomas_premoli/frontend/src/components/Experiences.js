@@ -20,6 +20,7 @@ import SelectionMenu from './SelectionMenu';
 
 
 export default function Experiences() {
+    // Should just get all this in a big JSON from django
 
     const myExperiences = [{
         name: "Amazon",
@@ -28,17 +29,17 @@ export default function Experiences() {
         startDate: "June 2022", endDate: "Present",
         location: "Barcelona, Spain",
     }, {
-        name: "Amazon",
-        title: "Software Development Engineer",
-        description: "did SDE Stuff",
-        startDate: "June 2022", endDate: "Present",
+        name: "TeamEQ",
+        title: "Intern",
+        description: "what i did at teameq",
+        startDate: "Aug 2019", endDate: "1 mo",
         location: "Barcelona, Spain",
     }, {
-        name: "Amazon",
-        title: "Software Development Engineer",
-        description: "did SDE Stuff",
-        startDate: "June 2022", endDate: "Present",
-        location: "Barcelona, Spain",
+        name: "MSUCOM Medical Mission to Peru",
+        title: "Medical Translator",
+        description: "what i did at peru",
+        startDate: "Aug 2017", endDate: "1 mo",
+        location: "Iquitos, Peru",
     }];
     const myEducation = [{
         name: "University of Exeter",
@@ -53,7 +54,21 @@ export default function Experiences() {
         startDate: "September 2018", endDate: "June 2020",
         location: "Barcelona, Spain",
     },];
-    const mySkills = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const mySkills = [{
+        name: "Backend Development",
+        description: "List of Programming languages & skill levels",
+    }, {
+        name: "Frontend Development",
+        description: "List of Programming languages & skill levels",
+    }, {
+        name: "Languages",
+        description: "Fully fluent in both Spanish and English",
+    }, {
+        name: "Soft Skills",
+        description: "List of soft skills (good communicator etc)",
+    }];
+
+    // INCLUDE LOADING OF DATA FROM DB
 
     return (
         <Grid container spacing={4}
@@ -182,13 +197,12 @@ export default function Experiences() {
 
                     <Divider />
                     {mySkills.map((card) => (
-                        <CardContent >
+                        <CardContent sx={{ flexGrow: 1 }}>
                             <Typography gutterBottom variant="h5" component="h2">
-                                Heading
+                                {card.name}
                             </Typography>
                             <Typography>
-                                This is a media card. You can use this section to describe the
-                                content.
+                                {card.description}
                             </Typography>
                         </CardContent>
                     ))}
