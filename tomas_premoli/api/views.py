@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import generics
 from rest_framework.views import APIView
+from collections import OrderedDict
 
 from .models import ContactEntry, MyData, Experience, Education, Skills
 from .serializers import MyDataSerializer, ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer
@@ -22,20 +23,22 @@ class GetMyData(APIView):
 
 class GetEES(APIView):
     def get(self, request, format=None):
-        exps = Experience.objects.all()
+        exps = Experience.objects.order_by("-start_date")
         exps_data = ExperienceSerializer(exps, many=True).data
 
-        edcs = Education.objects.all()
+        edcs = Education.objects.order_by("-start_date")
         edcs_data = EducationSerializer(edcs, many=True).data
 
-        skills = Skills.objects.all()
+        skills = Skills.objects.order_by()
         skills_data = SkillsSerializer(skills, many=True).data
 
-        print(exps_data)
-        print(edcs_data)
-        print(skills_data)
+        data = OrderedDict({
+            'experiences': exps_data,
+            'education': edcs_data,
+            'skills': skills_data
+            })
 
-        return Response(exps_data, status=status.HTTP_200_OK)
+        return Response(data, status=status.HTTP_200_OK)
 
 
 class ContactMe(APIView):
