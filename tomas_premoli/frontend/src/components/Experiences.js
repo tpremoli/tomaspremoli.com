@@ -102,7 +102,7 @@ export default function Experiences() {
                                 {experience.description}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
-                                {experience.start_date} - {experience.end_date}
+                                {experience.start_date} - {experience.end_date} • {experience.duration}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
                                 {experience.location}

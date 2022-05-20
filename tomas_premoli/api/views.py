@@ -27,6 +27,9 @@ class GetEES(APIView):
         exps = Experience.objects.order_by("-start_date")
         exps_data = ExperienceSerializer(exps, many=True).data
 
+        # Formatting for date display
+        format = "%b %Y"
+
         # Adds duration for each experience in terms of Mos
         for exp in exps_data:
             # Adds indicator for if experience is ongoing
@@ -42,6 +45,9 @@ class GetEES(APIView):
                     exp["duration"] = "1 mo"
                 else:
                     exp["duration"] = str(duration) + " mos"
+
+                # Formatting date for display
+                exp["start_date"] = start_date.strftime(format)
             
             # Adds duration if not ongoing
             else:
@@ -54,6 +60,10 @@ class GetEES(APIView):
                     exp["duration"] = "1 mo"
                 else:
                     exp["duration"] = str(duration) + " mos"
+
+                # Formatting date for display
+                exp["start_date"] = start_date.strftime(format)
+                exp["end_date"] = end_date.strftime(format)
 
         edcs = Education.objects.order_by("-start_year")
         edcs_data = EducationSerializer(edcs, many=True).data
