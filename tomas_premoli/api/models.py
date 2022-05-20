@@ -46,3 +46,28 @@ class ContactEntry(models.Model):
     email = models.EmailField(default="", max_length=255)
     comment = models.TextField(default="", blank=True)
     
+
+class Experience(models.Model):
+    name = models.CharField(default="", max_length=255)
+    title = models.CharField(default="", max_length=255)
+    description = models.TextField(default="", blank=True)
+
+    start_date = models.DateField()
+    end_date = models.DateField(blank=True)
+
+    location = models.CharField(default="", max_length=255)
+
+class Education(models.Model):
+    name = models.CharField(default="", max_length=255)
+    title = models.CharField(default="", max_length=255)
+    description = models.TextField(default="", blank=True)
+
+    start_date = models.DateField()
+    end_date = models.DateField(blank=True)
+    
+    location = models.CharField(default="", max_length=255)
+
+class Skills(models.Model):
+    name = models.CharField(default="", max_length=255)
+    description = models.TextField(default="", blank=True)
+    

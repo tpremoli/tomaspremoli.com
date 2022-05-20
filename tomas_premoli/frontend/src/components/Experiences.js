@@ -102,22 +102,22 @@ export default function Experiences() {
 
                     <Divider />
 
-                    {myExperiences.map((card) => (
+                    {myExperiences.map((experience) => (
                         <CardContent sx={{ flexGrow: 1 }}>
                             <Typography gutterBottom variant="h5" component="h2">
-                                {card.name}
+                                {experience.name}
                             </Typography>
                             <Typography gutterBottom component="h2">
-                                {card.title}
+                                {experience.title}
                             </Typography>
                             <Typography>
-                                {card.description}
+                                {experience.description}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
-                                {card.startDate} - {card.endDate}
+                                {experience.startDate} - {experience.endDate}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
-                                {card.location}
+                                {experience.location}
                             </Typography>
                         </CardContent>
                     ))}
@@ -149,22 +149,22 @@ export default function Experiences() {
 
                     <Divider />
 
-                    {myEducation.map((card) => (
+                    {myEducation.map((education) => (
                         <CardContent sx={{ flexGrow: 1 }}>
                             <Typography gutterBottom variant="h5" component="h2">
-                                {card.name}
+                                {education.name}
                             </Typography>
                             <Typography gutterBottom component="h2">
-                                {card.title}
+                                {education.title}
                             </Typography>
                             <Typography>
-                                {card.description}
+                                {education.description}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
-                                {card.startDate} - {card.endDate}
+                                {education.startDate} - {education.endDate}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
-                                {card.location}
+                                {education.location}
                             </Typography>
                         </CardContent>
                     ))}
@@ -196,13 +196,13 @@ export default function Experiences() {
                     </CardContent>
 
                     <Divider />
-                    {mySkills.map((card) => (
+                    {mySkills.map((skill) => (
                         <CardContent sx={{ flexGrow: 1 }}>
                             <Typography gutterBottom variant="h5" component="h2">
-                                {card.name}
+                                {skill.name}
                             </Typography>
                             <Typography>
-                                {card.description}
+                                {skill.description}
                             </Typography>
                         </CardContent>
                     ))}
