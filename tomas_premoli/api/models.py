@@ -53,7 +53,7 @@ class Experience(models.Model):
     description = models.TextField(default="", blank=True)
 
     start_date = models.DateField()
-    end_date = models.DateField(blank=True)
+    end_date = models.DateField(null=True, blank=True)
 
     location = models.CharField(default="", max_length=255)
 
@@ -63,11 +63,10 @@ class Education(models.Model):
     description = models.TextField(default="", blank=True)
 
     start_date = models.DateField()
-    end_date = models.DateField(blank=True)
+    end_date = models.DateField(null=True, blank=True)
     
     location = models.CharField(default="", max_length=255)
 
 class Skills(models.Model):
     name = models.CharField(default="", max_length=255)
     description = models.TextField(default="", blank=True)
-    

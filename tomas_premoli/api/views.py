@@ -4,8 +4,8 @@ from rest_framework import status
 from rest_framework import generics
 from rest_framework.views import APIView
 
-from .models import ContactEntry, MyData
-from .serializers import MyDataSerializer, ContactEntrySerializer
+from .models import ContactEntry, MyData, Experience, Education, Skills
+from .serializers import MyDataSerializer, ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer
 
 # Create your views here.
 
@@ -20,6 +20,24 @@ class GetMyData(APIView):
         return Response(data, status=status.HTTP_200_OK)
 
 
+class GetEES(APIView):
+    def get(self, request, format=None):
+        exps = Experience.objects.all()
+        exps_data = ExperienceSerializer(exps, many=True).data
+
+        edcs = Education.objects.all()
+        edcs_data = EducationSerializer(edcs, many=True).data
+
+        skills = Skills.objects.all()
+        skills_data = SkillsSerializer(skills, many=True).data
+
+        print(exps_data)
+        print(edcs_data)
+        print(skills_data)
+
+        return Response(exps_data, status=status.HTTP_200_OK)
+
+
 class ContactMe(APIView):
     serializer_class = ContactEntrySerializer
 
@@ -31,7 +49,8 @@ class ContactMe(APIView):
             email = serializer.data.get("email")
             comment = serializer.data.get("comment")
 
-            contact_entry = ContactEntry(name=name, email=email, comment=comment)
+            contact_entry = ContactEntry(
+                name=name, email=email, comment=comment)
 
             contact_entry.save()
 
