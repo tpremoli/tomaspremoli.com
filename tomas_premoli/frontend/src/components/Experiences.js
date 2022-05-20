@@ -20,53 +20,41 @@ import SelectionMenu from './SelectionMenu';
 
 
 export default function Experiences() {
-    // Should just get all this in a big JSON from django
+    const [EES, setEES] = useState({});
+    const [isLoading, setLoading] = useState(true);
 
-    const myExperiences = [{
-        name: "Amazon",
-        title: "Software Development Engineer",
-        description: "did SDE Stuff",
-        startDate: "June 2022", endDate: "Present",
-        location: "Barcelona, Spain",
-    }, {
-        name: "TeamEQ",
-        title: "Intern",
-        description: "what i did at teameq",
-        startDate: "Aug 2019", endDate: "1 mo",
-        location: "Barcelona, Spain",
-    }, {
-        name: "MSUCOM Medical Mission to Peru",
-        title: "Medical Translator",
-        description: "what i did at peru",
-        startDate: "Aug 2017", endDate: "1 mo",
-        location: "Iquitos, Peru",
-    }];
-    const myEducation = [{
-        name: "University of Exeter",
-        title: "MSci Computer Science",
-        description: "List of stuff I did",
-        startDate: "September 2020", endDate: "Present",
-        location: "Exeter, England, United Kingdom",
-    }, {
-        name: "The American School of Barcelona",
-        title: "International Baccalaureate Diploma",
-        description: "List of stuff I did",
-        startDate: "September 2018", endDate: "June 2020",
-        location: "Barcelona, Spain",
-    },];
-    const mySkills = [{
-        name: "Backend Development",
-        description: "List of Programming languages & skill levels",
-    }, {
-        name: "Frontend Development",
-        description: "List of Programming languages & skill levels",
-    }, {
-        name: "Languages",
-        description: "Fully fluent in both Spanish and English",
-    }, {
-        name: "Soft Skills",
-        description: "List of soft skills (good communicator etc)",
-    }];
+    useEffect(() => {
+        getAllNodes();
+    }, []);
+
+    const getAllNodes = () => {
+        fetch("./api/get-ees?format=json")
+            .then(response => response.json())
+            .then((data) => {
+                setEES(data);
+                setLoading(false);
+            });
+    };
+
+    if (isLoading) {
+        return (
+            <Grid container spacing={4}
+                justifyContent="center"
+                alignItems="center"
+            >
+                <Box sx={{
+                    display: 'flex', alignItems: "center",
+                    justifyContent: "center", height: "100%", width: "100%",
+                }}>
+                    <CircularProgress sx={{ display: 'flex', alignSelf: "center" }} />
+                </Box>
+            </Grid>
+        );
+    }
+
+    const myExperiences = EES.experiences;
+    const myEducation = EES.education;
+    const mySkills = EES.skills;
 
     // INCLUDE LOADING OF DATA FROM DB
 
@@ -114,7 +102,7 @@ export default function Experiences() {
                                 {experience.description}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
-                                {experience.startDate} - {experience.endDate}
+                                {experience.start_date} - {experience.end_date}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
                                 {experience.location}
@@ -161,7 +149,7 @@ export default function Experiences() {
                                 {education.description}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
-                                {education.startDate} - {education.endDate}
+                                {education.start_year} - {education.end_year}
                             </Typography>
                             <Typography sx={{ color: "gray" }}>
                                 {education.location}

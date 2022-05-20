@@ -62,8 +62,8 @@ class Education(models.Model):
     title = models.CharField(default="", max_length=255)
     description = models.TextField(default="", blank=True)
 
-    start_date = models.DateField()
-    end_date = models.DateField(null=True, blank=True)
+    start_year = models.IntegerField()
+    end_year = models.IntegerField()
     
     location = models.CharField(default="", max_length=255)
 
