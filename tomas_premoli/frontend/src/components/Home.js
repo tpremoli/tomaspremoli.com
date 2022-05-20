@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
@@ -38,8 +39,6 @@ export default function Home() {
             </Box >
         );
     }
-
-    console.log(myData);
 
     return (
         <Container disableGutters maxWidth={false}>
@@ -83,8 +82,35 @@ export default function Home() {
                         </Stack>
                     </Container>
                 </Box>
-
+                
                 <Experiences />
+
+                <Box
+                    sx={{
+                        bgcolor: 'background.paper',
+                        pt: 8,
+                        pb: 6,
+                    }}
+                >
+                    <Container maxWidth="sm">
+                        <Typography variant="h5" align="center" paragraph>
+                            Interested in my skill set? Reach out!
+                        </Typography>
+                        <Stack
+                            sx={{ pt: 2 }}
+                            direction="row"
+                            spacing={2}
+                            justifyContent="center"
+                        >
+                            <Button to="/resume" component={Link} variant="contained">My Resume</Button>
+                            <Button to="/contact-me" component={Link} variant="contained">Contact Me</Button>
+                        </Stack>
+
+                        <Typography spacing={2} sx={{ pt: 8 }} variant="h5" align="center" color="text.secondary" paragraph>
+                            Not convinced? Check out my <Link to="/portfolio">Portfolio</Link>
+                        </Typography>
+                    </Container>
+                </Box>
 
             </main>
             {/* Footer */}

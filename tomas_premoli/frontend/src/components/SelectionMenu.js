@@ -43,6 +43,7 @@ export default function SelectionMenu(props) {
                     }}>
                     {navigationLinks.map((item) => (
                         <Button
+                            key={"horz" + item.name}
                             color="primary"
                             variant="filled"
                             to={item.to}

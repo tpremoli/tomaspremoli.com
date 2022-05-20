@@ -91,28 +91,24 @@ export default function Experiences() {
                     <Divider />
 
                     {myExperiences.map((experience) => (
-                        <CardContent sx={{ flexGrow: 1 }}>
-                            <Typography gutterBottom variant="h5" component="h2">
+                        <CardContent sx={{ flexGrow: 1 }} key={"exp" + experience.id}>
+                            <Typography gutterBottom variant="h5" component="h2" key={"expname" + experience.id}>
                                 {experience.name}
                             </Typography>
-                            <Typography gutterBottom component="h2">
+                            <Typography gutterBottom component="h2" key={"exptitle" + experience.id}>
                                 {experience.title}
                             </Typography>
-                            <Typography>
+                            <Typography key={"expdesc" + experience.id}>
                                 {experience.description}
                             </Typography>
-                            <Typography sx={{ color: "gray" }}>
+                            <Typography sx={{ color: "gray" }} key={"expdate" + experience.id}>
                                 {experience.start_date} - {experience.end_date} • {experience.duration}
                             </Typography>
-                            <Typography sx={{ color: "gray" }}>
+                            <Typography sx={{ color: "gray" }} key={"exploc" + experience.id}>
                                 {experience.location}
                             </Typography>
                         </CardContent>
                     ))}
-                    <CardActions>
-                        <Button size="small">View</Button>
-                        <Button size="small">Edit</Button>
-                    </CardActions>
                 </Card>
 
                 <Card
@@ -138,28 +134,24 @@ export default function Experiences() {
                     <Divider />
 
                     {myEducation.map((education) => (
-                        <CardContent sx={{ flexGrow: 1 }}>
-                            <Typography gutterBottom variant="h5" component="h2">
+                        <CardContent sx={{ flexGrow: 1 }} key={"edu" + education.id}>
+                            <Typography gutterBottom variant="h5" component="h2" key={"eduname" + education.id}>
                                 {education.name}
                             </Typography>
-                            <Typography gutterBottom component="h2">
+                            <Typography gutterBottom component="h2" key={"edutitle" + education.id}>
                                 {education.title}
                             </Typography>
-                            <Typography>
+                            <Typography key={"edu" + education.id}>
                                 {education.description}
                             </Typography>
-                            <Typography sx={{ color: "gray" }}>
+                            <Typography sx={{ color: "gray" }} key={"eduyear" + education.id}>
                                 {education.start_year} - {education.end_year}
                             </Typography>
-                            <Typography sx={{ color: "gray" }}>
+                            <Typography sx={{ color: "gray" }} key={"eduloc" + education.id}>
                                 {education.location}
                             </Typography>
                         </CardContent>
                     ))}
-                    <CardActions>
-                        <Button size="small">View</Button>
-                        <Button size="small">Edit</Button>
-                    </CardActions>
                 </Card>
 
 
@@ -185,19 +177,15 @@ export default function Experiences() {
 
                     <Divider />
                     {mySkills.map((skill) => (
-                        <CardContent sx={{ flexGrow: 1 }}>
-                            <Typography gutterBottom variant="h5" component="h2">
+                        <CardContent sx={{ flexGrow: 1 }} key={"skill" + skill.id}>
+                            <Typography gutterBottom variant="h5" component="h2" key={"skillname" + skill.id}>
                                 {skill.name}
                             </Typography>
-                            <Typography>
+                            <Typography key={"skilldesc" + skill.id}>
                                 {skill.description}
                             </Typography>
                         </CardContent>
                     ))}
-                    <CardActions>
-                        <Button size="small">View</Button>
-                        <Button size="small">Edit</Button>
-                    </CardActions>
                 </Card>
             </Grid>
         </Grid >
