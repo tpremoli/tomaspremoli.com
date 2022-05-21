@@ -31,7 +31,7 @@ export default function SelectionMenu(props) {
         <AppBar position="relative" sx={{ flexDirection: "column", flexWrap: "wrap" }} >
             <Toolbar disableGutters>
                 <Box sx={{ align: "flex-start", flex: 1 }} >
-                    <TPSVG width={"36px"} height={"36px"} m={"15px"} mb={"7px"} />
+                    <TPSVG width={"36px"} height={"36px"} m={"15px"} mb={"7px"}/>
                 </Box>
 
                 <Typography variant="h6" color="inherit" noWrap>

@@ -29,6 +29,7 @@ export default function Home() {
             });
     };
 
+
     if (isLoading) {
         return (
             <Box sx={{
@@ -55,7 +56,22 @@ export default function Home() {
                         pb: 6,
                     }}
                 >
-                    <Container maxWidth="sm">
+                    <Container maxWidth="lg">
+
+                        <Box sx={{
+                            textAlign: "center",
+                        }}>
+                            <img
+                                style={{
+                                    borderRadius: "50%",
+                                    // width: "50%",
+                                    maxWidth: "90%",
+                                    height: "auto",
+                                }}
+                                alt="Me"
+                                src="./api/media/me/pic.jpg">
+                            </img>
+                        </Box>
                         <Typography
                             component="h1"
                             variant="h2"
@@ -66,23 +82,23 @@ export default function Home() {
                             Tomas Premoli
                         </Typography>
                         <Typography variant="h5" align="center" color="text.secondary" paragraph>
-                            Hello!
-                            Something about my name is Tomas Premoli and what i do.
-                            Add a funky pic of me to the right here.
-                            Format to allow for newlines.
+                            Hello! Welcome to my site.<br></br>
+                            My name is Tomas Premoli and I am a Computer Science master's student and Software Developer.<br></br>
+                            I love to code and I'm always happy to learn new things.<br></br>
+                            Feel free to check out some of my <Link to="/portfolio">projects</Link>, and let me know what you think.<br></br>
                         </Typography>
-                        <Stack
+                        {/* <Stack
                             sx={{ pt: 4 }}
                             direction="row"
                             spacing={2}
                             justifyContent="center"
                         >
-                            <Button href={myData.github_link} variant="contained">My Github</Button>
-                            <Button href={myData.linkedin_link} variant="outlined">My LinkedIn</Button>
-                        </Stack>
+                            <Button href={"https://github.com/tpremoli"} variant="contained">My Github</Button>
+                            <Button href={"https://www.linkedin.com/in/tomas-premoli-008016144/"} variant="outlined">My LinkedIn</Button>
+                        </Stack> */}
                     </Container>
                 </Box>
-                
+
                 <Experiences />
 
                 <Box
