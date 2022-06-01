@@ -61,7 +61,7 @@ class MyData(models.Model):
         except Exception as e:
             print(e)
         print(self.pic.name)
-        super(MyData, self).save()
+        super(MyData, self).save(*args, **kwargs)
         print(self.pic.name)
 
 
