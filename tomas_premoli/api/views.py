@@ -7,7 +7,7 @@ from collections import OrderedDict
 import datetime
 
 from .models import ContactEntry, MyData, Experience, Education, PortfolioEntry, Skills, PortfolioEntryPictures
-from .serializers import MyDataSerializer, ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer, PortfolioPicturesSerializer
+from .serializers import MyDataSerializer, ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer, PortfolioSerializer, PortfolioPicturesSerializer
 
 # Create your views here.
 
@@ -82,11 +82,11 @@ class GetEES(APIView):
 
 # APIView to get Portfilio entries
 class GetPortfolio(APIView):
-    serializer_class = MyDataSerializer
+    serializer_class = PortfolioSerializer
     
     def get(self, request, format=None):
         queryset = PortfolioEntry.objects.all()
-        data = MyDataSerializer(queryset, many=True).data
+        data = PortfolioSerializer(queryset, many=True).data
         return Response(data, status=status.HTTP_200_OK)
 
 # APIView to get Portfilio entry pics

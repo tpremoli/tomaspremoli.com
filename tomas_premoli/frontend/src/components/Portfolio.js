@@ -11,7 +11,7 @@ import SelectionMenu from './SelectionMenu';
 
 
 export default function Portfolio() {
-    const [myData, setMyData] = useState({});
+    const [portfolioEntries, setPortfolioEntries] = useState({});
     const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -19,10 +19,10 @@ export default function Portfolio() {
     }, []);
 
     const getAllNodes = () => {
-        fetch("./api/my-data?format=json")
+        fetch("./api/portfolio-entries?format=json")
             .then(response => response.json())
             .then((data) => {
-                setMyData(data);
+                setPortfolioEntries(data);
                 setLoading(false);
             });
     };
@@ -38,7 +38,7 @@ export default function Portfolio() {
         );
     }
 
-    console.log(myData);
+    console.log(portfolioEntries);
 
     return (
         <Container disableGutters maxWidth={false}>
