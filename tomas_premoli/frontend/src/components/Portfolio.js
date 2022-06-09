@@ -8,38 +8,10 @@ import Container from '@mui/material/Container';
 import CircularProgress from '@mui/material/CircularProgress';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
+import PortfolioEntries from "./PortfolioEntries";
 
 
 export default function Portfolio() {
-    const [portfolioEntries, setPortfolioEntries] = useState({});
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        getAllNodes();
-    }, []);
-
-    const getAllNodes = () => {
-        fetch("./api/portfolio-entries?format=json")
-            .then(response => response.json())
-            .then((data) => {
-                setPortfolioEntries(data);
-                setLoading(false);
-            });
-    };
-
-    if (isLoading) {
-        return (
-            <Box sx={{
-                display: 'flex', alignItems: "center",
-                justifyContent: "center", height: "100%", width: "100%",
-            }}>
-                <CircularProgress sx={{ display: 'flex', alignSelf: "center" }} />
-            </Box >
-        );
-    }
-
-    console.log(portfolioEntries);
-
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
@@ -67,6 +39,8 @@ export default function Portfolio() {
                         </Typography>
                     </Container>
                 </Box>
+
+                <PortfolioEntries />
 
             </main>
             {/* Footer */}
