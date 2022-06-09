@@ -66,7 +66,10 @@ class MyData(models.Model):
 
 
 class PortfolioEntry(models.Model):
-    thumbnailpic = models.ImageField()
+    def rename_pic(instance, filename):
+        return os.path.join("api/media/portfolio/", filename)
+
+    thumbnailpic = models.ImageField(upload_to=rename_pic)
 
     title = models.CharField(default="title", max_length=255)
     blurb = models.TextField(default="blurb")
@@ -76,6 +79,44 @@ class PortfolioEntry(models.Model):
     date_created = models.DateField()
 
     github_link = models.CharField(default="", max_length=255)
+
+    # overrides image data to be compressed
+    def save(self, *args, **kwargs):
+        try:
+            # Opening the uploaded image
+            img = Image.open(self.thumbnailpic)
+            output = BytesIO()
+            # Resize/modify the image
+            width, height = img.size
+
+            offset = int(abs(height-width)/2)
+
+            # This crops the image into a square depending if portrait or landscape
+            if width == height:
+                pass
+            elif width > height:
+                img = img.crop([offset, 0, width-offset, height])
+            else:
+                img = img.crop([0, offset, width, height-offset])
+
+            img = img.resize((400, 400))
+
+            img = img.convert('RGB')
+            # after modifications, save it to the output
+            img.save(output, format='JPEG')
+            output.seek(0)
+
+            filename = self.id + "thumb.jpg"
+
+            # Set field to modified picture
+            self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', filename,
+                                            'image/jpeg', sys.getsizeof(output), None)
+        except Exception as e:
+            print(e)
+        
+        print(self.thumbnailpic.name)
+        super(PortfolioEntry, self).save(args, kwargs)
+        print(self.thumbnailpic.name)
 
 
 class PortfolioEntryPictures(models.Model):

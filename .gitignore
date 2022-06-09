@@ -5,7 +5,9 @@ tomas_premoli/api/__pycache__
 tomas_premoli/api/migrations/__pycache__
 
 tomas_premoli/api/media/me/
+tomas_premoli/api/media/portfolio/
 
 tomas_premoli/frontend/__pycache__
 tomas_premoli/frontend/migrations/__pycache__
 tomas_premoli/frontend/node_modules
+

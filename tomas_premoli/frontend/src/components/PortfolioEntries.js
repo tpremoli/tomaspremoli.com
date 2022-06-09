@@ -57,8 +57,8 @@ export default function PortfolioEntries() {
     return (
         <Container sx={{ py: 8 }} maxWidth="md">
             <Grid container spacing={4}>
-                {[1, 2, 3, 4, 5, 6].map((entry) => (
-                    <Grid item key={entry} xs={12} sm={6} md={4}>
+                {portfolioEntries.map((entry) => (
+                    <Grid item key={entry.id} xs={12} sm={6} md={4}>
                         <Card
                             sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                         >
@@ -66,9 +66,9 @@ export default function PortfolioEntries() {
                                 component="img"
                                 sx={{
                                     // 16:9
-                                    pt: '56.25%',
+                                    // pt: '56.25%',
                                 }}
-                                image="https://source.unsplash.com/random"
+                                image={entry.thumbnailpic}
                                 alt="random"
                             />
                             <CardContent sx={{ flexGrow: 1 }}>
