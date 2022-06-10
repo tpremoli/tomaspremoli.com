@@ -16,43 +16,47 @@ export default function PortfolioCard(props) {
     const [isHovering, setHovering] = React.useState(false);
 
     return (
-        <Grid item key={"grid" + props.entry.id} xs={12} sm={6} md={4}>
+        <Grid item key={"grid" + props.entry.id} xs={12} sm={6} md={4}
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+        >
             <Card
-                key={"card" + props.entry.id}
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
-                <CardActionArea
-                    key={"actionarea" + props.entry.id}
-                >
-                    <CardMedia
-                        key={"media" + props.entry.id}
-                        component="img"
-                        image={props.entry.thumbnailpic}
-                        alt="random"
-                    />
-                    <CardContent
-                        key={"content" + props.entry.id}
+                <CardActionArea >
+                    {isHovering ?
+                        <CardMedia
+                            component="img"
+                            image={props.entry.thumbnailpic}
+                            sx={{ filter: "brightness(50%)" }}
+                        />
+                        :
+                        <CardMedia
+                            component="img"
+                            image={props.entry.thumbnailpic}
+                        />
+                    }
+                    {isHovering ? <CardContent
                         sx={{
                             position: 'absolute',
                             color: 'white',
                             top: 8,
-                            display: { isHovering },
                         }}>
-                        <Typography gutterBottom variant="h5" component="h2" key={"title" + props.entry.id}>
+                        <Typography gutterBottom variant="h5" component="h2" >
                             {props.entry.title}
                         </Typography>
-                        <Typography key={"blurb" + props.entry.id}>
+                        <Typography >
                             {props.entry.blurb}
                         </Typography>
-                        <IconButton align="center" href={props.entry.github_link} key={"git" + props.entry.id}>
-                            <GitHubIcon key={"giticon" + props.entry.id} />
+                        <IconButton align="center" href={props.entry.github_link} >
+                            <GitHubIcon />
                         </IconButton>
                         {props.entry.link !== "" &&
-                            <IconButton align="center" href={props.entry.link} key={"link" + props.entry.id}>
-                                <LinkIcon key={"linkicon" + props.entry.id}/>
+                            <IconButton align="center" href={props.entry.link} >
+                                <LinkIcon />
                             </IconButton>
                         }
-                    </CardContent>
+                    </CardContent> : null}
                 </CardActionArea>
             </Card>
             {/* Card that has information appear on mouseover */}

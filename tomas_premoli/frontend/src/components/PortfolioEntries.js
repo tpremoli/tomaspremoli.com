@@ -32,7 +32,7 @@ export default function PortfolioEntries() {
             <Container sx={{ py: 8 }} maxWidth="xl">
                 <Grid container spacing={4}>
                     {[1, 2, 3, 4, 5, 6].map((entry) => (
-                        <Grid item key={entry.id} xs={12} sm={6} md={4}>
+                        <Grid item key={"loading"+entry} xs={12} sm={6} md={4}>
                             <Card
                                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
                             >
@@ -70,7 +70,7 @@ export default function PortfolioEntries() {
         <Container sx={{ py: 8 }} maxWidth="xl">
             <Grid container spacing={4}>
                 {portfolioEntries.map((entry) => (
-                    <PortfolioCard entry={entry} key={"portfolioentry" + entry.id}/>
+                    <PortfolioCard entry={entry} key={entry.id.toString()} />
                 ))}
             </Grid>
         </Container >
