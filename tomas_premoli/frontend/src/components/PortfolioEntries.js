@@ -70,7 +70,7 @@ export default function PortfolioEntries() {
         <Container sx={{ py: 8 }} maxWidth="xl">
             <Grid container spacing={4}>
                 {portfolioEntries.map((entry) => (
-                    <PortfolioCard entry={entry} />
+                    <PortfolioCard entry={entry} key={"portfolioentry" + entry.id}/>
                 ))}
             </Grid>
         </Container >
