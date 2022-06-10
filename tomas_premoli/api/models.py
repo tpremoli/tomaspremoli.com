@@ -79,6 +79,7 @@ class PortfolioEntry(models.Model):
     date_created = models.DateField()
 
     github_link = models.CharField(default="", max_length=255)
+    link = models.CharField(default="", max_length=255)
 
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
