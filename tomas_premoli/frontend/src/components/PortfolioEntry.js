@@ -5,9 +5,12 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { Icon, IconButton } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
+import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { useTheme } from '@mui/material/styles';
 
 
 export default function PortfolioEntry(props) {
@@ -21,16 +24,40 @@ export default function PortfolioEntry(props) {
         }
     }, [props.open]);
 
+    const theme = useTheme();
+    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
         <div>
             <Dialog
+                maxWidth="md"
+                fullScreen={fullScreen}
                 open={props.open}
                 onClose={() => { props.setOpen(false) }}
                 scroll="body"
                 aria-labelledby="scroll-dialog-title"
                 aria-describedby="scroll-dialog-description"
             >
-                <DialogTitle id="scroll-dialog-title">Subscribe</DialogTitle>
+                <DialogTitle id="scroll-dialog-title" sx={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                }}>
+                    {props.entry.title}
+                    <IconButton onClick={() => { props.setOpen(false) }}>
+                        <CloseIcon />
+                    </IconButton>
+                </DialogTitle>
+
+                <DialogContent divider />
+
+                {/* Top is video */}
+                {/* Then is quick links (github, link to use) */}
+                {/* Then is thorough description */}
+                {/* Then is technologies used in list */}
+                {/* Then is screenshots (https://mui.com/material-ui/react-image-list/) */}
+                {/* Then is button links (github, link to use) */}
+
                 <DialogContent dividers={scroll === 'paper'}>
                     <DialogContentText
                         id="scroll-dialog-description"
@@ -45,15 +72,6 @@ export default function PortfolioEntry(props) {
                                 <LinkIcon sx={{ color: "white" }} />
                             </IconButton>
                         } */}
-
-                        {[...new Array(50)]
-                            .map(
-                                () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-                            )
-                            .join('\n')}
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
@@ -61,6 +79,6 @@ Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
                     <Button onClick={() => { props.setOpen(false) }}>Subscribe</Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </div >
     );
 }
