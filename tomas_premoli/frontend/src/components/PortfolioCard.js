@@ -7,13 +7,11 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardMedia from '@mui/material/CardMedia';
-import { Icon, IconButton } from '@mui/material';
-import LinkIcon from '@mui/icons-material/Link';
-import GitHubIcon from '@mui/icons-material/GitHub';
-
+import PortfolioEntry from './PortfolioEntry';
 
 export default function PortfolioCard(props) {
     const [isHovering, setHovering] = React.useState(false);
+    const [isOpen, setOpen] = React.useState(false);
 
     return (
         <Grid item key={"grid" + props.entry.id} xs={12} sm={6} md={4}
@@ -23,7 +21,7 @@ export default function PortfolioCard(props) {
             <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
-                <CardActionArea href={isHovering ? props.entry.github_link : null} >
+                <CardActionArea onClick={isHovering ? () => { setOpen(true) } : null} >
                     <CardMedia
                         component="img"
                         image={props.entry.thumbnailpic}
@@ -41,16 +39,9 @@ export default function PortfolioCard(props) {
                         <Typography >
                             {props.entry.blurb}
                         </Typography>
-                        {/* <IconButton align="center" href={props.entry.github_link} >
-                            <GitHubIcon sx={{ color: "white" }} />
-                        </IconButton>
-                        {props.entry.link !== "" &&
-                            <IconButton align="center" href={props.entry.link} >
-                                <LinkIcon sx={{ color: "white" }} />
-                            </IconButton>
-                        } */}
                     </CardContent> : null}
                 </CardActionArea>
+                <PortfolioEntry entry={props.entry} open={isOpen} setOpen={setOpen} />
             </Card>
         </Grid >
     );
