@@ -89,24 +89,33 @@ class PortfolioEntry(models.Model):
             # Resize/modify the image
             width, height = img.size
 
-            offset = int(abs(height-width)/2)
+            aspect = width / float(height)
 
-            # This crops the image into a square depending if portrait or landscape
-            if width == height:
-                pass
-            elif width > height:
-                img = img.crop([offset, 0, width-offset, height])
+            # Crop image into aspect ratio 3:2
+            ideal_width = 450
+            ideal_height = 300
+
+            ideal_aspect = ideal_width / float(ideal_height)
+
+            if aspect > ideal_aspect:
+            # Then crop the left and right edges:
+                new_width = int(ideal_aspect * height)
+                offset = (width - new_width) / 2
+                resize = (offset, 0, width - offset, height)
             else:
-                img = img.crop([0, offset, width, height-offset])
+                # ... crop the top and bottom:
+                new_height = int(width / ideal_aspect)
+                offset = (height - new_height) / 2
+                resize = (0, offset, width, height - offset)
 
-            img = img.resize((400, 400))
+            img = img.crop(resize).resize((ideal_width, ideal_height), Image.ANTIALIAS)
 
             img = img.convert('RGB')
             # after modifications, save it to the output
             img.save(output, format='JPEG')
             output.seek(0)
 
-            filename = self.id + "thumb.jpg"
+            filename = str(self.id) + "thumb.jpg"
 
             # Set field to modified picture
             self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', filename,
