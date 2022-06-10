@@ -23,19 +23,12 @@ export default function PortfolioCard(props) {
             <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
             >
-                <CardActionArea >
-                    {isHovering ?
-                        <CardMedia
-                            component="img"
-                            image={props.entry.thumbnailpic}
-                            sx={{ filter: "brightness(50%)" }}
-                        />
-                        :
-                        <CardMedia
-                            component="img"
-                            image={props.entry.thumbnailpic}
-                        />
-                    }
+                <CardActionArea href={isHovering ? props.entry.github_link : null} >
+                    <CardMedia
+                        component="img"
+                        image={props.entry.thumbnailpic}
+                        sx={isHovering ? { filter: "brightness(50%)" } : null}
+                    />
                     {isHovering ? <CardContent
                         sx={{
                             position: 'absolute',
@@ -48,18 +41,17 @@ export default function PortfolioCard(props) {
                         <Typography >
                             {props.entry.blurb}
                         </Typography>
-                        <IconButton align="center" href={props.entry.github_link} >
-                            <GitHubIcon />
+                        {/* <IconButton align="center" href={props.entry.github_link} >
+                            <GitHubIcon sx={{ color: "white" }} />
                         </IconButton>
                         {props.entry.link !== "" &&
                             <IconButton align="center" href={props.entry.link} >
-                                <LinkIcon />
+                                <LinkIcon sx={{ color: "white" }} />
                             </IconButton>
-                        }
+                        } */}
                     </CardContent> : null}
                 </CardActionArea>
             </Card>
-            {/* Card that has information appear on mouseover */}
         </Grid >
     );
 }
