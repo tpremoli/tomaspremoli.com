@@ -69,12 +69,20 @@ class PortfolioEntry(models.Model):
     def rename_pic(instance, filename):
         return os.path.join("api/media/portfolio/", filename)
 
+    # These are used in small card display
     thumbnailpic = models.ImageField(upload_to=rename_pic)
 
     title = models.CharField(default="title", max_length=255)
-    blurb = models.TextField(default="blurb")
-    technologies_used = models.CharField(
-        default="Javascript, HTML", max_length=255)
+    blurb = models.CharField(default="blurb", max_length=255)
+
+    # These are used in detailed display
+    video = models.FileField(default="")
+
+    description = models.TextField(default="description")
+
+    # Store as string version of a list of strings
+    # i.e "['Javascript','HTML','Python']" etc
+    technologies_used = models.TextField(default="")
 
     date_created = models.DateField()
 
