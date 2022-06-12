@@ -64,8 +64,6 @@ export default function PortfolioEntries() {
         );
     }
 
-    console.log(portfolioEntries);
-
     return (
         <Container sx={{ py: 8 }} maxWidth="xl">
             <Grid container spacing={4}>

@@ -6,12 +6,12 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import { Icon, IconButton } from '@mui/material';
+import { Icon, IconButton, Typography } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
 import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTheme } from '@mui/material/styles';
-
+import { Divider } from '@mui/material';
 
 export default function PortfolioEntry(props) {
     const descriptionElementRef = React.useRef(null);
@@ -27,6 +27,15 @@ export default function PortfolioEntry(props) {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
+    var videoFileName = "";
+    var videoFileType = "";
+    if (props.entry.video !== null) {
+        videoFileName = props.entry.video;
+        console.log(props.entry);
+        const split = videoFileName.split(".");
+        videoFileType = split[split.length - 1];
+    }
+
     return (
         <div>
             <Dialog
@@ -38,18 +47,20 @@ export default function PortfolioEntry(props) {
                 aria-labelledby="scroll-dialog-title"
                 aria-describedby="scroll-dialog-description"
             >
-                <DialogTitle id="scroll-dialog-title" sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                }}>
+                <DialogTitle id="scroll-dialog-title"
+                    variant="h3" component="h3" color="black" sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                    }}
+                >
                     {props.entry.title}
                     <IconButton onClick={() => { props.setOpen(false) }}>
                         <CloseIcon />
                     </IconButton>
                 </DialogTitle>
 
-                <DialogContent divider />
+                <Divider />
 
                 {/* Top is video */}
                 {/* Then is quick links (github, link to use) */}
@@ -57,6 +68,24 @@ export default function PortfolioEntry(props) {
                 {/* Then is technologies used in list */}
                 {/* Then is screenshots (https://mui.com/material-ui/react-image-list/) */}
                 {/* Then is button links (github, link to use) */}
+
+                <DialogContent>
+                    <DialogContentText
+                        id="scroll-dialog-description"
+                        ref={descriptionElementRef}
+                        tabIndex={-1}
+                        gutterBottom
+                        variant="h6" component="h2" color="black"
+                    >
+                        {props.entry.blurb}
+                    </DialogContentText>
+                    {props.entry.video !== null ?
+                        <video width="100%" height="auto" controls>
+                            <source src={videoFileName} type={"video/" + videoFileType}></source>
+                        </video>
+                        : null}
+
+                </DialogContent>
 
                 <DialogContent dividers={scroll === 'paper'}>
                     <DialogContentText
