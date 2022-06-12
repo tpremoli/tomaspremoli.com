@@ -69,6 +69,10 @@ class PortfolioEntry(models.Model):
     def rename_pic(instance, filename):
         return os.path.join("api/media/portfolio/", filename)
 
+    def rename_vid(instance, filename):
+        ext = filename.split('.')[-1].lower()
+        return os.path.join("api/media/portfolio/", str(instance.id) + "video." + ext)
+
     # These are used in small card display
     thumbnailpic = models.ImageField(upload_to=rename_pic)
 
@@ -76,7 +80,7 @@ class PortfolioEntry(models.Model):
     blurb = models.CharField(default="blurb", max_length=255)
 
     # These are used in detailed display
-    video = models.FileField(default="")
+    video = models.FileField(default="", blank=True, upload_to=rename_vid)
 
     description = models.TextField(default="description")
 
@@ -86,8 +90,8 @@ class PortfolioEntry(models.Model):
 
     date_created = models.DateField()
 
-    github_link = models.CharField(default="", max_length=255)
-    link = models.CharField(default="", max_length=255)
+    github_link = models.CharField(default="", blank=True, max_length=255)
+    link = models.CharField(default="", blank=True, max_length=255)
 
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
@@ -132,9 +136,9 @@ class PortfolioEntry(models.Model):
         except Exception as e:
             print(e)
         
-        print(self.thumbnailpic.name)
+        # print(self.thumbnailpic.name)
         super(PortfolioEntry, self).save(args, kwargs)
-        print(self.thumbnailpic.name)
+        # print(self.thumbnailpic.name)
 
 
 class PortfolioEntryPictures(models.Model):
