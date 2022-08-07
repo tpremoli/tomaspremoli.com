@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Icon, IconButton, Typography } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
@@ -23,8 +23,10 @@ export default function PortfolioEntry(props) {
             if (descriptionElement !== null) {
                 descriptionElement.focus();
             }
+            getPictures();
         }
     }, [props.open]);
+    const [pictures, setPictures] = useState([]);
 
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -37,6 +39,16 @@ export default function PortfolioEntry(props) {
         const split = videoFileName.split(".");
         videoFileType = split[split.length - 1];
     }
+
+    const getPictures = () => {
+        const req = "./api/portfolio-pictures?format=json&?id=" + props.entry.id;
+        fetch(req)
+            .then(response => response.json())
+            .then((data) => {
+                setPictures(data);
+            });
+    };
+
 
     return (
         <div>
@@ -66,8 +78,7 @@ export default function PortfolioEntry(props) {
 
                 {/* Top is video */}
                 {/* Then is quick links (github, link to use) */}
-                {/* Then is thorough description */}
-                {/* Then is technologies used in list */}
+                {/* Then is thorough description (MARKDOWN SUPPORT) */}
                 {/* Then is screenshots (https://mui.com/material-ui/react-image-list/) */}
                 {/* Then is button links (github, link to use) */}
 
@@ -106,10 +117,24 @@ export default function PortfolioEntry(props) {
                         gutterBottom
                     >{props.entry.description}</ReactMarkdown>
                 </DialogContent>
-                <DialogActions>
-                    <Button onClick={() => { props.setOpen(false) }}>Cancel</Button>
-                    <Button onClick={() => { props.setOpen(false) }}>Subscribe</Button>
-                </DialogActions>
+
+
+
+                <Box
+                    display="flex"
+                    justifyContent="flex-end"
+                    alignItems="flex-end"
+                    sx={{ m: 1 }}
+                >
+                    <IconButton href={props.entry.github_link}>
+                        <GitHubIcon sx={{ color: "black" }} />
+                    </IconButton>
+                    {props.entry.link !== "" &&
+                        <IconButton href={props.entry.link} >
+                            <LinkIcon sx={{ color: "black" }} />
+                        </IconButton>
+                    }
+                </Box>
             </Dialog>
         </div >
     );

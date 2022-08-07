@@ -94,9 +94,12 @@ class GetPortfolioPics(APIView):
     serializer_class = PortfolioPicturesSerializer
     
     def get(self, request, format=None):
-        queryset = PortfolioEntryPictures.objects.all()
-        data = PortfolioPicturesSerializer(queryset, many=True).data
-        return Response(data, status=status.HTTP_200_OK)
+        if PortfolioEntry.objects.filter(id = self.request.query_params.get('id')).exists():
+            queryset = PortfolioEntryPictures.objects.filter(entry__id=self.request.query_params.get('id')).order_by("pic_pos")
+            data = PortfolioPicturesSerializer(queryset, many=True).data
+            return Response(data, status=status.HTTP_200_OK)
+        else:
+            return Response({}, status=status.HTTP_404_NOT_FOUND)
 
 
 class ContactMe(APIView):
