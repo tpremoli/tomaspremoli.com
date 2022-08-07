@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -41,7 +42,7 @@ export default function PortfolioEntry(props) {
     }
 
     const getPictures = () => {
-        const req = "./api/portfolio-pictures?format=json&?id=" + props.entry.id;
+        const req = "./api/portfolio-pictures?format=json&id=" + props.entry.id;
         fetch(req)
             .then(response => response.json())
             .then((data) => {
@@ -102,13 +103,13 @@ export default function PortfolioEntry(props) {
                         : null}
                 </DialogContent>
                 <DialogContent sx={{ pt: 0, pb: 0 }}>
-                    <IconButton href={props.entry.github_link}>
-                        <GitHubIcon sx={{ color: "black" }} />
-                    </IconButton>
+                    <Button href={props.entry.github_link} startIcon={<GitHubIcon />} sx={{ color: "black" }}>
+                        Github Link
+                    </Button>
                     {props.entry.link !== "" &&
-                        <IconButton href={props.entry.link} >
-                            <LinkIcon sx={{ color: "black" }} />
-                        </IconButton>
+                        <Button href={props.entry.link} startIcon={<LinkIcon />} sx={{ color: "green" }}>
+                            Link to App
+                        </Button>
                     }
                 </DialogContent>
                 <DialogContent sx={{ pt: 0 }}>
@@ -118,6 +119,32 @@ export default function PortfolioEntry(props) {
                     >{props.entry.description}</ReactMarkdown>
                 </DialogContent>
 
+                {pictures !== null ?
+                    <span>
+                        <Divider width="100%" mt={3} mb={3} />
+
+                        <DialogContent alignItems="center" >
+
+                            <DialogContentText
+                                id="scroll-dialog-description"
+                                ref={descriptionElementRef}
+                                tabIndex={-1}
+                                gutterBottom
+                                variant="h4" component="h2" color="black"
+                            >
+                                Gallery
+                            </DialogContentText>
+                            {pictures.map((pic) => (
+                                <Grid item key={"grid" + pic.id} xs={12} pb={3} align="center">
+                                    <img
+                                        style={{ maxWidth: "100%" }}
+                                        src={pic.pic}
+                                    />
+                                </Grid>
+                            ))}
+                        </DialogContent >
+                    </span>
+                    : null}
 
 
                 <Box
@@ -126,13 +153,13 @@ export default function PortfolioEntry(props) {
                     alignItems="flex-end"
                     sx={{ m: 1 }}
                 >
-                    <IconButton href={props.entry.github_link}>
-                        <GitHubIcon sx={{ color: "black" }} />
-                    </IconButton>
+                    <Button href={props.entry.github_link} startIcon={<GitHubIcon />} sx={{ color: "black" }}>
+                        Github Link
+                    </Button>
                     {props.entry.link !== "" &&
-                        <IconButton href={props.entry.link} >
-                            <LinkIcon sx={{ color: "black" }} />
-                        </IconButton>
+                        <Button href={props.entry.link} startIcon={<LinkIcon />} sx={{ color: "green" }}>
+                            Link to App
+                        </Button>
                     }
                 </Box>
             </Dialog>
