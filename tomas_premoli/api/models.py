@@ -66,12 +66,17 @@ class MyData(models.Model):
 
 
 class PortfolioEntry(models.Model):
+    def __str__(self):
+        return self.title
+
     def rename_pic(instance, filename):
-        return os.path.join("api/media/portfolio/", filename)
+        dir = os.path.join("api/media/portfolio/", instance.title)
+        return os.path.join(dir, filename)
 
     def rename_vid(instance, filename):
         ext = filename.split('.')[-1].lower()
-        return os.path.join("api/media/portfolio/", str(instance.id) + "video." + ext)
+        dir = os.path.join("api/media/portfolio/", instance.title)
+        return os.path.join(dir, "video." + ext)
 
     # These are used in small card display
     thumbnailpic = models.ImageField(upload_to=rename_pic)
@@ -124,7 +129,7 @@ class PortfolioEntry(models.Model):
             img.save(output, format='JPEG')
             output.seek(0)
 
-            filename = str(self.id) + "thumb.jpg"
+            filename = "thumb.jpg"
 
             # Set field to modified picture
             self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', filename,
@@ -138,8 +143,52 @@ class PortfolioEntry(models.Model):
 
 
 class PortfolioEntryPictures(models.Model):
+    def __str__(self):
+        return self.entry.title + " img " + str(self.pic_pos)
+    
+    def rename_pic(instance, filename):
+        dir = os.path.join("api/media/portfolio/", instance.entry.title)
+        return os.path.join(dir, filename)
+
+#   This will determine what order images will be displayed in
+    pic_pos = models.IntegerField()
     entry = models.ForeignKey(PortfolioEntry, on_delete=models.CASCADE)
-    pic = models.ImageField()
+    pic = models.ImageField(upload_to=rename_pic)
+
+
+    __original_pos = None
+    __original_pic = None
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.__original_pos = self.pic_pos
+        self.__original_pic = self.pic
+
+    # overrides image data to be compressed
+    def save(self, *args, **kwargs):
+        if self.pic != self.__original_pic: 
+            try:
+                # Opening the uploaded image
+                img = Image.open(self.pic)
+                output = BytesIO()
+                # Resize/modify the image
+                img = img.convert('RGB')
+                # after modifications, save it to the output
+                img.save(output, format='JPEG')
+                output.seek(0)
+
+                filename = "Pic-" + str(self.pic.name) + ".jpg"
+
+                # Set field to modified picture
+                self.pic = InMemoryUploadedFile(output, 'ImageField', filename,
+                                                'image/jpeg', sys.getsizeof(output), None)
+
+                self.__original_pic = self.pic
+            except Exception as e:
+                print(e)
+        
+        # print(self.thumbnailpic.name)
+        super(PortfolioEntryPictures, self).save(args, kwargs)
+        # print(self.thumbnailpic.name)
 
 
 class ContactEntry(models.Model):
