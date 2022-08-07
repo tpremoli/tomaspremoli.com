@@ -54,6 +54,7 @@ export default function Resume() {
                         pt: 8,
                         pb: 6,
                         alignItems: "center",
+                        height: "1000px"
                     }}
                 >
                     <Container maxWidth="sm">
@@ -68,17 +69,16 @@ export default function Resume() {
                         </Typography>
                     </Container>
 
-                    <center>
-                        <iframe
-                            src={"http://127.0.0.1:8000/static/PDFViewer/web/viewer.html?file=" + CV_URL}
-                            type="application/pdf"
-                            width="90%"
-                            height="600px"
-                            sx={{
-                                align: "center",
-                            }}
-                        ></iframe>
-                    </center>
+                    <Box sx={{ height: "100%", }}>
+                        <center style={{ height: "100%", }}>
+                            <iframe
+                                src={"http://127.0.0.1:8000/static/PDFViewer/web/viewer.html?file=" + CV_URL}
+                                type="application/pdf"
+                                width="90%"
+                                height="90%"
+                            ></iframe>
+                        </center>
+                    </Box>
                 </Box>
             </main>
             {/* Footer */}
