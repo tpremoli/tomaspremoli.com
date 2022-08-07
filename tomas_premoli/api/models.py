@@ -94,48 +94,57 @@ class PortfolioEntry(models.Model):
     github_link = models.CharField(default="", blank=True, max_length=255)
     link = models.CharField(default="", blank=True, max_length=255)
 
+    __original_pic = None
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.__original_pic = self.thumbnailpic
+
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
-        try:
-            # Opening the uploaded image
-            img = Image.open(self.thumbnailpic)
-            output = BytesIO()
-            # Resize/modify the image
-            width, height = img.size
+        if self.thumbnailpic != self.__original_pic: 
+            try:
+                # Opening the uploaded image
+                img = Image.open(self.thumbnailpic)
+                output = BytesIO()
+                # Resize/modify the image
+                width, height = img.size
 
-            aspect = width / float(height)
+                aspect = width / float(height)
 
-            # Crop image into aspect ratio 3:2
-            ideal_width = 450
-            ideal_height = 300
+                # Crop image into aspect ratio 3:2
+                ideal_width = 450
+                ideal_height = 300
 
-            ideal_aspect = ideal_width / float(ideal_height)
+                ideal_aspect = ideal_width / float(ideal_height)
 
-            if aspect > ideal_aspect:
-            # Then crop the left and right edges:
-                new_width = int(ideal_aspect * height)
-                offset = (width - new_width) / 2
-                resize = (offset, 0, width - offset, height)
-            else:
-                # ... crop the top and bottom:
-                new_height = int(width / ideal_aspect)
-                offset = (height - new_height) / 2
-                resize = (0, offset, width, height - offset)
+                if aspect > ideal_aspect:
+                # Then crop the left and right edges:
+                    new_width = int(ideal_aspect * height)
+                    offset = (width - new_width) / 2
+                    resize = (offset, 0, width - offset, height)
+                else:
+                    # ... crop the top and bottom:
+                    new_height = int(width / ideal_aspect)
+                    offset = (height - new_height) / 2
+                    resize = (0, offset, width, height - offset)
 
-            img = img.crop(resize).resize((ideal_width, ideal_height), Image.ANTIALIAS)
+                img = img.crop(resize).resize((ideal_width, ideal_height), Image.ANTIALIAS)
 
-            img = img.convert('RGB')
-            # after modifications, save it to the output
-            img.save(output, format='JPEG')
-            output.seek(0)
+                img = img.convert('RGB')
+                # after modifications, save it to the output
+                img.save(output, format='JPEG')
+                output.seek(0)
 
-            filename = "thumb.jpg"
+                filename = "thumb.jpg"
 
-            # Set field to modified picture
-            self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', filename,
-                                            'image/jpeg', sys.getsizeof(output), None)
-        except Exception as e:
-            print(e)
+
+                # Set field to modified picture
+                self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', filename,
+                                                'image/jpeg', sys.getsizeof(output), None)
+
+                self.__original_pic = self.thumbnailpic
+            except Exception as e:
+                print(e)
         
         # print(self.thumbnailpic.name)
         super(PortfolioEntry, self).save(args, kwargs)
@@ -155,12 +164,9 @@ class PortfolioEntryPictures(models.Model):
     entry = models.ForeignKey(PortfolioEntry, on_delete=models.CASCADE)
     pic = models.ImageField(upload_to=rename_pic)
 
-
-    __original_pos = None
     __original_pic = None
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.__original_pos = self.pic_pos
         self.__original_pic = self.pic
 
     # overrides image data to be compressed
