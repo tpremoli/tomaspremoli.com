@@ -84,10 +84,6 @@ class PortfolioEntry(models.Model):
 
     description = models.TextField(default="description")
 
-    # Store as string version of a list of strings
-    # i.e "['Javascript','HTML','Python']" etc
-    technologies_used = models.TextField(default="")
-
     date_created = models.DateField()
 
     github_link = models.CharField(default="", blank=True, max_length=255)

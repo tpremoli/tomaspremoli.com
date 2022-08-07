@@ -5,6 +5,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Icon, IconButton, Typography } from '@mui/material';
 import LinkIcon from '@mui/icons-material/Link';
@@ -12,6 +13,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTheme } from '@mui/material/styles';
 import { Divider } from '@mui/material';
+import ReactMarkdown from 'react-markdown'
 
 export default function PortfolioEntry(props) {
     const descriptionElementRef = React.useRef(null);
@@ -69,39 +71,40 @@ export default function PortfolioEntry(props) {
                 {/* Then is screenshots (https://mui.com/material-ui/react-image-list/) */}
                 {/* Then is button links (github, link to use) */}
 
-                <DialogContent>
+                <DialogContent sx={{ pb: 1 }}>
                     <DialogContentText
                         id="scroll-dialog-description"
                         ref={descriptionElementRef}
                         tabIndex={-1}
                         gutterBottom
                         variant="h6" component="h2" color="black"
+
                     >
                         {props.entry.blurb}
+
                     </DialogContentText>
+
                     {props.entry.video !== null ?
                         <video width="100%" height="auto" controls>
                             <source src={videoFileName} type={"video/" + videoFileType}></source>
                         </video>
                         : null}
-
                 </DialogContent>
-
-                <DialogContent dividers={scroll === 'paper'}>
-                    <DialogContentText
-                        id="scroll-dialog-description"
-                        ref={descriptionElementRef}
-                        tabIndex={-1}
-                    >
-                        {/* <IconButton align="center" href={props.entry.github_link} >
-                            <GitHubIcon sx={{ color: "white" }} />
+                <DialogContent sx={{ pt: 0, pb: 0 }}>
+                    <IconButton href={props.entry.github_link}>
+                        <GitHubIcon sx={{ color: "black" }} />
+                    </IconButton>
+                    {props.entry.link !== "" &&
+                        <IconButton href={props.entry.link} >
+                            <LinkIcon sx={{ color: "black" }} />
                         </IconButton>
-                        {props.entry.link !== "" &&
-                            <IconButton align="center" href={props.entry.link} >
-                                <LinkIcon sx={{ color: "white" }} />
-                            </IconButton>
-                        } */}
-                    </DialogContentText>
+                    }
+                </DialogContent>
+                <DialogContent sx={{ pt: 0 }}>
+                    <ReactMarkdown id="portfolio-entry-description"
+                        tabIndex={-1}
+                        gutterBottom
+                    >{props.entry.description}</ReactMarkdown>
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={() => { props.setOpen(false) }}>Cancel</Button>
