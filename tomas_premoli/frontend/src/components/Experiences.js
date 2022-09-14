@@ -52,7 +52,7 @@ export default function Experiences() {
     // INCLUDE LOADING OF DATA FROM DB
 
     return (
-        <Grid container spacing={4}
+        <Grid container 
             justifyContent="center"
             alignItems="center"
         >

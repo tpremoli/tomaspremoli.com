@@ -17,7 +17,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const navigationLinks = [
     { name: "Home", to: "/" },
-    { name: "About Me", to: "/about-me" },
+    // { name: "About Me", to: "/about-me" ss},
     { name: "Portfolio", to: "/portfolio" },
     { name: "Resume/CV", to: "/resume" },
     { name: "Contact Me", to: "/contact-me" },
