@@ -19,21 +19,12 @@ class MyData(models.Model):
 
     pic = models.ImageField(upload_to="api/media/me/")
     bannerpic = models.ImageField(upload_to="api/media/me/")
-    aboutme = models.TextField(default="")
 
     cv = models.FileField(upload_to="api/media/me/",
                           validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
 
-    github_link = models.CharField(
-        default="https://github.com/tpremoli", max_length=255)
-    linkedin_link = models.CharField(
-        default="https://www.linkedin.com/in/tomas-premoli-008016144/", max_length=255)
-
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
-        # print(self.__dict__)
-        # print(self.bannerpic.__dict__)
-        # print(self._django_cleanup_original_cache["bannerpic"].__dict__)
 
         if self.pic == self._django_cleanup_original_cache["pic"]:
             print("pic is identical")

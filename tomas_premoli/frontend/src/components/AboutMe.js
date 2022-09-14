@@ -9,33 +9,6 @@ import SelectionMenu from './SelectionMenu';
 
 
 export default function AboutMe() {
-    const [myData, setMyData] = useState({});
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        getAllNodes();
-    }, []);
-
-    const getAllNodes = () => {
-        fetch("./api/my-data?format=json")
-            .then(response => response.json())
-            .then((data) => {
-                setMyData(data);
-                setLoading(false);
-            });
-    };
-
-    if (isLoading) {
-        return (
-            <Box sx={{
-                display: 'flex', alignItems: "center",
-                justifyContent: "center", height: "100%", width: "100%",
-            }}>
-                <CircularProgress sx={{ display: 'flex', alignSelf: "center" }} />
-            </Box >
-        );
-    }
-
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
