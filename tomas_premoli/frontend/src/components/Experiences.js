@@ -95,6 +95,7 @@ export default function Experiences() {
                                 key={"expdesc" + experience.id}
                                 tabIndex={-1}
                                 gutterBottom
+                                className="compactMD"
                             >
                                 {experience.description}
                             </ReactMarkdown>
@@ -142,6 +143,7 @@ export default function Experiences() {
                                 key={"edudesc" + education.id}
                                 tabIndex={-1}
                                 gutterBottom
+                                className="compactMD"
                             >
                                 {education.description}
                             </ReactMarkdown>
@@ -186,6 +188,7 @@ export default function Experiences() {
                                 key={"skilldesc" + skill.id}
                                 tabIndex={-1}
                                 gutterBottom
+                                className="compactMD"
                             >
                                 {skill.description}
                             </ReactMarkdown>

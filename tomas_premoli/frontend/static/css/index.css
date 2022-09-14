@@ -21,3 +21,16 @@ body {
     height: 100%;
     display: flex;
 }
+
+.compactMD * {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.compactMD :last-child {
+    margin-bottom: 0.35em;
+}
+
+.compactMD :first-child {
+    margin-top: 0.35em;
+}
