@@ -11,17 +11,17 @@ import os
 
 
 class MyData(models.Model):
-    def rename_pic(instance, filename):
-        return os.path.join("api/media/me/", filename)
+    def rename_pic():
+        pass
 
-    def rename_pdf(instance, filename):
-        return os.path.join("api/media/me/", "cv.pdf")
+    def rename_pdf():
+        pass
 
     pic = models.ImageField(upload_to="api/media/me/")
     bannerpic = models.ImageField(upload_to="api/media/me/")
     aboutme = models.TextField(default="")
 
-    cv = models.FileField(upload_to=rename_pdf,
+    cv = models.FileField(upload_to="api/media/me/",
                           validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
 
     github_link = models.CharField(
@@ -88,6 +88,14 @@ class MyData(models.Model):
             
             if os.path.exists("api/media/me/banner.jpg"):
                 os.remove("api/media/me/banner.jpg")           
+
+        if self.cv == self._django_cleanup_original_cache["cv"]:
+            print("CV is identical")
+        else:
+            print("CV is not identical. Updating files")
+            self.cv.name = "cv.pdf"
+            if os.path.exists("api/media/me/cv.pdf"):
+                os.remove("api/media/me/cv.pdf")     
 
         super(MyData, self).save()
 
