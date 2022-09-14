@@ -7,8 +7,9 @@ import CardContent from '@mui/material/CardContent';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import { Divider } from '@mui/material';
+import { Container, Divider } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
+import ReactMarkdown from 'react-markdown'
 
 
 export default function Experiences() {
@@ -90,11 +91,15 @@ export default function Experiences() {
                             <Typography gutterBottom component="h2" key={"exptitle" + experience.id}>
                                 {experience.title}
                             </Typography>
-                            <Typography key={"expdesc" + experience.id}>
+                            <ReactMarkdown
+                                key={"expdesc" + experience.id}
+                                tabIndex={-1}
+                                gutterBottom
+                            >
                                 {experience.description}
-                            </Typography>
+                            </ReactMarkdown>
                             <Typography sx={{ color: "gray" }} key={"expdate" + experience.id}>
-                                {experience.start_date} - {experience.end_date} • {experience.duration}
+                                {experience.start_date} - {experience.end_date}
                             </Typography>
                             <Typography sx={{ color: "gray" }} key={"exploc" + experience.id}>
                                 {experience.location}
@@ -133,9 +138,13 @@ export default function Experiences() {
                             <Typography gutterBottom component="h2" key={"edutitle" + education.id}>
                                 {education.title}
                             </Typography>
-                            <Typography key={"edu" + education.id}>
+                            <ReactMarkdown
+                                key={"edudesc" + education.id}
+                                tabIndex={-1}
+                                gutterBottom
+                            >
                                 {education.description}
-                            </Typography>
+                            </ReactMarkdown>
                             <Typography sx={{ color: "gray" }} key={"eduyear" + education.id}>
                                 {education.start_year} - {education.end_year}
                             </Typography>
@@ -173,9 +182,13 @@ export default function Experiences() {
                             <Typography gutterBottom variant="h5" component="h2" key={"skillname" + skill.id}>
                                 {skill.name}
                             </Typography>
-                            <Typography key={"skilldesc" + skill.id}>
+                            <ReactMarkdown
+                                key={"skilldesc" + skill.id}
+                                tabIndex={-1}
+                                gutterBottom
+                            >
                                 {skill.description}
-                            </Typography>
+                            </ReactMarkdown>
                         </CardContent>
                     ))}
                 </Card>

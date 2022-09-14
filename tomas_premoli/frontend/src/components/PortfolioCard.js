@@ -17,6 +17,7 @@ export default function PortfolioCard(props) {
         <Grid item key={"grid" + props.entry.id} xs={12} sm={6} md={4}
             onMouseEnter={() => setHovering(true)}
             onMouseLeave={() => setHovering(false)}
+            onClick={() => setHovering(false)}
         >
             <Card
                 sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
