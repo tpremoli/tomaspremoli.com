@@ -15,10 +15,10 @@ class MyData(models.Model):
         return os.path.join("api/media/me/", filename)
 
     def rename_pdf(instance, filename):
-        ext = filename.split('.')[-1].lower()
-        return os.path.join("api/media/me/", ("cv."+ext))
+        return os.path.join("api/media/me/", "cv.pdf")
 
-    pic = models.ImageField(upload_to=rename_pic)
+    pic = models.ImageField(upload_to="api/media/me/")
+    bannerpic = models.ImageField(upload_to="api/media/me/")
     aboutme = models.TextField(default="")
 
     cv = models.FileField(upload_to=rename_pdf,
@@ -31,7 +31,15 @@ class MyData(models.Model):
 
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
-        try:
+        # print(self.__dict__)
+        # print(self.bannerpic.__dict__)
+        # print(self._django_cleanup_original_cache["bannerpic"].__dict__)
+
+        if self.pic == self._django_cleanup_original_cache["pic"]:
+            print("pic is identical")
+        else:
+            print("pic is not identical. Updating files")
+            # FIRST: self.pic
             # Opening the uploaded image
             img = Image.open(self.pic)
             output = BytesIO()
@@ -58,11 +66,30 @@ class MyData(models.Model):
             # Set field to modified picture
             self.pic = InMemoryUploadedFile(output, 'ImageField', "pic.jpg",
                                             'image/jpeg', sys.getsizeof(output), None)
-        except Exception as e:
-            print(e)
-        print(self.pic.name)
-        super(MyData, self).save(*args, **kwargs)
-        print(self.pic.name)
+
+            if os.path.exists("api/media/me/pic.jpg"):
+                os.remove("api/media/me/pic.jpg")
+
+
+        if self.bannerpic == self._django_cleanup_original_cache["bannerpic"]:
+            print("Bannerpic is identical")
+        else:
+            print("Bannerpic is not identical. Updating files")
+            # THEN: self.bannerpic
+            bannerimg = Image.open(self.bannerpic)
+            banneroutput = BytesIO()
+
+            bannerimg = bannerimg.convert('RGB')
+            bannerimg.save(banneroutput, format='JPEG')
+            banneroutput.seek(0)
+
+            self.bannerpic = InMemoryUploadedFile(banneroutput, 'ImageField', "banner.jpg",
+                                            'image/jpeg', sys.getsizeof(banneroutput), None)
+            
+            if os.path.exists("api/media/me/banner.jpg"):
+                os.remove("api/media/me/banner.jpg")           
+
+        super(MyData, self).save()
 
 
 class PortfolioEntry(models.Model):
