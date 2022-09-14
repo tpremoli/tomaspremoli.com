@@ -172,10 +172,12 @@ class PortfolioEntry(models.Model):
 
                 filename = "thumb.jpg"
 
-
                 # Set field to modified picture
                 self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', filename,
                                                 'image/jpeg', sys.getsizeof(output), None)
+                
+                if os.path.exists(os.path.join("api/media/portfolio/", self.title, "thumb.jpg")):
+                    os.remove(os.path.join("api/media/portfolio/", self.title, "thumb.jpg"))
 
                 self.__original_pic = self.thumbnailpic
             except Exception as e:
@@ -217,19 +219,19 @@ class PortfolioEntryPictures(models.Model):
                 img.save(output, format='JPEG')
                 output.seek(0)
 
-                filename = "Pic-" + str(self.pic.name) + ".jpg"
+                filename = "pic-" + os.path.splitext(str(self.pic.name))[0] + ".jpg"
 
                 # Set field to modified picture
                 self.pic = InMemoryUploadedFile(output, 'ImageField', filename,
                                                 'image/jpeg', sys.getsizeof(output), None)
 
+                print(self.pic)
+
                 self.__original_pic = self.pic
             except Exception as e:
                 print(e)
         
-        # print(self.thumbnailpic.name)
         super(PortfolioEntryPictures, self).save(args, kwargs)
-        # print(self.thumbnailpic.name)
 
 
 class ContactEntry(models.Model):

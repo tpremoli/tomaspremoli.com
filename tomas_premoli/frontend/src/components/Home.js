@@ -26,7 +26,7 @@ export default function Home() {
                 }}>
                     <img
                         style={{
-                            width: "100%", height: "20rem", objectFit: "cover" 
+                            width: "100%", height: "20rem", objectFit: "cover"
                         }}
                         src="./api/media/me/banner.jpg">
                     </img>
@@ -60,7 +60,7 @@ export default function Home() {
                     >
                         Tomas Premoli
                     </Typography>
-                    <Typography variant="h5" align="center" color="text.secondary" paragraph sx={{p:"5vw"}}>
+                    <Typography variant="h5" align="center" color="text.secondary" paragraph sx={{ pl: "3vw", pr: "3vw" }}>
                         Hello! Welcome to my site.<br></br>
                         My name is Tomas Premoli and I am a Computer Science master's student and Software Developer.<br></br>
                         I love to code and I'm always happy to learn new things.<br></br>
