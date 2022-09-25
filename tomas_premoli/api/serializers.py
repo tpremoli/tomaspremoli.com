@@ -1,12 +1,6 @@
 from rest_framework import serializers
-from .models import ContactEntry, MyData, Experience, Education, Skills, PortfolioEntry, PortfolioEntryPictures
+from .models import ContactEntry, Experience, Education, Skills, PortfolioEntry, PortfolioEntryPictures
 
-
-class MyDataSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = MyData
-        fields = ('pic', 'aboutme',
-                  'cv', 'github_link', 'linkedin_link')
 
 
 class ContactEntrySerializer(serializers.ModelSerializer):
