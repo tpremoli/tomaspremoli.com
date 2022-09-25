@@ -11,7 +11,7 @@ import SelectionMenu from './SelectionMenu';
 
 
 export default function Resume() {
-    const CV_URL = "/api/media/me/cv.pdf";
+    const CV_URL = "/media/me/cv.pdf";
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
@@ -44,7 +44,7 @@ export default function Resume() {
                     <Box sx={{ height: "100%", }}>
                         <center style={{ height: "100%", }}>
                             <iframe
-                                src={"http://127.0.0.1:8000/static/PDFViewer/web/viewer.html?file=" + CV_URL}
+                                src={"./static/PDFViewer/web/viewer.html?file=" + CV_URL}
                                 type="application/pdf"
                                 width="90%"
                                 height="90%"

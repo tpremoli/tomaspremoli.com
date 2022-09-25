@@ -28,7 +28,7 @@ export default function Home() {
                         style={{
                             width: "100%", height: "20rem", objectFit: "cover"
                         }}
-                        src="./api/media/me/banner.jpg">
+                        src="./media/me/banner.jpg">
                     </img>
                 </Box>
 
@@ -48,7 +48,7 @@ export default function Home() {
                                 height: "auto",
                             }}
                             alt="Me"
-                            src="./api/media/me/pic.jpg">
+                            src="./media/me/pic.jpg">
                         </img>
                     </Box>
                     <Typography
