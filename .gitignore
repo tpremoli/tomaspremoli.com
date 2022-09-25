@@ -11,4 +11,7 @@ tomas_premoli/frontend/__pycache__
 tomas_premoli/frontend/migrations/__pycache__
 tomas_premoli/frontend/node_modules
 
+tomas_premoli/frontend/static/admin
+tomas_premoli/frontend/static/rest_framework
+
 env

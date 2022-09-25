@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=bbk$9h#gd4^ke-7d@u6*q$$yx9hkc@a_b^=%n$i*w6t1+fv6*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-env.eba-ijpuib8d.us-east-1.elasticbeanstalk.com']
 
 
 # Application definition
@@ -121,6 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, "frontend/static")
 STATIC_URL = '/static/'
 
 # Default primary key field type
