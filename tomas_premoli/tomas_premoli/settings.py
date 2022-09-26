@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=bbk$9h#gd4^ke-7d@u6*q$$yx9hkc@a_b^=%n$i*w6t1+fv6*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['django-env.eba-ijpuib8d.us-east-1.elasticbeanstalk.com']
 
@@ -125,7 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "frontend/static")
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '/api/media')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
