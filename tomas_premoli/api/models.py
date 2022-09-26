@@ -9,6 +9,88 @@ import os
 # Create your models here
 # TODO: Fix cv and pic saving
 
+class MyData(models.Model):
+    def __str__(self):
+        return "Tomas Premoli"
+
+    def rename_pic():
+        pass
+
+    def rename_pdf():
+        pass
+
+    pic = models.ImageField(upload_to="api/media/me/")
+    bannerpic = models.ImageField(upload_to="api/media/me/")
+
+    cv = models.FileField(upload_to="api/media/me/",
+                          validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
+
+    # overrides image data to be compressed
+    def save(self, *args, **kwargs):
+
+        if self.pic == self._django_cleanup_original_cache["pic"]:
+            print("pic is identical")
+        else:
+            print("pic is not identical. Updating files")
+            # FIRST: self.pic
+            # Opening the uploaded image
+            img = Image.open(self.pic)
+            output = BytesIO()
+            # Resize/modify the image
+            width, height = img.size
+
+            offset = int(abs(height-width)/2)
+
+            # This crops the image into a square depending if portrait or landscape
+            if width == height:
+                pass
+            elif width > height:
+                img = img.crop([offset, 0, width-offset, height])
+            else:
+                img = img.crop([0, offset, width, height-offset])
+
+            img = img.resize((400, 400))
+
+            img = img.convert('RGB')
+            # after modifications, save it to the output
+            img.save(output, format='JPEG')
+            output.seek(0)
+
+            # Set field to modified picture
+            self.pic = InMemoryUploadedFile(output, 'ImageField', "pic.jpg",
+                                            'image/jpeg', sys.getsizeof(output), None)
+
+            if os.path.exists("api/media/me/pic.jpg"):
+                os.remove("api/media/me/pic.jpg")
+
+        if self.bannerpic == self._django_cleanup_original_cache["bannerpic"]:
+            print("Bannerpic is identical")
+        else:
+            print("Bannerpic is not identical. Updating files")
+            # THEN: self.bannerpic
+            bannerimg = Image.open(self.bannerpic)
+            banneroutput = BytesIO()
+
+            bannerimg = bannerimg.convert('RGB')
+            bannerimg.save(banneroutput, format='JPEG')
+            banneroutput.seek(0)
+
+            self.bannerpic = InMemoryUploadedFile(banneroutput, 'ImageField', "banner.jpg",
+                                                  'image/jpeg', sys.getsizeof(banneroutput), None)
+
+            if os.path.exists("api/media/me/banner.jpg"):
+                os.remove("api/media/me/banner.jpg")
+
+        if self.cv == self._django_cleanup_original_cache["cv"]:
+            print("CV is identical")
+        else:
+            print("CV is not identical. Updating files")
+            self.cv.name = "cv.pdf"
+            if os.path.exists("api/media/me/cv.pdf"):
+                os.remove("api/media/me/cv.pdf")
+
+        super(MyData, self).save()
+
 class PortfolioEntry(models.Model):
     def __str__(self):
         return self.title
