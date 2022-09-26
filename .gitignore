@@ -1,5 +1,7 @@
 tomas_premoli/db.sqlite3
 tomas_premoli/tomas_premoli/__pycache__
+tomas_premoli/tomas_premoli/management/__pycache__
+tomas_premoli/tomas_premoli/management/commands/__pycache__
 
 tomas_premoli/api/__pycache__
 tomas_premoli/api/migrations/__pycache__

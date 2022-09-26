@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'frontend.apps.FrontendConfig',
     'django_cleanup.apps.CleanupConfig',
+    'tomas_premoli'
 ]
 
 MIDDLEWARE = [
