@@ -4,3 +4,4 @@ django-cleanup
 pillow
 requests
 zappa
+mysqlclient
