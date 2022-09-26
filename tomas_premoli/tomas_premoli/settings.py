@@ -96,6 +96,8 @@ else:
         }
     }
 
+DEFAULT_SUPERUSER_NAME = "myuser"
+DEFAULT_SUPERUSER_EMAIL = "myuser@gmail.com"
 
 
 # Password validation
