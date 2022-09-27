@@ -57,7 +57,7 @@ export default function Resume() {
                     <Box sx={{ height: "100%", }}>
                         <center style={{ height: "100%", }}>
                             <iframe
-                                src={"./static/PDFViewer/web/viewer.html?file=" + myData.cv}
+                                src={myData.cv}
                                 type="application/pdf"
                                 width="90%"
                                 height="90%"
