@@ -13,6 +13,20 @@ import Experiences from './Experiences';
 
 
 export default function Home() {
+    const [myData, setMyData] = useState({});
+
+    useEffect(() => {
+        getAllNodes();
+    }, []);
+
+    const getAllNodes = () => {
+        fetch("./api/my-data?format=json")
+            .then(response => response.json())
+            .then((data) => {
+                setMyData(data);
+            });
+    };
+
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
@@ -28,7 +42,7 @@ export default function Home() {
                         style={{
                             width: "100%", height: "20rem", objectFit: "cover"
                         }}
-                        src="./media/me/banner.jpg">
+                        src={myData.bannerpic}>
                     </img>
                 </Box>
 
@@ -43,12 +57,11 @@ export default function Home() {
                         <img
                             style={{
                                 borderRadius: "50%",
-                                // width: "50%",
                                 maxWidth: "90%",
                                 height: "auto",
                             }}
                             alt="Me"
-                            src="./media/me/pic.jpg">
+                            src={myData.pic}>
                         </img>
                     </Box>
                     <Typography

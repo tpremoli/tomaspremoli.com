@@ -6,10 +6,18 @@ from rest_framework.views import APIView
 from collections import OrderedDict
 import datetime
 
-from .models import ContactEntry, Experience, Education, PortfolioEntry, Skills, PortfolioEntryPictures
-from .serializers import ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer, PortfolioSerializer, PortfolioPicturesSerializer
+from .models import ContactEntry, Experience, Education, MyData, PortfolioEntry, Skills, PortfolioEntryPictures
+from .serializers import MyDataSerializer, ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer, PortfolioSerializer, PortfolioPicturesSerializer
 
 # Create your views here.
+class GetMyData(APIView):
+    serializer_class = MyDataSerializer
+    
+    def get(self, request, format=None):
+        my_data = MyData.objects.all()[0]
+        data = MyDataSerializer(my_data, many=False).data
+        return Response(data, status=status.HTTP_200_OK)
+
 
 class GetEES(APIView):
     def get(self, request, format=None):

@@ -140,8 +140,34 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, "frontend/static")
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, '/api/media')
-MEDIA_URL = '/'
+if 'AWS_ACCESS_KEY_ID' in os.environ:
+    # Use Amazon S3 for storage for uploaded media files
+    # Keep them private by default
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    # Amazon S3 settings.
+    AWS_ACCESS_KEY_ID = os.environ["AWS_ACCESS_KEY_ID"]
+    AWS_SECRET_ACCESS_KEY = os.environ["AWS_SECRET_ACCESS_KEY"]
+    AWS_STORAGE_BUCKET_NAME = os.environ["AWS_STORAGE_BUCKET_NAME"]
+    AWS_S3_REGION_NAME = os.environ.get("AWS_S3_REGION_NAME", None)
+    AWS_S3_SIGNATURE_VERSION = 's3v4'
+    AWS_AUTO_CREATE_BUCKET = False
+    AWS_HEADERS = {"Cache-Control": "public, max-age=86400"}
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = 'private'
+    AWS_QUERYSTING_AUTH = True
+    AWS_QUERYSTRING_EXPIRE = 600
+    AWS_S3_SECURE_URLS = True
+    AWS_REDUCED_REDUNDANCY = False
+    AWS_IS_GZIPPED = False
+
+    MEDIA_ROOT = '/'
+    MEDIA_URL = 'https://s3.{}.amazonaws.com/{}/'.format(
+        AWS_S3_REGION_NAME, AWS_STORAGE_BUCKET_NAME)
+    USING_AWS = True
+    
+else:
+    MEDIA_ROOT = os.path.join(BASE_DIR, '/api/media')
+    MEDIA_URL = '/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

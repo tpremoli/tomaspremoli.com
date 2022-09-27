@@ -11,7 +11,20 @@ import SelectionMenu from './SelectionMenu';
 
 
 export default function Resume() {
-    const CV_URL = "/media/me/cv.pdf";
+    const [myData, setMyData] = useState({});
+
+    useEffect(() => {
+        getAllNodes();
+    }, []);
+
+    const getAllNodes = () => {
+        fetch("./api/my-data?format=json")
+            .then(response => response.json())
+            .then((data) => {
+                setMyData(data);
+            });
+    };
+
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
@@ -44,7 +57,7 @@ export default function Resume() {
                     <Box sx={{ height: "100%", }}>
                         <center style={{ height: "100%", }}>
                             <iframe
-                                src={"./static/PDFViewer/web/viewer.html?file=" + CV_URL}
+                                src={"./static/PDFViewer/web/viewer.html?file=" + myData.cv}
                                 type="application/pdf"
                                 width="90%"
                                 height="90%"
