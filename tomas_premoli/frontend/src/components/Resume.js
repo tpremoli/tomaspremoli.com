@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import CircularProgress from '@mui/material/CircularProgress';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
+import PDFViewer from 'pdf-viewer-reactjs'
 
 
 export default function Resume() {
@@ -24,6 +22,8 @@ export default function Resume() {
                 setMyData(data);
             });
     };
+
+    console.log(myData);
 
     return (
         <Container disableGutters maxWidth={false}>
@@ -62,6 +62,19 @@ export default function Resume() {
                                 width="90%"
                                 height="90%"
                             ></iframe>
+                            {/* 
+                            PDFVièwer threw some issues. Gotta switch to it for mobile support eventually
+                            {myData !== null ?
+                                <PDFViewer
+                                    document={{
+                                        url: myData.cv
+                                    }}
+                                    // type="application/pdf"
+                                    width="90%"
+                                    height="90%"
+                                />
+                                : null}
+                            */}
                         </center>
                     </Box>
                 </Box>
