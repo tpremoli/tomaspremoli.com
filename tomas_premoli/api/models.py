@@ -3,6 +3,7 @@ from django.core.validators import FileExtensionValidator
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from PIL import Image
 from io import BytesIO
+import traceback
 import sys
 import os
 
@@ -132,6 +133,7 @@ class PortfolioEntry(models.Model):
             try:
                 # Opening the uploaded image
                 img = Image.open(self.thumbnailpic)
+                format = img.format
                 output = BytesIO()
                 # Resize/modify the image
                 width, height = img.size
@@ -160,22 +162,25 @@ class PortfolioEntry(models.Model):
 
                 img = img.convert('RGB')
                 # after modifications, save it to the output
-                img.save(output, format='JPEG')
+                img.save(output, format=format)
                 output.seek(0)
 
-                filename = "thumb.jpg"
+                filename = "thumb." + format
 
                 # Set field to modified picture
                 self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', filename,
                                                          'image/jpeg', sys.getsizeof(output), None)
 
-                if os.path.exists(os.path.join("api/media/portfolio/", self.title, "thumb.jpg")):
+                if os.path.exists(os.path.join("api/media/portfolio/", self.title, "thumb.JPEG")):
                     os.remove(os.path.join(
                         "api/media/portfolio/", self.title, "thumb.jpg"))
+                elif os.path.exists(os.path.join("api/media/portfolio/", self.title, "thumb.PNG")):
+                    os.remove(os.path.join(
+                        "api/media/portfolio/", self.title, "thumb.png"))
 
                 self.__original_pic = self.thumbnailpic
             except Exception as e:
-                print(e)
+                traceback.print_exc()
 
         # print(self.thumbnailpic.name)
         super(PortfolioEntry, self).save(args, kwargs)
@@ -207,15 +212,16 @@ class PortfolioEntryPictures(models.Model):
             try:
                 # Opening the uploaded image
                 img = Image.open(self.pic)
+                format = img.format
                 output = BytesIO()
                 # Resize/modify the image
                 img = img.convert('RGB')
                 # after modifications, save it to the output
-                img.save(output, format='JPEG')
+                img.save(output, format=format)
                 output.seek(0)
 
                 filename = "pic-" + \
-                    os.path.splitext(str(self.pic.name))[0] + ".jpg"
+                    os.path.splitext(str(self.pic.name))[0] + "." + format
 
                 # Set field to modified picture
                 self.pic = InMemoryUploadedFile(output, 'ImageField', filename,
