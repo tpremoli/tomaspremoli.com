@@ -33,6 +33,7 @@
         "css-loader": "^6.7.1",
         "material-design-icons": "^3.0.1",
         "pdf-viewer-reactjs": "^2.2.3",
+        "react-device-detect": "^2.2.2",
         "react-markdown": "^8.0.3",
         "webpack": "^5.72.0"
     }

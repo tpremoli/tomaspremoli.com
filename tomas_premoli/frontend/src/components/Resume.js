@@ -23,8 +23,6 @@ export default function Resume() {
             });
     };
 
-    console.log(myData);
-
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />

@@ -50,7 +50,6 @@ export default function PortfolioEntry(props) {
             });
     };
 
-
     return (
         <div>
             <Dialog
@@ -66,7 +65,7 @@ export default function PortfolioEntry(props) {
                     variant="h3" component="h3" color="black" sx={{
                         display: "flex",
                         justifyContent: "space-between",
-                        alignItems: "center",
+                        alignitems: "center",
                     }}
                 >
                     {props.entry.title}
@@ -119,11 +118,11 @@ export default function PortfolioEntry(props) {
                     >{props.entry.description}</ReactMarkdown>
                 </DialogContent>
 
-                {pictures !== null ?
+                {pictures.length !== 0 ?
                     <span>
                         <Divider width="100%" mt={3} mb={3} />
 
-                        <DialogContent alignItems="center" >
+                        <DialogContent alignitems="center" >
 
                             <DialogContentText
                                 id="scroll-dialog-description"
@@ -150,7 +149,7 @@ export default function PortfolioEntry(props) {
                 <Box
                     display="flex"
                     justifyContent="flex-end"
-                    alignItems="flex-end"
+                    alignitems="flex-end"
                     sx={{ m: 1 }}
                 >
                     <Button href={props.entry.github_link} startIcon={<GitHubIcon />} sx={{ color: "black" }}>
