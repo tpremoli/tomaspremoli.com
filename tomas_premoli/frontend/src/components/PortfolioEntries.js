@@ -27,42 +27,6 @@ export default function PortfolioEntries() {
             });
     };
 
-    if (isLoading) {
-        return (
-            <Container sx={{ py: 8 }} maxWidth="xl">
-                <Grid container spacing={4}>
-                    {[1, 2, 3, 4, 5, 6].map((entry) => (
-                        <Grid item key={"loading"+entry} xs={12} sm={6} md={4}>
-                            <Card
-                                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
-                            >
-                                <Skeleton
-                                    sx={{ height: '450px', width: '300px' }}
-                                />
-                                <CardContent sx={{ flexGrow: 1 }}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        <Skeleton />
-                                    </Typography>
-                                    <Typography>
-                                        <Skeleton />
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <Button size="small">
-                                        <Skeleton />
-                                    </Button>
-                                    <Button size="small">
-                                        <Skeleton />
-                                    </Button>
-                                </CardActions>
-                            </Card>
-                        </Grid>
-
-                    ))}
-                </Grid>
-            </Container >
-        );
-    }
 
     return (
         <Container sx={{ py: 8 }} maxWidth="xl">
