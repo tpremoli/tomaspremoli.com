@@ -33,12 +33,11 @@ export default function PortfolioEntry(props) {
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
     var videoFileName = "";
-    var videoFileType = "";
+    var videoMimeType = "";
     if (props.entry.video !== null) {
         videoFileName = props.entry.video;
-        console.log(props.entry);
-        const split = videoFileName.split(".");
-        videoFileType = split[split.length - 1];
+        // Ideally this should be returned by python, but all my content will be mp4 anyways
+        videoMimeType = "video/mp4";
     }
 
     const getPictures = () => {
@@ -97,7 +96,7 @@ export default function PortfolioEntry(props) {
 
                     {props.entry.video !== null ?
                         <video width="100%" height="auto" controls>
-                            <source src={videoFileName} type={"video/" + videoFileType}></source>
+                            <source src={videoFileName} type={videoMimeType}></source>
                         </video>
                         : null}
                 </DialogContent>

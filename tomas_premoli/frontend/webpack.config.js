@@ -5,7 +5,7 @@ const webpack = require("webpack");
 
 module.exports = {
     // Change to production for final
-    mode: 'development',
+    mode: 'production',
     entry: "./src/index.js",
     output: {
         path: path.resolve(__dirname, "./static/frontend"), // when testing
@@ -31,13 +31,13 @@ module.exports = {
     },
     optimization: {
         // Optimising
-        minimize: false,
+        minimize: true,
     },
     plugins: [
         new webpack.DefinePlugin({
             "process.env": {
                 // This has effect on the react lib size
-                NODE_ENV: JSON.stringify("development"),
+                NODE_ENV: JSON.stringify("production"),
             },
         }),
     ],

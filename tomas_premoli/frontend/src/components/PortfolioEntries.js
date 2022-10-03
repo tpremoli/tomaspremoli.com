@@ -27,6 +27,9 @@ export default function PortfolioEntries() {
             });
     };
 
+    if (isLoading){
+        return null;
+    }
 
     return (
         <Container sx={{ py: 8 }} maxWidth="xl">

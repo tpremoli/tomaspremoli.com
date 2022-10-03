@@ -80,7 +80,6 @@ class GetEES(APIView):
 # APIView to get Portfilio entries
 class GetPortfolio(APIView):
     serializer_class = PortfolioSerializer
-    
     def get(self, request, format=None):
         queryset = PortfolioEntry.objects.order_by("-date_created")
         data = PortfolioSerializer(queryset, many=True).data
@@ -114,8 +113,6 @@ class ContactMe(APIView):
                 name=name, email=email, comment=comment)
 
             contact_entry.save()
-
-            print(contact_entry)
 
             return Response({"OK"}, status=status.HTTP_200_OK)
         return Response({'Bad Request': 'Invalid input...'}, status=status.HTTP_400_BAD_REQUEST)

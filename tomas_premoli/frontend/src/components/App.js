@@ -8,11 +8,9 @@ import Portfolio from "./Portfolio"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import {
-    BrowserRouter as Router,
     Routes,
     Route,
-    Link,
-    Redirect,
+    HashRouter,
 } from "react-router-dom";
 
 export default class App extends Component {
@@ -23,7 +21,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <Router>
+            <HashRouter>
                 <ThemeProvider theme={theme}>
                     <Routes>
                         <Route exact path="/" element={<Home />} />
@@ -33,7 +31,7 @@ export default class App extends Component {
                         <Route path="/contact-me" element={<ContactMe />} />
                     </Routes>
                 </ThemeProvider>
-            </Router >
+            </HashRouter >
         );
     }
 }
