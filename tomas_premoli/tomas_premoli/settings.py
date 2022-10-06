@@ -27,11 +27,8 @@ SECRET_KEY = 'django-insecure-=bbk$9h#gd4^ke-7d@u6*q$$yx9hkc@a_b^=%n$i*w6t1+fv6*
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "django-env.eba-ijpuib8d.us-east-1.elasticbeanstalk.com",
     'www.tomaspremoli.com',
     'tomaspremoli.com',
-    '34.236.53.56',
-    '54.86.154.219'
 ]
 
 

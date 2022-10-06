@@ -6,7 +6,7 @@ from django.conf import settings
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        if not User.objects.filter(username=settings.DEFAULT_SUPERUSER_NAME).exists():
+        if not User.objects.filter(is_superuser=True).exists():
             User.objects.create_superuser(
                 settings.DEFAULT_SUPERUSER_NAME,
                 settings.DEFAULT_SUPERUSER_EMAIL,
