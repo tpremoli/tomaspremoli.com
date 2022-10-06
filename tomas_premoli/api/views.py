@@ -1,18 +1,21 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework import generics
 from rest_framework.views import APIView
 from collections import OrderedDict
+from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.conf import settings
 import datetime
 
 from .models import ContactEntry, Experience, Education, MyData, PortfolioEntry, Skills, PortfolioEntryPictures
 from .serializers import MyDataSerializer, ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer, PortfolioSerializer, PortfolioPicturesSerializer
 
 # Create your views here.
+
+
 class GetMyData(APIView):
     serializer_class = MyDataSerializer
-    
+
     def get(self, request, format=None):
         my_data = MyData.objects.all()[0]
         data = MyDataSerializer(my_data, many=False).data
@@ -34,9 +37,11 @@ class GetEES(APIView):
                 exp["end_date"] = "Present"
 
                 curr_date = datetime.datetime.now()
-                start_date = datetime.datetime.strptime(exp["start_date"], "%Y-%m-%d")
+                start_date = datetime.datetime.strptime(
+                    exp["start_date"], "%Y-%m-%d")
 
-                duration = abs(curr_date.year - start_date.year) * 12 + abs(curr_date.month - start_date.month)
+                duration = abs(curr_date.year - start_date.year) * \
+                    12 + abs(curr_date.month - start_date.month)
 
                 if duration == 0 or duration == 1:
                     exp["duration"] = "1 mo"
@@ -45,13 +50,16 @@ class GetEES(APIView):
 
                 # Formatting date for display
                 exp["start_date"] = start_date.strftime(format)
-            
+
             # Adds duration if not ongoing
             else:
-                start_date = datetime.datetime.strptime(exp["start_date"], "%Y-%m-%d")
-                end_date = datetime.datetime.strptime(exp["end_date"], "%Y-%m-%d")
+                start_date = datetime.datetime.strptime(
+                    exp["start_date"], "%Y-%m-%d")
+                end_date = datetime.datetime.strptime(
+                    exp["end_date"], "%Y-%m-%d")
 
-                duration = abs(end_date.year - start_date.year) * 12 + abs(end_date.month - start_date.month)
+                duration = abs(end_date.year - start_date.year) * \
+                    12 + abs(end_date.month - start_date.month)
 
                 if duration == 0 or duration == 1:
                     exp["duration"] = "1 mo"
@@ -73,13 +81,14 @@ class GetEES(APIView):
             'experiences': exps_data,
             'education': edcs_data,
             'skills': skills_data
-            })
+        })
 
         return Response(data, status=status.HTTP_200_OK)
 
 # APIView to get Portfilio entries
 class GetPortfolio(APIView):
     serializer_class = PortfolioSerializer
+
     def get(self, request, format=None):
         queryset = PortfolioEntry.objects.order_by("-date_created")
         data = PortfolioSerializer(queryset, many=True).data
@@ -88,10 +97,11 @@ class GetPortfolio(APIView):
 # APIView to get Portfilio entry pics
 class GetPortfolioPics(APIView):
     serializer_class = PortfolioPicturesSerializer
-    
+
     def get(self, request, format=None):
-        if PortfolioEntry.objects.filter(id = self.request.query_params.get('id')).exists():
-            queryset = PortfolioEntryPictures.objects.filter(entry__id=self.request.query_params.get('id')).order_by("pic_pos")
+        if PortfolioEntry.objects.filter(id=self.request.query_params.get('id')).exists():
+            queryset = PortfolioEntryPictures.objects.filter(
+                entry__id=self.request.query_params.get('id')).order_by("pic_pos")
             data = PortfolioPicturesSerializer(queryset, many=True).data
             return Response(data, status=status.HTTP_200_OK)
         else:
@@ -113,6 +123,17 @@ class ContactMe(APIView):
                 name=name, email=email, comment=comment)
 
             contact_entry.save()
+
+            if settings.USING_AWS:
+                superusers = User.objects.filter(is_superuser=True)
+                subject = name + "-" + email
+                for user in superusers:
+                    send_mail(
+                        subject,
+                        comment,
+                        settings.SERVER_EMAIL,
+                        [user.email]
+                    )
 
             return Response({"OK"}, status=status.HTTP_200_OK)
         return Response({'Bad Request': 'Invalid input...'}, status=status.HTTP_400_BAD_REQUEST)

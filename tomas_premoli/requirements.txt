@@ -7,3 +7,4 @@ zappa
 mysqlclient
 boto3
 django-storages
+django-ses

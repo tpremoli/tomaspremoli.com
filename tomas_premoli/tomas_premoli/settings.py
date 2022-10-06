@@ -171,6 +171,8 @@ if 'AWS_ACCESS_KEY_ID' in os.environ:
         AWS_S3_REGION_NAME, AWS_STORAGE_BUCKET_NAME)
     USING_AWS = True
 
+    EMAIL_BACKEND = 'django_ses.SESBackend'
+    SERVER_EMAIL = 'tpremoli-notif@tomaspremoli.com'
 else:
     MEDIA_ROOT = os.path.join(BASE_DIR, '/api/media')
     MEDIA_URL = '/'
