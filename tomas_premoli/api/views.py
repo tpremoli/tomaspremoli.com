@@ -127,10 +127,11 @@ class ContactMe(APIView):
             if settings.USING_AWS:
                 superusers = User.objects.filter(is_superuser=True)
                 subject = name + "-" + email
+                message = "Message from " + name + " with email " + email + "\n\n" + comment 
                 for user in superusers:
                     send_mail(
                         subject,
-                        comment,
+                        message,
                         settings.SERVER_EMAIL,
                         [user.email]
                     )
