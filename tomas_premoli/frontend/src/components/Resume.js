@@ -5,8 +5,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
-import PDFViewer from 'pdf-viewer-reactjs'
-
 
 export default function Resume() {
     const [myData, setMyData] = useState({});
@@ -22,6 +20,11 @@ export default function Resume() {
                 setMyData(data);
             });
     };
+
+    var encodedUrl = "";
+    if (myData != null) {
+        encodedUrl = `./static/PDFjs/web/viewer.html?file=${encodeURIComponent(myData.cv)}`;
+    }
 
     return (
         <Container disableGutters maxWidth={false}>
@@ -54,25 +57,13 @@ export default function Resume() {
 
                     <Box sx={{ height: "100%", }}>
                         <center style={{ height: "100%", }}>
-                            <iframe
-                                src={myData.cv}
-                                type="application/pdf"
+                            <iframe id="pdf-js-viewer"
+                                src={encodedUrl ? encodedUrl : null}
+                                title="my-cv"
+                                frameBorder="0"
                                 width="90%"
-                                height="90%"
-                            ></iframe>
-                            {/* 
-                            PDFVièwer threw some issues. Gotta switch to it for mobile support eventually
-                            {myData !== null ?
-                                <PDFViewer
-                                    document={{
-                                        url: myData.cv
-                                    }}
-                                    // type="application/pdf"
-                                    width="90%"
-                                    height="90%"
-                                />
-                                : null}
-                            */}
+                                height="90%">
+                            </iframe>
                         </center>
                     </Box>
                 </Box>

@@ -176,6 +176,7 @@ if 'AWS_ACCESS_KEY_ID' in os.environ:
 else:
     MEDIA_ROOT = os.path.join(BASE_DIR, '/api/media')
     MEDIA_URL = '/'
+    USING_AWS = False
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
