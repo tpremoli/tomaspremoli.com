@@ -101,9 +101,11 @@ export default function PortfolioEntry(props) {
                         : null}
                 </DialogContent>
                 <DialogContent sx={{ pt: 0, pb: 0 }}>
-                    <Button href={props.entry.github_link} startIcon={<GitHubIcon />} sx={{ color: "black" }}>
-                        Github Link
-                    </Button>
+                    {props.entry.github_link !== "" &&
+                        <Button href={props.entry.github_link} startIcon={<GitHubIcon />} sx={{ color: "black" }}>
+                            Github Link
+                        </Button>
+                    }
                     {props.entry.link !== "" &&
                         <Button href={props.entry.link} startIcon={<LinkIcon />} sx={{ color: "green" }}>
                             Link to App
