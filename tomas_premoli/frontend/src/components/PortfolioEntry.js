@@ -153,9 +153,11 @@ export default function PortfolioEntry(props) {
                     alignitems="flex-end"
                     sx={{ m: 1 }}
                 >
-                    <Button href={props.entry.github_link} startIcon={<GitHubIcon />} sx={{ color: "black" }}>
-                        Github Link
-                    </Button>
+                    {props.entry.github_link !== "" &&
+                        <Button href={props.entry.github_link} startIcon={<GitHubIcon />} sx={{ color: "black" }}>
+                            Github Link
+                        </Button>
+                    }
                     {props.entry.link !== "" &&
                         <Button href={props.entry.link} startIcon={<LinkIcon />} sx={{ color: "green" }}>
                             Link to App
