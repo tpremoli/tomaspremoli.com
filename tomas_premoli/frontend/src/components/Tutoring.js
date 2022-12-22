@@ -57,14 +57,14 @@ export default function Tutoring() {
                     </Container>
 
                     {tutoring == {} ? null :
-                        <Container sx={{ py: 8, maxWidth: "70%" }} >
+                        <Container sx={{ py: 8, maxWidth: { xs: "95%", sm: '80%', md: '70%' } }} >
                             <Grid container spacing={4}>
-                                <Grid item xs={6} sm={6} md={6}>
+                                <Grid item xs={12} sm={12} md={6}>
                                     <ReactMarkdown gutterBottom >
                                         {tutoring.blurb}
                                     </ReactMarkdown>
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6}>
+                                <Grid item xs={12} sm={12} md={6}>
                                     <img
                                         style={{
                                             width: "100%"
@@ -72,12 +72,12 @@ export default function Tutoring() {
                                         src={tutoring.pic}>
                                     </img>
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6}>
+                                <Grid item xs={12} sm={12} md={6}>
                                     <ReactMarkdown gutterBottom>
                                         {tutoring.skills}
                                     </ReactMarkdown>
                                 </Grid>
-                                <Grid item xs={6} sm={6} md={6}>
+                                <Grid item xs={12} sm={12} md={6}>
                                     <ReactMarkdown gutterBottom >
                                         {tutoring.classes}
                                     </ReactMarkdown>
