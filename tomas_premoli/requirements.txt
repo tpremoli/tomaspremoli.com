@@ -3,7 +3,6 @@ djangorestframework
 django-cleanup
 pillow
 requests
-zappa
 mysqlclient
 boto3
 django-storages

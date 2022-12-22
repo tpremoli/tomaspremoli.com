@@ -13,6 +13,13 @@ import {
     HashRouter,
 } from "react-router-dom";
 
+// To separate into different files. Will implement later to improve performance
+// const Home = React.lazy(() => import("./Home"));
+// const ContactMe = React.lazy(() => import("./ContactMe"));
+// const Resume = React.lazy(() => import("./Resume"));
+// const AboutMe = React.lazy(() => import("./AboutMe"));
+// const Portfolio = React.lazy(() => import("./Portfolio"));
+
 export default class App extends Component {
     constructor(props) {
         super(props);
