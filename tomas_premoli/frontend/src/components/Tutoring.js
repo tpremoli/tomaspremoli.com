@@ -3,9 +3,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
@@ -60,17 +60,18 @@ export default function Tutoring() {
                         <Container sx={{ py: 8, maxWidth: { xs: "95%", sm: '80%', md: '70%' } }} >
                             <Grid container spacing={4}>
                                 <Grid item xs={12} sm={12} md={6}>
+                                    <center><img
+                                        style={{
+                                            width: "70%",
+                                            align: "center"
+                                        }}
+                                        src={tutoring.pic}>
+                                    </img></center>
+                                </Grid>
+                                <Grid item xs={12} sm={12} md={6}>
                                     <ReactMarkdown gutterBottom >
                                         {tutoring.blurb}
                                     </ReactMarkdown>
-                                </Grid>
-                                <Grid item xs={12} sm={12} md={6}>
-                                    <img
-                                        style={{
-                                            width: "100%"
-                                        }}
-                                        src={tutoring.pic}>
-                                    </img>
                                 </Grid>
                                 <Grid item xs={12} sm={12} md={6}>
                                     <ReactMarkdown gutterBottom>
@@ -85,6 +86,25 @@ export default function Tutoring() {
                             </Grid>
                         </Container >
                     }
+
+                    <Container maxWidth="sm">
+                        <Typography variant="h5" align="center" paragraph>
+                            Interested in my skill set? Reach out!
+                        </Typography>
+                        <Stack
+                            sx={{ pt: 2 }}
+                            direction="row"
+                            spacing={2}
+                            justifyContent="center"
+                        >
+                            <Button to="/resume" component={Link} variant="contained">My Resume</Button>
+                            <Button to="/contact-me" component={Link} variant="contained">Contact Me</Button>
+                        </Stack>
+
+                        <Typography spacing={2} sx={{ pt: 8 }} variant="h5" align="center" color="text.secondary" paragraph>
+                            Not convinced? Check out my <Link to="/portfolio">Portfolio</Link>
+                        </Typography>
+                    </Container>
                 </Box>
             </main>
             {/* Footer */}
