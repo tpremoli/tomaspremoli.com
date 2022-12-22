@@ -7,5 +7,5 @@ urlpatterns = [
     path('get-ees', GetEES.as_view()),
     path('portfolio-entries', GetPortfolio.as_view()),
     path('portfolio-pictures', GetPortfolioPics.as_view()),
-    path('tutorial-data', GetTutoringData.as_view()),
+    path('tutoring-data', GetTutoringData.as_view()),
 ]
