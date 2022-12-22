@@ -7,7 +7,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import { Icon, IconButton } from '@mui/material';
+import { IconButton } from '@mui/material';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import { Divider } from '@mui/material';
 
@@ -17,7 +17,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const navigationLinks = [
     { name: "Home", to: "/" },
-    // { name: "About Me", to: "/about-me" ss},
+    { name: "Tutoring", to: "/tutoring" },
     { name: "Portfolio", to: "/portfolio" },
     { name: "Resume/CV", to: "/resume" },
     { name: "Contact Me", to: "/contact-me" },

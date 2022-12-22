@@ -1,22 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
-import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import Alert from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
 import TextField from "@mui/material/TextField";
 import FormControl from "@mui/material/FormControl";
-import FormHelperText from "@mui/material/FormHelperText";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import CircularProgress from '@mui/material/CircularProgress';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
-
 
 
 export default function ContactMe() {

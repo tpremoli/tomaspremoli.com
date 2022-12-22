@@ -7,7 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
-import { Container, Divider } from '@mui/material';
+import Divider from '@mui/material/Divider';
 import CircularProgress from '@mui/material/CircularProgress';
 import ReactMarkdown from 'react-markdown'
 

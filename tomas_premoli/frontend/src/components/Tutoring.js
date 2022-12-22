@@ -1,14 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
+import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
+import Collapse from '@mui/material/Collapse';
+import Alert from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
+import TextField from "@mui/material/TextField";
+import FormControl from "@mui/material/FormControl";
 import Container from '@mui/material/Container';
-import CircularProgress from '@mui/material/CircularProgress';
+import Grid from '@mui/material/Grid';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 
 
-export default function AboutMe() {
+export default function Tutoring() {
+    
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
@@ -22,6 +29,7 @@ export default function AboutMe() {
                         bgcolor: 'background.paper',
                         pt: 8,
                         pb: 6,
+                        alignItems: "center",
                     }}
                 >
                     <Container maxWidth="sm">
@@ -32,11 +40,16 @@ export default function AboutMe() {
                             color="text.primary"
                             gutterBottom
                         >
-                            About Me
+                            Tutoring
                         </Typography>
                     </Container>
-                </Box>
 
+                    <Grid container direction="column" width="100%" justifyContent="center" alignItems="center">
+                        <Grid item xs={3}>
+                        </Grid>
+                    </Grid>
+
+                </Box>
             </main>
             {/* Footer */}
             <Footer />
