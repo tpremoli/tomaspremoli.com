@@ -1,21 +1,17 @@
 import React from 'react';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import Alert from '@mui/material/Alert';
 import Typography from '@mui/material/Typography';
-import TextField from "@mui/material/TextField";
-import FormControl from "@mui/material/FormControl";
-import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Container from '@mui/material/Container';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 
 
 export default function Tutoring() {
-    
+
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
@@ -44,10 +40,42 @@ export default function Tutoring() {
                         </Typography>
                     </Container>
 
-                    <Grid container direction="column" width="100%" justifyContent="center" alignItems="center">
-                        <Grid item xs={3}>
+                    <Grid container
+                        justifyContent="center"
+                        alignItems="center"
+                    >
+                        <Grid item sx={{
+                            display: 'flex',
+                            width: "90%",
+                            flexWrap: "wrap"
+                        }}>
+                            <Card
+                                sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", minWidth: "30%" }}
+                            >
+                                <CardContent sx={{ flexGrow: 1, flexWrap: "wrap" }}>
+                                </CardContent>
+                            </Card>
+                            <Card
+                                sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", minWidth: "30%" }}
+                            >
+                                <CardContent sx={{ flexGrow: 1, flexWrap: "wrap" }}>
+                                </CardContent>
+                            </Card>
+                            <Card
+                                sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", minWidth: "30%" }}
+                            >
+                                <CardContent sx={{ flexGrow: 1, flexWrap: "wrap" }}>
+                                </CardContent>
+                            </Card>
+                            <Card
+                                sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", minWidth: "30%" }}
+                            >
+                                <CardContent sx={{ flexGrow: 1, flexWrap: "wrap" }}>
+                                </CardContent>
+                            </Card>
+                            
                         </Grid>
-                    </Grid>
+                    </Grid >
 
                 </Box>
             </main>
