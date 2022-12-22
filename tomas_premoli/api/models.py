@@ -269,11 +269,11 @@ class TutoringData(models.Model):
             output.seek(0)
 
             # Set field to modified picture
-            self.pic = InMemoryUploadedFile(output, 'ImageField', "tutorial.jpg",
+            self.pic = InMemoryUploadedFile(output, 'ImageField', "tutoring.jpg",
                                             'image/jpeg', sys.getsizeof(output), None)
 
-            if os.path.exists("api/media/me/tutorial.jpg"):
-                os.remove("api/media/me/tutorial.jpg")
+            if os.path.exists("api/media/me/tutoring.jpg"):
+                os.remove("api/media/me/tutoring.jpg")
                 
         super(TutoringData, self).save(args, kwargs)
 

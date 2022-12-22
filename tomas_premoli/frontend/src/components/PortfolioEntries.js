@@ -31,6 +31,8 @@ export default function PortfolioEntries() {
         return null;
     }
 
+    // This could be placed all in main portfolio file
+
     return (
         <Container sx={{ py: 8 }} maxWidth="xl">
             <Grid container spacing={4}>

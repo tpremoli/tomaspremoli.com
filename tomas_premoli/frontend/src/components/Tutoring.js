@@ -21,10 +21,10 @@ export default function Tutoring() {
 
     const getAllNodes = () => {
         fetch("./api/tutoring-data?format=json")
-        .then(response => response.json())
-        .then((data) => {
-            setTutoring(data);
-        });
+            .then(response => response.json())
+            .then((data) => {
+                setTutoring(data);
+            });
     };
 
 
@@ -57,49 +57,33 @@ export default function Tutoring() {
                     </Container>
 
                     {tutoring == {} ? null :
-                        <Grid container
-                            justifyContent="center"
-                            alignItems="center"
-                        >
-                            <Grid item sx={{
-                                display: 'flex',
-                                width: "90%",
-                                flexWrap: "wrap"
-                            }}>
-                                <Card
-                                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", minWidth: "30%" }}
-                                >
-                                    <CardContent sx={{ flexGrow: 1, flexWrap: "wrap" }}>
-                                        <ReactMarkdown gutterBottom>
-                                            {tutoring.blurb}
-                                        </ReactMarkdown>
-                                    </CardContent>
-                                </Card>
-                                <Card
-                                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", minWidth: "30%" }}
-                                >
-                                    <CardMedia
-                                        component="img"
-                                        image={tutoring.pic}
-                                    />
-                                </Card>
-                                <Card
-                                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", minWidth: "30%" }}
-                                >
-                                    <CardContent sx={{ flexGrow: 1, flexWrap: "wrap" }}>
+                        <Container sx={{ py: 8, maxWidth: "70%" }} >
+                            <Grid container spacing={4}>
+                                <Grid item xs={6} sm={6} md={6}>
+                                    <ReactMarkdown gutterBottom >
+                                        {tutoring.blurb}
+                                    </ReactMarkdown>
+                                </Grid>
+                                <Grid item xs={6} sm={6} md={6}>
+                                    <img
+                                        style={{
+                                            width: "100%"
+                                        }}
+                                        src={tutoring.pic}>
+                                    </img>
+                                </Grid>
+                                <Grid item xs={6} sm={6} md={6}>
+                                    <ReactMarkdown gutterBottom>
                                         {tutoring.skills}
-                                    </CardContent>
-                                </Card>
-                                <Card
-                                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", minWidth: "30%" }}
-                                >
-                                    <CardContent sx={{ flexGrow: 1, flexWrap: "wrap" }}>
+                                    </ReactMarkdown>
+                                </Grid>
+                                <Grid item xs={6} sm={6} md={6}>
+                                    <ReactMarkdown gutterBottom >
                                         {tutoring.classes}
-                                    </CardContent>
-                                </Card>
-
+                                    </ReactMarkdown>
+                                </Grid>
                             </Grid>
-                        </Grid >
+                        </Container >
                     }
                 </Box>
             </main>
