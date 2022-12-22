@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ContactMe, GetMyData, GetEES, GetPortfolio, GetPortfolioPics
+from .views import ContactMe, GetMyData, GetEES, GetPortfolio, GetPortfolioPics, GetTutoringData
 
 urlpatterns = [
     path('my-data', GetMyData.as_view()),
@@ -7,4 +7,5 @@ urlpatterns = [
     path('get-ees', GetEES.as_view()),
     path('portfolio-entries', GetPortfolio.as_view()),
     path('portfolio-pictures', GetPortfolioPics.as_view()),
+    path('tutorial-data', GetTutoringData.as_view()),
 ]

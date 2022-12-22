@@ -244,6 +244,40 @@ class ContactEntry(models.Model):
     comment = models.TextField(default="", blank=True)
 
 
+class TutoringData(models.Model):
+    blurb = models.TextField(default="", blank=True)
+    skills = models.TextField(default="", blank=True)
+    classes = models.TextField(default="", blank=True)
+    
+    pic = models.ImageField(upload_to="api/media/me")
+    
+    # overrides image data to be compressed
+    def save(self, *args, **kwargs):
+
+        if self.pic == self._django_cleanup_original_cache["pic"]:
+            print("pic is identical")
+        else:
+            print("pic is not identical. Updating files")
+            # FIRST: self.pic
+            # Opening the uploaded image
+            img = Image.open(self.pic)
+            output = BytesIO()
+
+            img = img.convert('RGB')
+            # after modifications, save it to the output
+            img.save(output, format='JPEG')
+            output.seek(0)
+
+            # Set field to modified picture
+            self.pic = InMemoryUploadedFile(output, 'ImageField', "tutorial.jpg",
+                                            'image/jpeg', sys.getsizeof(output), None)
+
+            if os.path.exists("api/media/me/tutorial.jpg"):
+                os.remove("api/media/me/tutorial.jpg")
+                
+        super(TutoringData, self).save(args, kwargs)
+
+
 class Experience(models.Model):
     def __str__(self):
         return self.name + "-" + str(self.start_date)

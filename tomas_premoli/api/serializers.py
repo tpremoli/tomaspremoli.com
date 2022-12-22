@@ -1,10 +1,15 @@
 from rest_framework import serializers
-from .models import MyData, ContactEntry, Experience, Education, Skills, PortfolioEntry, PortfolioEntryPictures
+from .models import MyData, ContactEntry, Experience, Education, Skills, PortfolioEntry, PortfolioEntryPictures, TutoringData
 
 
 class MyDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = MyData
+        fields = '__all__'
+        
+class TutoringDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TutoringData
         fields = '__all__'
 
 
