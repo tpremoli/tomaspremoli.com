@@ -88,8 +88,11 @@ export default function Tutoring() {
                     }
 
                     <Container maxWidth="sm">
-                        <Typography variant="h5" align="center" paragraph>
-                            Interested in my skill set? Reach out!
+                        <Typography variant="h5" align="center" paragraph className="disable-text-selection">
+                            In essence, I have experience and knowledge in many fields and I'm always happy to help!
+                        </Typography>
+                        <Typography variant="h5" align="center" paragraph className="disable-text-selection">
+                            If you'd like to consult with me, feel free to reach out below, or at my email <Link to="mailto:tomas@premoli.org">tomas@premoli.org</Link>
                         </Typography>
                         <Stack
                             sx={{ pt: 2 }}

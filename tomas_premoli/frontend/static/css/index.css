@@ -34,3 +34,14 @@ body {
 .compactMD :first-child {
     margin-top: 0.35em;
 }
+
+.disable-text-selection {
+    -moz-user-select: none;
+    /* firefox */
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE*/
+    user-select: none;
+    /* Standard syntax */
+}
