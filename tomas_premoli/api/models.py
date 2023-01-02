@@ -72,8 +72,8 @@ class MyData(models.Model):
     cv = models.FileField(upload_to=rename_pdf,
                           validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
 
-    # overrides image data to be compressed
     def save(self, *args, **kwargs):
+        # If this is the only MyData
         if self.pk is None:
             me_format = self.pic._file.image.format
 
@@ -89,7 +89,34 @@ class MyData(models.Model):
             # preprocessing image
             self.bannerpic = process_image(
                 self.bannerpic, banner_location)
+        else:
+            # If we're updating MyData
+            orig = MyData.objects.get(pk=self.pk)
+            # Handling new image options
+            if orig.pic != self.pic:
+                orig.pic.delete(save=False)
 
+                me_format = self.pic._file.image.format
+
+                me_location = Path("api/media/me/pic.{}".format(me_format))
+
+                self.pic = process_image(
+                    self.pic, me_location, (400, 400))
+                
+            if orig.bannerpic != self.bannerpic:
+                orig.bannerpic.delete(save=False)
+                
+                banner_format = self.bannerpic._file.image.format
+                banner_location = Path("api/media/me/banner.{}".format(banner_format))
+
+                # preprocessing image
+                self.bannerpic = process_image(
+                    self.bannerpic, banner_location)
+            
+            if orig.cv  != self.cv:
+                orig.cv.delete(save=False)
+                
+                
         super(MyData, self).save()
 
 
@@ -120,12 +147,12 @@ class PortfolioEntry(models.Model):
 
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
-        # Need to handle other cases i.e what if title changes??
-        # TODO: Handle portfolio title changes (maybe just do pk)
-        # If object doesn't exist yet
+        # If this is a new object we have to run everything
         if self.pk is None:
             format = self.thumbnailpic._file.image.format
 
+            # TODO: Handle portfolio title changes (maybe just do pk)
+            # Need to handle other cases i.e what if title changes??
             file_location = Path("api/media/portfolio/",
                                  self.title, "thumb.{}".format(format))
 
@@ -133,11 +160,11 @@ class PortfolioEntry(models.Model):
             self.thumbnailpic = process_image(
                 self.thumbnailpic, file_location, (450, 300))
 
-        # If object already exists
+        # If object already exists we update the data
         else:
             orig = PortfolioEntry.objects.get(pk=self.pk)
 
-            # Handling new image options
+            # if the pic has been updated
             if orig.thumbnailpic != self.thumbnailpic:
                 orig.thumbnailpic.delete(save=False)
 
@@ -149,6 +176,8 @@ class PortfolioEntry(models.Model):
                 # preprocessing image
                 self.thumbnailpic = process_image(
                     self.thumbnailpic, file_location, (450, 300))
+                
+            # if the video has been updated
             if orig.video != self.video:
                 orig.video.delete(save=False)
 
