@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import { TypeAnimation } from 'react-type-animation';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
@@ -71,7 +72,15 @@ export default function Home() {
                         color="text.primary"
                         gutterBottom
                     >
-                        Tomas Premoli
+                        <TypeAnimation
+                            sequence={[
+                                500, 'Tomas', 750, 'Tomás', 750, 'Tomás Premoli', 5_000, "Tomás Premoli", 10_000, ""
+                            ]}
+                            speed={1}
+                            deletionSpeed={1}
+                            cursor={true}
+                            repeat={Infinity}
+                        />
                     </Typography>
                     <Typography variant="h5" align="center" color="text.secondary" paragraph sx={{ pl: "3vw", pr: "3vw" }}>
                         Hello! Welcome to my site.<br></br>
