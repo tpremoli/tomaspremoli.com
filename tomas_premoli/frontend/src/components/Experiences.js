@@ -62,7 +62,7 @@ export default function Experiences() {
                 flexDirection: { xs: "column", sm: 'column', md: 'row' }
             }}>
                 <Card
-                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1" }}
+                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
                 >
                     <CardContent sx={{ flexGrow: 1, flexWrap: "nowrap" }}>
                         <Typography
@@ -110,7 +110,7 @@ export default function Experiences() {
                 </Card>
 
                 <Card
-                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1" }}
+                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"  }}
                 >
                     <CardContent sx={{ flexGrow: 1 }}>
                         <Typography
@@ -159,7 +159,7 @@ export default function Experiences() {
 
 
                 <Card
-                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1" }}
+                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"  }}
                 >
                     <CardContent sx={{ flexGrow: 1 }}>
                         <Typography

@@ -80,7 +80,7 @@ export default function Home() {
                     >
                         <TypeAnimation
                             sequence={[
-                                2_000, 'Tomás Premoli', 750, 'Tomás Premoli', 750, 'Tomás Premoli', 5_000, "Tomás Premoli", 10_000
+                                3_000, 'Tomas', 750, 'Tomás', 750, 'Tomás Premoli', 10_000, "Tomás Premoli B)", 5_000, ""
                             ]}
                             speed={1}
                             deletionSpeed={1}
