@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import FileExtensionValidator
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from PIL import Image
+from pathlib import Path
 from io import BytesIO
 import traceback
 import sys
@@ -9,6 +10,7 @@ import os
 
 # Create your models here
 # TODO: Fix cv and pic saving
+
 
 class MyData(models.Model):
     def __str__(self):
@@ -92,13 +94,13 @@ class MyData(models.Model):
 
         super(MyData, self).save()
 
+
 class PortfolioEntry(models.Model):
     def __str__(self):
         return self.title
 
     def rename_pic(instance, filename):
-        dir = os.path.join("api/media/portfolio/", instance.title)
-        return os.path.join(dir, filename)
+        return Path("api/media/portfolio/", instance.title, "thumb.{}".format(filename.split(".")[-1]))
 
     def rename_vid(instance, filename):
         ext = filename.split('.')[-1].lower()
@@ -121,16 +123,15 @@ class PortfolioEntry(models.Model):
     github_link = models.CharField(default="", blank=True, max_length=255)
     link = models.CharField(default="", blank=True, max_length=255)
 
-    __original_pic = None
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.__original_pic = self.thumbnailpic
-
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
-        if self.thumbnailpic != self.__original_pic:
-            try:
+        # Need to handle other cases i.e what if title changes?? 
+        # TODO: Handle portfolio title changes (maybe just do pk)
+        if self.pk is not None:
+            orig = PortfolioEntry.objects.get(pk=self.pk)
+            if orig.thumbnailpic != self.thumbnailpic:
+                orig.thumbnailpic.delete(save=False)
+                
                 # Opening the uploaded image
                 img = Image.open(self.thumbnailpic)
                 format = img.format
@@ -165,26 +166,13 @@ class PortfolioEntry(models.Model):
                 img.save(output, format=format)
                 output.seek(0)
 
-                filename = "thumb." + format
+                file_location = Path("api/media/portfolio/",self.title, "thumb.{}".format(format))
 
                 # Set field to modified picture
-                self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', filename,
-                                                         'image/jpeg', sys.getsizeof(output), None)
+                self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', file_location,
+                                                            'image/jpeg', sys.getsizeof(output), None)
 
-                if os.path.exists(os.path.join("api/media/portfolio/", self.title, "thumb.JPEG")):
-                    os.remove(os.path.join(
-                        "api/media/portfolio/", self.title, "thumb.jpg"))
-                elif os.path.exists(os.path.join("api/media/portfolio/", self.title, "thumb.PNG")):
-                    os.remove(os.path.join(
-                        "api/media/portfolio/", self.title, "thumb.png"))
-
-                self.__original_pic = self.thumbnailpic
-            except Exception as e:
-                traceback.print_exc()
-
-        # print(self.thumbnailpic.name)
         super(PortfolioEntry, self).save(args, kwargs)
-        # print(self.thumbnailpic.name)
 
 
 class PortfolioEntryPictures(models.Model):
@@ -248,9 +236,9 @@ class TutoringData(models.Model):
     blurb = models.TextField(default="", blank=True)
     skills = models.TextField(default="", blank=True)
     classes = models.TextField(default="", blank=True)
-    
+
     pic = models.ImageField(upload_to="api/media/me")
-    
+
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
 
@@ -274,7 +262,7 @@ class TutoringData(models.Model):
 
             if os.path.exists("api/media/me/tutoring.jpg"):
                 os.remove("api/media/me/tutoring.jpg")
-                
+
         super(TutoringData, self).save(args, kwargs)
 
 
