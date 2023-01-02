@@ -12,6 +12,47 @@ import os
 # TODO: Fix cv and pic saving
 
 
+def process_image(pic, file_location, ideal_dimensions=None):
+    # Opening the uploaded image
+    img = Image.open(pic)
+    format = img.format
+    output = BytesIO()
+
+    if ideal_dimensions:
+        # Resize/modify the image
+        width, height = img.size
+
+        aspect = width / float(height)
+
+        # Crop image into aspect ratio 3:2
+        ideal_width = ideal_dimensions[0]
+        ideal_height = ideal_dimensions[1]
+
+        ideal_aspect = ideal_width / float(ideal_height)
+
+        if aspect > ideal_aspect:
+            # Then crop the left and right edges:
+            new_width = int(ideal_aspect * height)
+            offset = (width - new_width) / 2
+            resize = (offset, 0, width - offset, height)
+        else:
+            # ... crop the top and bottom:
+            new_height = int(width / ideal_aspect)
+            offset = (height - new_height) / 2
+            resize = (0, offset, width, height - offset)
+
+        img = img.crop(resize).resize(
+            (ideal_width, ideal_height), Image.ANTIALIAS)
+
+    img = img.convert('RGB')
+    # after modifications, save it to the output
+    img.save(output, format=format)
+    output.seek(0)
+
+    # Set field to modified picture
+    return InMemoryUploadedFile(output, 'ImageField', file_location, 'image/jpeg', sys.getsizeof(output), None)
+
+
 class MyData(models.Model):
     def __str__(self):
         return "Tomas Premoli"
@@ -103,18 +144,15 @@ class PortfolioEntry(models.Model):
         return Path("api/media/portfolio/", instance.title, "thumb.{}".format(filename.split(".")[-1]))
 
     def rename_vid(instance, filename):
-        ext = filename.split('.')[-1].lower()
-        dir = os.path.join("api/media/portfolio/", instance.title)
-        return os.path.join(dir, "video." + ext)
+        return Path("api/media/portfolio/", instance.title, "video.{}".format(filename.split(".")[-1]))
 
     # These are used in small card display
     thumbnailpic = models.ImageField(upload_to=rename_pic)
 
+    video = models.FileField(default="", blank=True, upload_to=rename_vid)
+
     title = models.CharField(default="title", max_length=255)
     blurb = models.CharField(default="blurb", max_length=255)
-
-    # These are used in detailed display
-    video = models.FileField(default="", blank=True, upload_to=rename_vid)
 
     description = models.TextField(default="description")
 
@@ -125,52 +163,23 @@ class PortfolioEntry(models.Model):
 
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
-        # Need to handle other cases i.e what if title changes?? 
+        # Need to handle other cases i.e what if title changes??
         # TODO: Handle portfolio title changes (maybe just do pk)
         if self.pk is not None:
             orig = PortfolioEntry.objects.get(pk=self.pk)
+
+            # Handling new image options
             if orig.thumbnailpic != self.thumbnailpic:
                 orig.thumbnailpic.delete(save=False)
-                
-                # Opening the uploaded image
-                img = Image.open(self.thumbnailpic)
-                format = img.format
-                output = BytesIO()
-                # Resize/modify the image
-                width, height = img.size
 
-                aspect = width / float(height)
+                format = self.thumbnailpic._file.image.format
 
-                # Crop image into aspect ratio 3:2
-                ideal_width = 450
-                ideal_height = 300
+                file_location = Path("api/media/portfolio/",
+                                     self.title, "thumb.{}".format(format))
 
-                ideal_aspect = ideal_width / float(ideal_height)
-
-                if aspect > ideal_aspect:
-                    # Then crop the left and right edges:
-                    new_width = int(ideal_aspect * height)
-                    offset = (width - new_width) / 2
-                    resize = (offset, 0, width - offset, height)
-                else:
-                    # ... crop the top and bottom:
-                    new_height = int(width / ideal_aspect)
-                    offset = (height - new_height) / 2
-                    resize = (0, offset, width, height - offset)
-
-                img = img.crop(resize).resize(
-                    (ideal_width, ideal_height), Image.ANTIALIAS)
-
-                img = img.convert('RGB')
-                # after modifications, save it to the output
-                img.save(output, format=format)
-                output.seek(0)
-
-                file_location = Path("api/media/portfolio/",self.title, "thumb.{}".format(format))
-
-                # Set field to modified picture
-                self.thumbnailpic = InMemoryUploadedFile(output, 'ImageField', file_location,
-                                                            'image/jpeg', sys.getsizeof(output), None)
+                # preprocessing image
+                self.thumbnailpic = process_image(
+                    self.thumbnailpic, file_location, (450, 300))
 
         super(PortfolioEntry, self).save(args, kwargs)
 
