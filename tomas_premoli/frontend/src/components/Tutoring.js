@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import Link from '@mui/material/Link';
 import Container from '@mui/material/Container';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
@@ -62,7 +62,7 @@ export default function Tutoring() {
                                 <Grid item xs={12} sm={12} md={6}>
                                     <center><img
                                         style={{
-                                            width: "70%",
+                                            width: "90%",
                                             align: "center"
                                         }}
                                         src={tutoring.pic}>
@@ -88,10 +88,10 @@ export default function Tutoring() {
                     }
 
                     <Container maxWidth="sm">
-                        <Typography variant="h5" align="center" paragraph className="disable-text-selection">
+                        <Typography variant="h5" align="center" paragraph>
                             In essence, I have experience and knowledge in many fields and I'm always happy to help!
                         </Typography>
-                        <Typography variant="h5" align="center" paragraph className="disable-text-selection">
+                        <Typography variant="h5" align="center" paragraph>
                             If you'd like to consult with me, feel free to reach out below, or at my email <Link to="mailto:tomas@premoli.org">tomas@premoli.org</Link>
                         </Typography>
                         <Stack
@@ -116,3 +116,4 @@ export default function Tutoring() {
         </Container >
     );
 }
+ 
