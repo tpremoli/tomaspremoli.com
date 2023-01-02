@@ -57,81 +57,38 @@ class MyData(models.Model):
     def __str__(self):
         return "Tomas Premoli"
 
-    def rename_pic():
-        pass
+    def rename_pic(instance, filename):
+        return Path("api/media/me/pic.{}".format(filename.split(".")[-1]))
+    
+    def rename_bannerpic(instance, filename):
+        return Path("api/media/me/banner.{}".format(filename.split(".")[-1]))
+    
+    def rename_pdf(instance, filename):
+        return Path("api/media/me/cv.{}".format(filename.split(".")[-1]))
 
-    def rename_pdf():
-        pass
+    pic = models.ImageField(upload_to=rename_pic)
+    bannerpic = models.ImageField(upload_to=rename_bannerpic)
 
-    pic = models.ImageField(upload_to="api/media/me/")
-    bannerpic = models.ImageField(upload_to="api/media/me/")
-
-    cv = models.FileField(upload_to="api/media/me/",
+    cv = models.FileField(upload_to=rename_pdf,
                           validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
 
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
+        if self.pk is None:
+            me_format = self.pic._file.image.format
 
-        if self.pic == self._django_cleanup_original_cache["pic"]:
-            print("pic is identical")
-        else:
-            print("pic is not identical. Updating files")
-            # FIRST: self.pic
-            # Opening the uploaded image
-            img = Image.open(self.pic)
-            output = BytesIO()
-            # Resize/modify the image
-            width, height = img.size
+            me_location = Path("api/media/me/pic.{}".format(me_format))
 
-            offset = int(abs(height-width)/2)
+            self.pic = process_image(
+                self.pic, me_location, (400, 400))
 
-            # This crops the image into a square depending if portrait or landscape
-            if width == height:
-                pass
-            elif width > height:
-                img = img.crop([offset, 0, width-offset, height])
-            else:
-                img = img.crop([0, offset, width, height-offset])
 
-            img = img.resize((400, 400))
+            banner_format = self.bannerpic._file.image.format
+            banner_location = Path("api/media/me/banner.{}".format(banner_format))
 
-            img = img.convert('RGB')
-            # after modifications, save it to the output
-            img.save(output, format='JPEG')
-            output.seek(0)
-
-            # Set field to modified picture
-            self.pic = InMemoryUploadedFile(output, 'ImageField', "pic.jpg",
-                                            'image/jpeg', sys.getsizeof(output), None)
-
-            if os.path.exists("api/media/me/pic.jpg"):
-                os.remove("api/media/me/pic.jpg")
-
-        if self.bannerpic == self._django_cleanup_original_cache["bannerpic"]:
-            print("Bannerpic is identical")
-        else:
-            print("Bannerpic is not identical. Updating files")
-            # THEN: self.bannerpic
-            bannerimg = Image.open(self.bannerpic)
-            banneroutput = BytesIO()
-
-            bannerimg = bannerimg.convert('RGB')
-            bannerimg.save(banneroutput, format='JPEG')
-            banneroutput.seek(0)
-
-            self.bannerpic = InMemoryUploadedFile(banneroutput, 'ImageField', "banner.jpg",
-                                                  'image/jpeg', sys.getsizeof(banneroutput), None)
-
-            if os.path.exists("api/media/me/banner.jpg"):
-                os.remove("api/media/me/banner.jpg")
-
-        if self.cv == self._django_cleanup_original_cache["cv"]:
-            print("CV is identical")
-        else:
-            print("CV is not identical. Updating files")
-            self.cv.name = "cv.pdf"
-            if os.path.exists("api/media/me/cv.pdf"):
-                os.remove("api/media/me/cv.pdf")
+            # preprocessing image
+            self.bannerpic = process_image(
+                self.bannerpic, banner_location)
 
         super(MyData, self).save()
 
@@ -175,7 +132,7 @@ class PortfolioEntry(models.Model):
             # preprocessing image
             self.thumbnailpic = process_image(
                 self.thumbnailpic, file_location, (450, 300))
-            
+
         # If object already exists
         else:
             orig = PortfolioEntry.objects.get(pk=self.pk)
@@ -192,7 +149,9 @@ class PortfolioEntry(models.Model):
                 # preprocessing image
                 self.thumbnailpic = process_image(
                     self.thumbnailpic, file_location, (450, 300))
-       
+            if orig.video != self.video:
+                orig.video.delete(save=False)
+
         super(PortfolioEntry, self).save(args, kwargs)
 
 
