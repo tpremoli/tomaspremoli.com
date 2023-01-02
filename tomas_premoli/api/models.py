@@ -165,7 +165,19 @@ class PortfolioEntry(models.Model):
     def save(self, *args, **kwargs):
         # Need to handle other cases i.e what if title changes??
         # TODO: Handle portfolio title changes (maybe just do pk)
-        if self.pk is not None:
+        # If object doesn't exist yet
+        if self.pk is None:
+            format = self.thumbnailpic._file.image.format
+
+            file_location = Path("api/media/portfolio/",
+                                 self.title, "thumb.{}".format(format))
+
+            # preprocessing image
+            self.thumbnailpic = process_image(
+                self.thumbnailpic, file_location, (450, 300))
+            
+        # If object already exists
+        else:
             orig = PortfolioEntry.objects.get(pk=self.pk)
 
             # Handling new image options
@@ -180,7 +192,7 @@ class PortfolioEntry(models.Model):
                 # preprocessing image
                 self.thumbnailpic = process_image(
                     self.thumbnailpic, file_location, (450, 300))
-
+       
         super(PortfolioEntry, self).save(args, kwargs)
 
 
