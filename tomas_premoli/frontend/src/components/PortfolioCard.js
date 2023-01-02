@@ -23,7 +23,7 @@ export default function PortfolioCard(props) {
             }}
         >
             <Card
-                sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+                sx={{ height: '100%', display: 'flex', flexDirection: 'column', boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
                 onClick={() => { 
                     if(isBrowser || isHovering){
                         setHovering(false);

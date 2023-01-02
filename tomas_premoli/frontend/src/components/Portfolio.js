@@ -1,14 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import PortfolioCard from './PortfolioCard';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
-import PortfolioEntries from "./PortfolioEntries";
 
 
 export default function Portfolio() {
+
+    const [portfolioEntries, setPortfolioEntries] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getAllNodes();
+    }, []);
+
+    const getAllNodes = () => {
+        fetch("./api/portfolio-entries?format=json")
+            .then(response => response.json())
+            .then((data) => {
+                setPortfolioEntries(data);
+                setLoading(false);
+            });
+    };
+
     return (
         <Container disableGutters maxWidth={false}>
             <CssBaseline />
@@ -37,7 +55,13 @@ export default function Portfolio() {
                     </Container>
                 </Box>
 
-                <PortfolioEntries />
+                <Container sx={{ py: 8 }} maxWidth="xl">
+                    <Grid container spacing={4}>
+                        {portfolioEntries !== {} ? portfolioEntries.map((entry) => (
+                            <PortfolioCard entry={entry} key={entry.id.toString()} />
+                        )) : null}
+                    </Grid>
+                </Container >
 
             </main>
             {/* Footer */}
