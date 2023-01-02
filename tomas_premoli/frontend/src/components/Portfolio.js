@@ -12,7 +12,6 @@ import SelectionMenu from './SelectionMenu';
 export default function Portfolio() {
 
     const [portfolioEntries, setPortfolioEntries] = useState([]);
-    const [isLoading, setLoading] = useState(true);
 
     useEffect(() => {
         getAllNodes();
@@ -23,7 +22,6 @@ export default function Portfolio() {
             .then(response => response.json())
             .then((data) => {
                 setPortfolioEntries(data);
-                setLoading(false);
             });
     };
 
@@ -55,7 +53,7 @@ export default function Portfolio() {
                     </Container>
                 </Box>
 
-                <Container sx={{ py: 8 }} maxWidth="xl">
+                <Container sx={{ pb: 8 }} maxWidth="xl">
                     <Grid container spacing={4}>
                         {portfolioEntries !== {} ? portfolioEntries.map((entry) => (
                             <PortfolioCard entry={entry} key={entry.id.toString()} />
