@@ -222,7 +222,6 @@ class PortfolioEntryPictures(models.Model):
                 self.pic = process_image(
                     self.pic, pic_location)
 
-
         super(PortfolioEntryPictures, self).save(args, kwargs)
 
 
@@ -235,35 +234,41 @@ class ContactEntry(models.Model):
 
 
 class TutoringData(models.Model):
+    def rename_pic(instance, filename):
+        return Path("api/media/me/tutoring.{}".format(filename.split(".")[-1]))
+
     blurb = models.TextField(default="", blank=True)
     skills = models.TextField(default="", blank=True)
     classes = models.TextField(default="", blank=True)
 
-    pic = models.ImageField(upload_to="api/media/me")
+    pic = models.ImageField(upload_to=rename_pic)
 
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
+        # If this is the only TutoringData
+        if self.pk is None:
+            format = self.pic._file.image.format
 
-        if self.pic == self._django_cleanup_original_cache["pic"]:
-            print("pic is identical")
+            # Can these file_location things use rename_pic??
+            file_location = Path("api/media/me/tutoring.{}".format(format))
+
+            self.pic = process_image(
+                self.pic, file_location)
+
+        # If we're updating TutoringData
         else:
-            print("pic is not identical. Updating files")
-            # FIRST: self.pic
-            # Opening the uploaded image
-            img = Image.open(self.pic)
-            output = BytesIO()
+            orig = TutoringData.objects.get(pk=self.pk)
+            # Handling new image options
+            if orig.pic != self.pic:
+                orig.pic.delete(save=False)
 
-            img = img.convert('RGB')
-            # after modifications, save it to the output
-            img.save(output, format='JPEG')
-            output.seek(0)
+                format = self.pic._file.image.format
 
-            # Set field to modified picture
-            self.pic = InMemoryUploadedFile(output, 'ImageField', "tutoring.jpg",
-                                            'image/jpeg', sys.getsizeof(output), None)
+                # Can these file_location things use rename_pic??
+                file_location = Path("api/media/me/tutoring.{}".format(format))
 
-            if os.path.exists("api/media/me/tutoring.jpg"):
-                os.remove("api/media/me/tutoring.jpg")
+                self.pic = process_image(
+                    self.pic, file_location)
 
         super(TutoringData, self).save(args, kwargs)
 
