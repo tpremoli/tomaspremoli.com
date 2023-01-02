@@ -17,8 +17,6 @@ export default function Home() {
     // This query helps to stop page reshaping when text is too large
     const isminwidth = useMediaQuery("(max-width: 449px)")
 
-    console.log(isminwidth)
-
     useEffect(() => {
         getAllNodes();
     }, []);
@@ -82,7 +80,7 @@ export default function Home() {
                     >
                         <TypeAnimation
                             sequence={[
-                                500, 'Tomás Premoli', 750, 'Tomás Premoli', 750, 'Tomás Premoli', 5_000, "Tomás Premoli", 10_000, ""
+                                2_000, 'Tomás Premoli', 750, 'Tomás Premoli', 750, 'Tomás Premoli', 5_000, "Tomás Premoli", 10_000
                             ]}
                             speed={1}
                             deletionSpeed={1}
