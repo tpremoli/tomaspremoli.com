@@ -63,8 +63,10 @@ export default function Tutoring() {
                                     <center><img
                                         style={{
                                             width: "90%",
-                                            align: "center"
+                                            align: "center",
+                                            borderRadius: "5px"
                                         }}
+                                        className="default-shadow"
                                         src={tutoring.pic}>
                                     </img></center>
                                 </Grid>

@@ -51,7 +51,7 @@ export default function Home() {
                 }}>
 
                     <Box sx={{
-                        textAlign: "center", mt: "-14rem"
+                        textAlign: "center", mt: "-14rem", mb: "0.5rem"
                     }}>
                         <img
                             style={{
@@ -59,6 +59,7 @@ export default function Home() {
                                 maxWidth: "90%",
                                 height: "auto",
                             }}
+                            className="strong-shadow"
                             alt="Me"
                             src={myData.pic}>
                         </img>

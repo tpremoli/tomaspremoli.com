@@ -45,3 +45,11 @@ body {
     user-select: none;
     /* Standard syntax */
 }
+
+.default-shadow {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.strong-shadow{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
