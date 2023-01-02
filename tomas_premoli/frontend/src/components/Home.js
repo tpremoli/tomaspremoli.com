@@ -10,10 +10,14 @@ import Container from '@mui/material/Container';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 import Experiences from './Experiences';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Home() {
     const [myData, setMyData] = useState({});
+    // This query helps to stop page reshaping when text is too large
+    const isminwidth = useMediaQuery("(max-width: 449px)")
+
+    console.log(isminwidth)
 
     useEffect(() => {
         getAllNodes();
@@ -71,14 +75,17 @@ export default function Home() {
                         align="center"
                         color="text.primary"
                         gutterBottom
+                        sx={{
+                            mt: "0.5em", mb: "0.9em", mx: "auto", maxWidth: "90%", 
+                            height: isminwidth ? "2em" : "1em" //doing media query so page isnt realigned
+                        }}
                     >
                         <TypeAnimation
                             sequence={[
-                                500, 'Tomas', 750, 'Tomás', 750, 'Tomás Premoli', 5_000, "Tomás Premoli", 10_000, ""
+                                500, 'Tomás Premoli', 750, 'Tomás Premoli', 750, 'Tomás Premoli', 5_000, "Tomás Premoli", 10_000, ""
                             ]}
                             speed={1}
                             deletionSpeed={1}
-                            cursor={true}
                             repeat={Infinity}
                         />
                     </Typography>
