@@ -188,47 +188,40 @@ class PortfolioEntryPictures(models.Model):
     def __str__(self):
         return self.entry.title + " img " + str(self.pic_pos)
 
+    # TODO: come up with a better naming thing (won't be an issue if we can unique=true for pic_pos-entry combos)
     def rename_pic(instance, filename):
-        dir = os.path.join("api/media/portfolio/", instance.entry.title)
-        return os.path.join(dir, filename)
+        return Path("api/media/portfolio/", instance.entry.title, "pic-{}.{}".format(instance.pic_pos,filename.split(".")[-1]))
 
 #   This will determine what order images will be displayed in
+    pic = models.ImageField(upload_to=rename_pic)
     pic_pos = models.IntegerField()
     entry = models.ForeignKey(PortfolioEntry, on_delete=models.CASCADE)
-    pic = models.ImageField(upload_to=rename_pic)
 
-    __original_pic = None
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.__original_pic = self.pic
-
-    # overrides image data to be compressed
     def save(self, *args, **kwargs):
-        if self.pic != self.__original_pic:
-            try:
-                # Opening the uploaded image
-                img = Image.open(self.pic)
-                format = img.format
-                output = BytesIO()
-                # Resize/modify the image
-                img = img.convert('RGB')
-                # after modifications, save it to the output
-                img.save(output, format=format)
-                output.seek(0)
+        # If we're adding an image
+        if self.pk is None:
+            format = self.pic._file.image.format
 
-                filename = "pic-" + \
-                    os.path.splitext(str(self.pic.name))[0] + "." + format
+            pic_location = Path("api/media/portfolio/", self.entry.title, "pic-{}.{}".format(self.pic_pos,format))
 
-                # Set field to modified picture
-                self.pic = InMemoryUploadedFile(output, 'ImageField', filename,
-                                                'image/jpeg', sys.getsizeof(output), None)
+            self.pic = process_image(
+                self.pic, pic_location)
+        
+        # If we're changing an image
+        else:
+            orig = PortfolioEntryPictures.objects.get(pk=self.pk)
+            # Handling new image options
+            if orig.pic != self.pic:
+                orig.pic.delete(save=False)
 
-                print(self.pic)
+                format = self.pic._file.image.format
 
-                self.__original_pic = self.pic
-            except Exception as e:
-                print(e)
+                pic_location = Path("api/media/portfolio/", self.entry.title, "pic-{}.{}".format(self.pic_pos,format))
+
+                self.pic = process_image(
+                    self.pic, pic_location)
+
 
         super(PortfolioEntryPictures, self).save(args, kwargs)
 
