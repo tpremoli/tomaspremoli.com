@@ -22,7 +22,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECURE_SSL_REDIRECT = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -32,6 +31,9 @@ ALLOWED_HOSTS = [
     'tomaspremoli.com',
 ]
 
+SECURE_SSL_REDIRECT = True
+PREPEND_WWW = True
+BASE_URL = "https://www.tomaspremoli.com"
 
 # Application definition
 INSTALLED_APPS = [
@@ -155,7 +157,7 @@ if 'AWS_ACCESS_KEY_ID' in os.environ:
     AWS_S3_REGION_NAME = os.environ.get("AWS_S3_REGION_NAME", None)
     AWS_S3_SIGNATURE_VERSION = 's3v4'
     AWS_AUTO_CREATE_BUCKET = False
-    AWS_HEADERS = {"Cache-Control": "public, max-age=86400"}
+    AWS_HEADERS = {"Cache-Control": "public, max-age=604800"}
     AWS_S3_FILE_OVERWRITE = False
     AWS_DEFAULT_ACL = 'private'
     AWS_QUERYSTING_AUTH = True
@@ -163,6 +165,9 @@ if 'AWS_ACCESS_KEY_ID' in os.environ:
     AWS_S3_SECURE_URLS = True
     AWS_REDUCED_REDUNDANCY = False
     AWS_IS_GZIPPED = False
+    
+    # Enables cloudfront
+    AWS_S3_CUSTOM_DOMAIN = os.environ["CLOUDFRONT_DOMAIN"]
 
     MEDIA_ROOT = '/'
     MEDIA_URL = 'https://s3.{}.amazonaws.com/{}/'.format(
