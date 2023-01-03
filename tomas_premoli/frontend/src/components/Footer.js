@@ -22,7 +22,7 @@ function Copyright() {
 }
 
 export default function Footer() {
-    const myData = {
+    const links = {
         linkedin_link: "https://www.linkedin.com/in/tomas-premoli-008016144/",
         github_link: "https://github.com/tpremoli"
     };
@@ -37,11 +37,11 @@ export default function Footer() {
                 spacing={0}
                 justifyContent="center"
             >
-                <IconButton align="center" href={myData.linkedin_link}>
+                <IconButton align="center" href={links.linkedin_link}>
                     <LinkedInIcon />
                 </IconButton>
 
-                <IconButton align="center" href={myData.github_link}>
+                <IconButton align="center" href={links.github_link}>
                     <GitHubIcon />
                 </IconButton>
             </Stack>

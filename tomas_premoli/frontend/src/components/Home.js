@@ -7,15 +7,23 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 import Experiences from './Experiences';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Home() {
     const [myData, setMyData] = useState({});
     // This query helps to stop page reshaping when text is too large
     const isminwidth = useMediaQuery("(max-width: 449px)")
+
+    const links = {
+        linkedin_link: "https://www.linkedin.com/in/tomas-premoli-008016144/",
+        github_link: "https://github.com/tpremoli"
+    };
+
 
     useEffect(() => {
         getAllNodes();
@@ -74,7 +82,7 @@ export default function Home() {
                         color="text.primary"
                         gutterBottom
                         sx={{
-                            mt: "0.5em", mb: "0.9em", mx: "auto", maxWidth: "90%", 
+                            mt: "0.5em", mb: "0.9em", mx: "auto", maxWidth: "90%",
                             height: isminwidth ? "2em" : "1em" //doing media query so page isnt realigned
                         }}
                     >
@@ -116,6 +124,12 @@ export default function Home() {
                         >
                             <Button to="/resume" component={Link} variant="contained">My Resume</Button>
                             <Button to="/contact-me" component={Link} variant="contained">Contact Me</Button>
+                            <Button color="linkedin" variant="contained" align="center" href={links.linkedin_link} startIcon={<LinkedInIcon />}>
+                                LinkedIn
+                            </Button>
+                            <Button color="github" variant="contained" align="center" href={links.github_link} startIcon={<GitHubIcon />}>
+                                GitHub
+                            </Button>
                         </Stack>
 
                         <Typography spacing={2} sx={{ pt: 8 }} variant="h5" align="center" color="text.secondary" paragraph>

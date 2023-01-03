@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import Container from '@mui/material/Container';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
@@ -16,6 +18,11 @@ export default function Tutoring() {
     useEffect(() => {
         getAllNodes();
     }, []);
+
+    const links = {
+        linkedin_link: "https://www.linkedin.com/in/tomas-premoli-008016144/",
+        github_link: "https://github.com/tpremoli"
+    };
 
     const [tutoring, setTutoring] = React.useState({});
 
@@ -94,7 +101,7 @@ export default function Tutoring() {
                             In essence, I have experience and knowledge in many fields and I'm always happy to help!
                         </Typography>
                         <Typography variant="h5" align="center" paragraph>
-                            If you'd like to consult with me, feel free to reach out below, or at my email <Link to="mailto:tomas@premoli.org">tomas@premoli.org</Link>
+                            If you'd like to consult with me, feel free to reach out below, or at my email <a href="mailto:tomas@premoli.org">tomas@premoli.org</a>
                         </Typography>
                         <Stack
                             sx={{ pt: 2 }}
@@ -104,6 +111,12 @@ export default function Tutoring() {
                         >
                             <Button to="/resume" component={Link} variant="contained">My Resume</Button>
                             <Button to="/contact-me" component={Link} variant="contained">Contact Me</Button>
+                            <Button color="linkedin" variant="contained" align="center" href={links.linkedin_link} startIcon={<LinkedInIcon />}>
+                                LinkedIn
+                            </Button>
+                            <Button color="github" variant="contained" align="center" href={links.github_link} startIcon={<GitHubIcon />}>
+                                GitHub
+                            </Button>
                         </Stack>
 
                         <Typography spacing={2} sx={{ pt: 8 }} variant="h5" align="center" color="text.secondary" paragraph>
@@ -118,4 +131,3 @@ export default function Tutoring() {
         </Container >
     );
 }
- 

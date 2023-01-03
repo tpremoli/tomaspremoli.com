@@ -31,9 +31,6 @@ ALLOWED_HOSTS = [
     'tomaspremoli.com',
 ]
 
-SECURE_SSL_REDIRECT = True
-PREPEND_WWW = True
-BASE_URL = "https://www.tomaspremoli.com"
 
 # Application definition
 INSTALLED_APPS = [
@@ -147,6 +144,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, "frontend/static")
 STATIC_URL = '/static/'
 
 if 'AWS_ACCESS_KEY_ID' in os.environ:
+    # Use HTTPS in AWS
+    SECURE_SSL_REDIRECT = True
+    PREPEND_WWW = True
+    BASE_URL = "https://www.tomaspremoli.com"
+    
     # Use Amazon S3 for storage for uploaded media files
     # Keep them private by default
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

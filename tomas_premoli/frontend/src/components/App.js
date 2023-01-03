@@ -43,7 +43,16 @@ export default class App extends Component {
     }
 }
 
-const theme = createTheme();
+const { palette } = createTheme();
+const { augmentColor } = palette;
+const createColor = (mainColor) => augmentColor({ color: { main: mainColor } });
+
+const theme = createTheme({
+    palette: {
+        github: createColor('#171515'),
+        linkedin: createColor('#0072b1'),
+    }
+});
 const appDiv = document.getElementById("app");
-const root = createRoot(appDiv); 
+const root = createRoot(appDiv);
 root.render(<App />);
