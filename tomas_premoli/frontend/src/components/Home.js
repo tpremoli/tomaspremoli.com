@@ -1,29 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { TypeAnimation } from 'react-type-animation';
-import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
-import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 import Experiences from './Experiences';
+import ButtonStacks from './ButtonStacks';
 
 export default function Home() {
     const [myData, setMyData] = useState({});
     // This query helps to stop page reshaping when text is too large
     const isminwidth = useMediaQuery("(max-width: 449px)")
-
-    const links = {
-        linkedin_link: "https://www.linkedin.com/in/tomas-premoli-008016144/",
-        github_link: "https://github.com/tpremoli"
-    };
-
 
     useEffect(() => {
         getAllNodes();
@@ -112,25 +103,12 @@ export default function Home() {
                         pb: 6,
                     }}
                 >
-                    <Container maxWidth="sm">
+                    <Container sx={{ width: "100%" }}>
                         <Typography variant="h5" align="center" paragraph>
                             Interested in my skill set? Reach out!
                         </Typography>
-                        <Stack
-                            sx={{ pt: 2 }}
-                            direction="row"
-                            spacing={2}
-                            justifyContent="center"
-                        >
-                            <Button to="/resume" component={Link} variant="contained">My Resume</Button>
-                            <Button to="/contact-me" component={Link} variant="contained">Contact Me</Button>
-                            <Button color="linkedin" variant="contained" align="center" href={links.linkedin_link} startIcon={<LinkedInIcon />}>
-                                LinkedIn
-                            </Button>
-                            <Button color="github" variant="contained" align="center" href={links.github_link} startIcon={<GitHubIcon />}>
-                                GitHub
-                            </Button>
-                        </Stack>
+
+                        <ButtonStacks />
 
                         <Typography spacing={2} sx={{ pt: 8 }} variant="h5" align="center" color="text.secondary" paragraph>
                             Not convinced? Check out my <Link to="/portfolio">Portfolio</Link>
@@ -145,3 +123,4 @@ export default function Home() {
         </Container >
     );
 }
+
