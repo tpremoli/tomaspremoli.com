@@ -99,6 +99,7 @@ class GetPortfolio(APIView):
 
     def get(self, request, format=None):
         queryset = PortfolioEntry.objects.order_by("-date_created")
+        queryset = queryset.filter(is_visible=True)
         data = PortfolioSerializer(queryset, many=True).data
         return Response(data, status=status.HTTP_200_OK)
 

@@ -144,6 +144,8 @@ class PortfolioEntry(models.Model):
 
     github_link = models.CharField(default="", blank=True, max_length=255)
     link = models.CharField(default="", blank=True, max_length=255)
+    
+    is_visible = models.BooleanField(default=True)
 
     # overrides image data to be compressed
     def save(self, *args, **kwargs):
