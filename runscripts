@@ -3,6 +3,8 @@ Run these scripts in command line to run the test server
 Ensure development --watch is enabled in package.json
 Ensure that the right address is being accessed in fetch situations
 
+When running eb deploy, run in tomas_premoli directory
+
 -- CMD 1: --
 cd tomas_premoli
 python manage.py runserver
