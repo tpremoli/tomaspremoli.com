@@ -191,3 +191,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # x-frame option
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+
+
+# basic logging with file rotation ()
+log_level = os.getenv('LOG_LEVEL', 'INFO')
+handlers = dict(file={'class': 'logging.handlers.TimedRotatingFileHandler',
+                      'filename': os.getenv('DJANGO_LOG_FILE_PATH'),
+                      'when': 'midnight',
+                      'interval': 1,
+                      'backupCount': 1,
+                      'encoding': 'utf-8'})
+loggers = dict(django=dict(level=log_level, handlers=['file']),
+               myapp=dict(level=log_level, handlers=['file']))
+LOGGING = dict(version=1,
+               disable_existing_loggers=False,
+               handlers=handlers,
+               loggers=loggers)
