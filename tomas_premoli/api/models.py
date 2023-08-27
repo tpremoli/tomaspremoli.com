@@ -42,7 +42,7 @@ def process_image(pic, file_location, ideal_dimensions=None):
             resize = (0, offset, width, height - offset)
 
         img = img.crop(resize).resize(
-            (ideal_width, ideal_height), Image.ANTIALIAS)
+            (ideal_width, ideal_height), Image.LANCZOS)
 
     img = img.convert('RGB')
     # after modifications, save it to the output
