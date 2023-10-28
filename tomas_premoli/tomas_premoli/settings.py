@@ -148,7 +148,7 @@ if 'AWS_ACCESS_KEY_ID' in os.environ:
     SECURE_SSL_REDIRECT = True
     PREPEND_WWW = True
     BASE_URL = "https://www.tomaspremoli.com"
-    
+
     # Use Amazon S3 for storage for uploaded media files
     # Keep them private by default
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -167,7 +167,7 @@ if 'AWS_ACCESS_KEY_ID' in os.environ:
     AWS_S3_SECURE_URLS = True
     AWS_REDUCED_REDUNDANCY = False
     AWS_IS_GZIPPED = False
-    
+
     # Enables cloudfront
     AWS_S3_CUSTOM_DOMAIN = os.environ["CLOUDFRONT_DOMAIN"]
 
@@ -194,9 +194,11 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 
 # basic logging with file rotation ()
+LOG_FILE = os.getenv('DJANGO_LOG_FILE_PATH')
+
 log_level = os.getenv('LOG_LEVEL', 'INFO')
 handlers = dict(file={'class': 'logging.handlers.TimedRotatingFileHandler',
-                      'filename': os.getenv('DJANGO_LOG_FILE_PATH'),
+                      'filename': LOG_FILE,
                       'when': 'midnight',
                       'interval': 1,
                       'backupCount': 1,
