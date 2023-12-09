@@ -308,3 +308,23 @@ class Skills(models.Model):
         return self.name
     name = models.CharField(default="", max_length=255)
     description = models.TextField(default="", blank=True)
+
+
+class PDF(models.Model):
+    def __str__(self):
+        return self.name
+
+    def rename_pdf(instance, filename):
+        return Path("api/media/pdf/", f"{filename}.pdf")
+
+    name = models.CharField(default="", max_length=255)
+    pdf = models.FileField(upload_to=rename_pdf,
+                           validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
+
+    def save(self, *args, **kwargs):
+        # If this is a new object we have to run everything
+        if self.pk is not None:
+            # If we're updating PDF
+            orig = PDF.objects.get(pk=self.pk)
+            if orig.pdf != self.pdf:
+                orig.pdf.delete(save=False)
