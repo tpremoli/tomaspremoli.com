@@ -5,6 +5,7 @@ import Resume from "./Resume"
 import Tutoring from "./Tutoring"
 import ContactMe from "./ContactMe"
 import Portfolio from "./Portfolio"
+import ReadPDF from "./ReadPDF"
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import {
@@ -36,6 +37,7 @@ export default class App extends Component {
                         <Route path="/portfolio" element={<Portfolio />} />
                         <Route path="/resume" element={<Resume />} />
                         <Route path="/contact-me" element={<ContactMe />} />
+                        <Route path="/readpdf" element={<ReadPDF />} />
                     </Routes>
                 </ThemeProvider>
             </HashRouter >
