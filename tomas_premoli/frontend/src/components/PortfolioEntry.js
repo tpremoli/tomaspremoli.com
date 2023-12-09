@@ -136,7 +136,7 @@ export default function PortfolioEntry(props) {
                     <DialogContent sx={{ width: '100%', height: '100%', overflow: 'hidden' }}>
                     <iframe
                         id="pdf-js-viewer"
-                        src={pdf ? pdf.pdf_url : null}
+                        src={pdf ? pdf.pdf : null}
                         title={pdf ? pdf.name : "pdf"}
                         style={{ width: '100%', height: '100%', border: 'none' }} // Remove border
                     ></iframe>
