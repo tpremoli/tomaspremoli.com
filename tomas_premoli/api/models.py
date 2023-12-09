@@ -330,6 +330,8 @@ class PDF(models.Model):
             orig = PDF.objects.get(pk=self.pk)
             if orig.pdf != self.pdf:
                 orig.pdf.delete(save=False)
-                
-        self.pdf_url = quote("api/media/pdf/{}".format(self.pdf.name), safe='')
+        
+        self.pdf.name = self.name + ".pdf"
+        self.pdf_url = quote("/api/media/pdf/{}.pdf".format(self.name), safe='')
+        self.readpdf_url = "/#/readpdf?pdfFile" + self.pdf_url
         super(PDF, self).save(args, kwargs)
