@@ -328,3 +328,5 @@ class PDF(models.Model):
             orig = PDF.objects.get(pk=self.pk)
             if orig.pdf != self.pdf:
                 orig.pdf.delete(save=False)
+
+        super(PDF, self).save(args, kwargs)
