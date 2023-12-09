@@ -4,34 +4,30 @@ export default function ReadPDF() {
     const [encodedUrl, setEncodedUrl] = useState(null);
 
     useEffect(() => {
-        // Get the current URL
-        const currentUrl = window.location.href;
-        
-        // Create a URL object
-        const url = new URL(currentUrl);
+        // Parse the hash and query parameters
+        const hash = window.location.hash;
+        const queryStartIndex = hash.indexOf('?');
 
-        // Use URLSearchParams to get 'pdfFile' query parameter
-        const pdfFile = url.searchParams.get('pdfFile');
+        if (queryStartIndex >= 0) {
+            const query = hash.substring(queryStartIndex + 1);
+            const params = new URLSearchParams(query);
+            const pdfFile = params.get('pdfFile');
 
-        // Check if pdfFile is not null and then encode it
-        if (pdfFile) {
-            const encodedPdfFile = `./static/PDFjs/web/viewer.html?file=${encodeURIComponent(pdfFile)}`;
-            setEncodedUrl(encodedPdfFile);
+            if (pdfFile) {
+                const encodedPdfFile = `./static/PDFjs/web/viewer.html?file=${encodeURIComponent(pdfFile)}`;
+                setEncodedUrl(encodedPdfFile);
+            }
         }
     }, []);
-    
+
     return (
-        <Box sx={{ height: "100%", }}>
-        <center style={{ height: "100%", }}>
-            <iframe id="pdf-js-viewer"
-                src={encodedUrl ? encodedUrl : null}
-                title="my-cv"
-                frameBorder="0"
-                width="90%"
-                height="90%">
-            </iframe>
-        </center>
-        </Box>
+    <iframe id="pdf-js-viewer"
+        src={encodedUrl ? encodedUrl : null}
+        title="my-cv"
+        frameBorder="0"
+        width="100%"
+        height="100%">
+    </iframe>
     );
 
 }
