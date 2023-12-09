@@ -322,6 +322,7 @@ class PDF(models.Model):
     pdf = models.FileField(upload_to=rename_pdf,
                            validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
     pdf_url = models.CharField(default="", max_length=255, blank=True)
+    readpdf_url = models.CharField(default="", max_length=255, blank=True)
 
     def save(self, *args, **kwargs):
         # If this is a new object we have to run everything
@@ -333,5 +334,5 @@ class PDF(models.Model):
         
         self.pdf.name = self.name + ".pdf"
         self.pdf_url = quote("/api/media/pdf/{}.pdf".format(self.name), safe='')
-        self.readpdf_url = "/#/readpdf?pdfFile" + self.pdf_url
+        self.readpdf_url = "/#/readpdf?pdfFile=" + self.pdf_url
         super(PDF, self).save(args, kwargs)
