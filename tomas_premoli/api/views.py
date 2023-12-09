@@ -7,8 +7,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 import datetime
 
-from .models import ContactEntry, Experience, Education, MyData, PortfolioEntry, Skills, PortfolioEntryPictures, TutoringData
-from .serializers import MyDataSerializer, ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer, PortfolioSerializer, PortfolioPicturesSerializer, TutoringDataSerializer
+from .models import ContactEntry, Experience, Education, MyData, PortfolioEntry, Skills, PortfolioEntryPictures, TutoringData, PDF
+from .serializers import MyDataSerializer, ContactEntrySerializer, ExperienceSerializer, EducationSerializer, SkillsSerializer, PortfolioSerializer, PortfolioPicturesSerializer, TutoringDataSerializer, PDFSerializer
 
 # Create your views here.
 
@@ -115,6 +115,16 @@ class GetPortfolioPics(APIView):
             return Response(data, status=status.HTTP_200_OK)
         else:
             return Response({}, status=status.HTTP_404_NOT_FOUND)
+
+class GetPDF(APIView):
+    serializer_class = PDFSerializer
+    
+    def get(self, request, format=None):
+        if PDF.objects.filter(id=self.request.query_params.get('id')).exists():
+            queryset = PDF.objects.filter(
+                id=self.request.query_params.get('id'))
+            data = PDFSerializer(queryset, many=True).data
+            return Response(data, status=status.HTTP_200_OK)
 
 
 class ContactMe(APIView):

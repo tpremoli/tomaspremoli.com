@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import ContactMe, GetMyData, GetEES, GetPortfolio, GetPortfolioPics, GetTutoringData
+from .views import ContactMe, GetMyData, GetEES, GetPortfolio, GetPortfolioPics, GetTutoringData, GetPDF
 
 urlpatterns = [
     path('my-data', GetMyData.as_view()),
@@ -8,4 +8,5 @@ urlpatterns = [
     path('portfolio-entries', GetPortfolio.as_view()),
     path('portfolio-pictures', GetPortfolioPics.as_view()),
     path('tutoring-data', GetTutoringData.as_view()),
+    path("pdf", GetPDF.as_view(), name="pdf")
 ]

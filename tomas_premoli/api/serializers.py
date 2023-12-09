@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import MyData, ContactEntry, Experience, Education, Skills, PortfolioEntry, PortfolioEntryPictures, TutoringData
+from .models import MyData, ContactEntry, Experience, Education, Skills, PortfolioEntry, PortfolioEntryPictures, TutoringData, PDF
 
 
 class MyDataSerializer(serializers.ModelSerializer):
@@ -46,4 +46,9 @@ class PortfolioSerializer(serializers.ModelSerializer):
 class PortfolioPicturesSerializer(serializers.ModelSerializer):
     class Meta:
         model = PortfolioEntryPictures
+        fields = '__all__'
+
+class PDFSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PDF
         fields = '__all__'
