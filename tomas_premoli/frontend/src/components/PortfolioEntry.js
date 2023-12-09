@@ -24,9 +24,11 @@ export default function PortfolioEntry(props) {
                 descriptionElement.focus();
             }
             getPictures();
+            getPDF();
         }
     }, [props.open]);
     const [pictures, setPictures] = useState([]);
+    const [pdf, setPDF] = useState({});
 
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -47,6 +49,15 @@ export default function PortfolioEntry(props) {
                 setPictures(data);
             });
     };
+
+    const getPDF = () => {
+        const req = "./api/pdf?format=json&id=" + props.entry.pdf;
+        fetch(req)
+            .then(response => response.json())
+            .then((data) => {
+                setPDF(data);
+            });
+    }
 
     return (
         <div>
@@ -80,7 +91,7 @@ export default function PortfolioEntry(props) {
                 {/* Then is screenshots (https://mui.com/material-ui/react-image-list/) */}
                 {/* Then is button links (github, link to use) */}
 
-                <DialogContent sx={{ pb: 1 }}>
+                <DialogContent sx={{ pb: 1, width: "100%" }}>
                     <DialogContentText
                         id="scroll-dialog-description"
                         ref={descriptionElementRef}
@@ -111,6 +122,26 @@ export default function PortfolioEntry(props) {
                         </Button>
                     }
                 </DialogContent>
+                {props.entry.pdf !== null ?
+                <Box sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: { xs: '500px', sm: '500px', md: '500px', lg: '600px'},
+                    width: '100%', // Ensuring the container takes full width
+                    margin: '0 auto', // Centering the container in case it's not full width
+                    paddingBottom: 1,
+                    boxSizing: 'border-box' // Include padding and border in the element's total width and height
+                }}>
+                    <DialogContent sx={{ width: '100%', height: '100%', overflow: 'hidden' }}>
+                    <iframe
+                        id="pdf-js-viewer"
+                        src={pdf ? pdf.pdf_url : null}
+                        title={pdf ? pdf.name : "pdf"}
+                        style={{ width: '100%', height: '100%', border: 'none' }} // Remove border
+                    ></iframe>
+                    </DialogContent>
+                </Box>                : null}
                 <DialogContent sx={{ pt: 0 }}>
                     <ReactMarkdown id="portfolio-entry-description"
                         tabIndex={-1}

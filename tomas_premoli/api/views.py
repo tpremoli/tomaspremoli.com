@@ -120,11 +120,9 @@ class GetPDF(APIView):
     serializer_class = PDFSerializer
     
     def get(self, request, format=None):
-        if PDF.objects.filter(id=self.request.query_params.get('id')).exists():
-            queryset = PDF.objects.filter(
-                id=self.request.query_params.get('id'))
-            data = PDFSerializer(queryset, many=True).data
-            return Response(data, status=status.HTTP_200_OK)
+        pdf_file  = PDF.objects.get(id=request.query_params.get('id'))
+        data = PDFSerializer(pdf_file, many=False).data
+        return Response(data, status=status.HTTP_200_OK)
 
 
 class ContactMe(APIView):
