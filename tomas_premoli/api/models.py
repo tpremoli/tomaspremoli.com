@@ -54,6 +54,32 @@ def process_image(pic, file_location, ideal_dimensions=None):
     return InMemoryUploadedFile(output, 'ImageField', file_location, 'image/jpeg', sys.getsizeof(output), None)
 
 
+class PDF(models.Model):
+    def __str__(self):
+        return self.name
+
+    def rename_pdf(instance, filename):
+        return Path("api/media/pdf/", filename)
+
+    name = models.CharField(default="", max_length=255)
+    pdf = models.FileField(upload_to=rename_pdf,
+                           validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
+    pdf_url = models.CharField(default="", max_length=255, blank=True)
+    readpdf_url = models.CharField(default="", max_length=255, blank=True)
+
+    def save(self, *args, **kwargs):
+        # If this is a new object we have to run everything
+        if self.pk is not None:
+            # If we're updating PDF
+            orig = PDF.objects.get(pk=self.pk)
+            if orig.pdf != self.pdf:
+                orig.pdf.delete(save=False)
+        
+        self.pdf.name = self.name + ".pdf"
+        self.pdf_url = quote("/api/media/pdf/{}.pdf".format(self.name), safe='')
+        self.readpdf_url = "/#/readpdf?pdfFile=" + self.pdf_url
+        super(PDF, self).save(args, kwargs)
+
 class MyData(models.Model):
     def __str__(self):
         return "Tomas Premoli"
@@ -135,6 +161,7 @@ class PortfolioEntry(models.Model):
     thumbnailpic = models.ImageField(upload_to=rename_pic)
 
     video = models.FileField(default="", blank=True, upload_to=rename_vid)
+    pdf = models.ForeignKey(PDF, on_delete=models.DO_NOTHING, null=True, blank=True)
 
     title = models.CharField(default="title", max_length=255)
     blurb = models.CharField(default="blurb", max_length=255)
@@ -310,29 +337,3 @@ class Skills(models.Model):
     name = models.CharField(default="", max_length=255)
     description = models.TextField(default="", blank=True)
 
-
-class PDF(models.Model):
-    def __str__(self):
-        return self.name
-
-    def rename_pdf(instance, filename):
-        return Path("api/media/pdf/", filename)
-
-    name = models.CharField(default="", max_length=255)
-    pdf = models.FileField(upload_to=rename_pdf,
-                           validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
-    pdf_url = models.CharField(default="", max_length=255, blank=True)
-    readpdf_url = models.CharField(default="", max_length=255, blank=True)
-
-    def save(self, *args, **kwargs):
-        # If this is a new object we have to run everything
-        if self.pk is not None:
-            # If we're updating PDF
-            orig = PDF.objects.get(pk=self.pk)
-            if orig.pdf != self.pdf:
-                orig.pdf.delete(save=False)
-        
-        self.pdf.name = self.name + ".pdf"
-        self.pdf_url = quote("/api/media/pdf/{}.pdf".format(self.name), safe='')
-        self.readpdf_url = "/#/readpdf?pdfFile=" + self.pdf_url
-        super(PDF, self).save(args, kwargs)
