@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function ReadPDF() {
-    const [encodedUrl, setEncodedUrl] = useState(null);
+    const [pdfData, setpdfData] = useState(null);
 
     useEffect(() => {
         // Parse the hash and query parameters
@@ -11,14 +11,20 @@ export default function ReadPDF() {
         if (queryStartIndex >= 0) {
             const query = hash.substring(queryStartIndex + 1);
             const params = new URLSearchParams(query);
-            const pdfFile = params.get('pdfFile');
+            const pdfid = params.get('id');
 
-            if (pdfFile) {
-                const encodedPdfFile = `./static/PDFjs/web/viewer.html?file=${encodeURIComponent(pdfFile)}`;
-                setEncodedUrl(encodedPdfFile);
-            }
+            fetch("./api/pdf?id=" + pdfid + "&format=json")
+                    .then(response => response.json())
+                    .then((data) => {
+                        setpdfData(data);
+                    });
         }
     }, []);
+
+    var encodedUrl = "";
+    if (pdfData) {
+        encodedUrl = `./static/PDFjs/web/viewer.html?file=${encodeURIComponent(pdfData.pdf)}`;
+    }
 
     return (
     <iframe id="pdf-js-viewer"
