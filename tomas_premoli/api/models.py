@@ -4,6 +4,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile
 from PIL import Image
 from pathlib import Path
 from io import BytesIO
+from urllib.parse import quote
 import traceback
 import sys
 import os
@@ -315,11 +316,12 @@ class PDF(models.Model):
         return self.name
 
     def rename_pdf(instance, filename):
-        return Path("api/media/pdf/", f"{filename}.pdf")
+        return Path("api/media/pdf/", filename)
 
     name = models.CharField(default="", max_length=255)
     pdf = models.FileField(upload_to=rename_pdf,
                            validators=[FileExtensionValidator(allowed_extensions=['pdf'])])
+    pdf_url = models.CharField(default="", max_length=255, blank=True)
 
     def save(self, *args, **kwargs):
         # If this is a new object we have to run everything
@@ -328,5 +330,6 @@ class PDF(models.Model):
             orig = PDF.objects.get(pk=self.pk)
             if orig.pdf != self.pdf:
                 orig.pdf.delete(save=False)
-
+                
+        self.pdf_url = quote("api/media/pdf/{}".format(self.pdf.name), safe='')
         super(PDF, self).save(args, kwargs)
