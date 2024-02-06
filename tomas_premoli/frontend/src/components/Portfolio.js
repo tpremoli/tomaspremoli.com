@@ -8,21 +8,19 @@ import PortfolioCard from './PortfolioCard';
 import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 
+import portfolioEntriesJson from './data/portfolioEntries.json';
 
 export default function Portfolio() {
-
-    const [portfolioEntries, setPortfolioEntries] = useState([]);
-
     useEffect(() => {
         getAllNodes();
     }, []);
 
+    const [portfolioEntries, setPortfolioEntries] = useState([]);
+
     const getAllNodes = () => {
-        fetch("./api/portfolio-entries?format=json")
-            .then(response => response.json())
-            .then((data) => {
-                setPortfolioEntries(data);
-            });
+        portfolioEntriesJson.json().then((data) => {
+            setPortfolioEntries(data);
+        });
     };
 
     return (

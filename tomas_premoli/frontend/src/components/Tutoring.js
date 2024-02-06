@@ -10,6 +10,7 @@ import Footer from './Footer';
 import SelectionMenu from './SelectionMenu';
 import ButtonStacks from './ButtonStacks';
 
+import tutoringDataJson from './data/tutoringData.json';
 
 export default function Tutoring() {
     useEffect(() => {
@@ -24,13 +25,10 @@ export default function Tutoring() {
     const [tutoring, setTutoring] = React.useState({});
 
     const getAllNodes = () => {
-        fetch("./api/tutoring-data?format=json")
-            .then(response => response.json())
-            .then((data) => {
-                setTutoring(data);
-            });
+        tutoringDataJson.json().then((data) => {
+            setTutoring(data);
+        });
     };
-
 
     return (
         <Container disableGutters maxWidth={false}>
