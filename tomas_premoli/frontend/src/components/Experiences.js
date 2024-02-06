@@ -11,40 +11,9 @@ import Divider from '@mui/material/Divider';
 import CircularProgress from '@mui/material/CircularProgress';
 import ReactMarkdown from 'react-markdown'
 
+import EES from "./Constants";
 
 export default function Experiences() {
-    const [EES, setEES] = useState({});
-    const [isLoading, setLoading] = useState(true);
-
-    useEffect(() => {
-        getAllNodes();
-    }, []);
-
-    const getAllNodes = () => {
-        fetch("./api/get-ees?format=json")
-            .then(response => response.json())
-            .then((data) => {
-                setEES(data);
-                setLoading(false);
-            });
-    };
-
-    if (isLoading) {
-        return (
-            <Grid container spacing={4}
-                justifyContent="center"
-                alignItems="center"
-            >
-                <Box sx={{
-                    display: 'flex', alignItems: "center",
-                    justifyContent: "center", height: "100%", width: "100%",
-                }}>
-                    <CircularProgress sx={{ display: 'flex', alignSelf: "center" }} />
-                </Box>
-            </Grid>
-        );
-    }
-
     const myExperiences = EES.experiences;
     const myEducation = EES.education;
     const mySkills = EES.skills;
@@ -52,7 +21,7 @@ export default function Experiences() {
     // INCLUDE LOADING OF DATA FROM DB
 
     return (
-        <Grid container 
+        <Grid container
             justifyContent="center"
             alignItems="center"
         >
@@ -110,7 +79,7 @@ export default function Experiences() {
                 </Card>
 
                 <Card
-                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"  }}
+                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
                 >
                     <CardContent sx={{ flexGrow: 1 }}>
                         <Typography
@@ -159,7 +128,7 @@ export default function Experiences() {
 
 
                 <Card
-                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px"  }}
+                    sx={{ height: '100%', p: "2%", m: "7px", flex: "1 1", boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px" }}
                 >
                     <CardContent sx={{ flexGrow: 1 }}>
                         <Typography

@@ -20,7 +20,7 @@ const navigationLinks = [
     { name: "Tutoring", to: "/tutoring" },
     { name: "Portfolio", to: "/portfolio" },
     { name: "Resume/CV", to: "/resume" },
-    { name: "Contact Me", to: "/contact-me" },
+    // { name: "Contact Me", to: "/contact-me" },
 ]
 
 export default function SelectionMenu(props) {
